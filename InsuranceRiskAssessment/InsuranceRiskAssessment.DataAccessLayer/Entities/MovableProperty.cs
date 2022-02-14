@@ -11,6 +11,7 @@ namespace InsuranceRiskAssessment.DataAccessLayer.Entities
         public DateTime ManifactureYear { get; set; }
         public bool SecurityEquipmenPossession { get; set; }
         public bool TechnicalServiceability { get; set; }
+        public int DistanceTraveled { get; set; }
         public double Height { get; set; }
         public double Weight { get; set; }
         public double Width { get; set; }

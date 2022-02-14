@@ -20,7 +20,6 @@
 
   <ItemGroup>
     <Folder Include="Abstractions\" />
-    <Folder Include="Entities\MovablePropertyEnities\" />
     <Folder Include="Repositories\" />
   </ItemGroup>
 

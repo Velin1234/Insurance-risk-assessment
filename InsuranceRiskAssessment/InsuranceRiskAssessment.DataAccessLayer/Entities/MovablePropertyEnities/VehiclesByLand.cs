@@ -10,7 +10,7 @@ namespace InsuranceRiskAssessment.DataAccessLayer.Entities.MovablePropertyEnitie
     {
         public string FuelType { get; set; }
         public bool Parktronic { get; set; }
-        public int DistanceTraveled { get; set; }
         public string MostCommonRoutes { get; set; }
+        public string RegisterNumber { get; set; }
     }
 }

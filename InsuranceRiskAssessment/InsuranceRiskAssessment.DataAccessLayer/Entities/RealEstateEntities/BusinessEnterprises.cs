@@ -1,0 +1,13 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace InsuranceRiskAssessment.DataAccessLayer.Entities.RealEstateEntities
+{
+    public class BusinessEnterprises
+    {
+        public string PurposeOfTheEnterprise { get; set; }
+    }
+}

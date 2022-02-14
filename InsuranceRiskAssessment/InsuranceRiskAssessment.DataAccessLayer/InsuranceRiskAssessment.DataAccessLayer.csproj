@@ -19,7 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Entities\" />
+    <Folder Include="Abstractions\" />
+    <Folder Include="Entities\MovablePropertyEnities\" />
     <Folder Include="Repositories\" />
   </ItemGroup>
 

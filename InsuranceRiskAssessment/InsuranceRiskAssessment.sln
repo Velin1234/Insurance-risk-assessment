@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsuranceRiskAssessment", "InsuranceRiskAssessment\InsuranceRiskAssessment.csproj", "{CA1A9E69-D31F-44BC-8FAB-457CD7858162}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsuranceRiskAssessment.DataAccessLayer", "InsuranceRiskAssessment.DataAccessLayer\InsuranceRiskAssessment.DataAccessLayer.csproj", "{991071CD-D612-4903-AA4E-D8A32EAA2C69}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsuranceRiskAssessment.DataAccessLayer", "InsuranceRiskAssessment.DataAccessLayer\InsuranceRiskAssessment.DataAccessLayer.csproj", "{991071CD-D612-4903-AA4E-D8A32EAA2C69}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsuranceRiskAssessment.BusinessLogicLayer", "InsuranceRiskAssessment.BusinessLogicLayer\InsuranceRiskAssessment.BusinessLogicLayer.csproj", "{B6967BC4-C6C5-4884-8B19-C59904B5402E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsuranceRiskAssessment.BusinessLogicLayer", "InsuranceRiskAssessment.BusinessLogicLayer\InsuranceRiskAssessment.BusinessLogicLayer.csproj", "{B6967BC4-C6C5-4884-8B19-C59904B5402E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InsuranceRiskAssessment.Web", "InsuranceRiskAssessment.Web\InsuranceRiskAssessment.Web.csproj", "{7DDC32E4-9988-4613-86A9-3AE606AA3943}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CA1A9E69-D31F-44BC-8FAB-457CD7858162}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CA1A9E69-D31F-44BC-8FAB-457CD7858162}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CA1A9E69-D31F-44BC-8FAB-457CD7858162}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CA1A9E69-D31F-44BC-8FAB-457CD7858162}.Release|Any CPU.Build.0 = Release|Any CPU
 		{991071CD-D612-4903-AA4E-D8A32EAA2C69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{991071CD-D612-4903-AA4E-D8A32EAA2C69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{991071CD-D612-4903-AA4E-D8A32EAA2C69}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +23,10 @@ Global
 		{B6967BC4-C6C5-4884-8B19-C59904B5402E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6967BC4-C6C5-4884-8B19-C59904B5402E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6967BC4-C6C5-4884-8B19-C59904B5402E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DDC32E4-9988-4613-86A9-3AE606AA3943}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DDC32E4-9988-4613-86A9-3AE606AA3943}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DDC32E4-9988-4613-86A9-3AE606AA3943}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DDC32E4-9988-4613-86A9-3AE606AA3943}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -16,6 +16,8 @@ namespace InsuranceRiskAssessment.DataAccessLayer.Data
 
         }
 
+
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);

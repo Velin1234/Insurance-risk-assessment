@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InsuranceRiskAssessment.DataAccessLayer.Entities.MovablePropertyEnities
 {
-    public class VehiclesByLand : MovableProperty
+    public class VehicleByLand : MovableProperty
     {
         public string FuelType { get; set; }
         public bool Parktronic { get; set; }

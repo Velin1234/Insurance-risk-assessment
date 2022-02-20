@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InsuranceRiskAssessment.DataAccessLayer.Entities.RealEstateEntities
 {
-    public class VillaBuildings : RealEstateProperty
+    public class VillaBuilding : RealEstateProperty
     {
     }
 }

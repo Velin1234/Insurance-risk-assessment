@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using InsuranceRiskAssessment.DataAccessLayer.Entities.MovablePropertyEnities;
+using InsuranceRiskAssessment.DataAccessLayer.Entities.RealEstateEntities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -16,8 +18,13 @@ namespace InsuranceRiskAssessment.DataAccessLayer.Data
 
         }
 
-
-
+        DbSet<AirTransport> AirTransports { get; set; }
+        DbSet<SeaTransport> SeaTransports { get; set; }
+        DbSet<VehicleByLand> VehiclesByLand { get; set; }
+        DbSet<BusinessEnterprise> BusinessEnterprises { get; set; }
+        DbSet<CommercialProperty> CommercialProperties { get; set; }
+        DbSet<ResidentialBuilding> ResidentialBuildings { get; set; }
+        DbSet<VillaBuilding> VillaBuildings { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);

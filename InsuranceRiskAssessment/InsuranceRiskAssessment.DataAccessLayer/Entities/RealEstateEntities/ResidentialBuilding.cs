@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InsuranceRiskAssessment.DataAccessLayer.Entities.RealEstateEntities
 {
-    public class ResidentialBuildings : RealEstateProperty
+    public class ResidentialBuilding : RealEstateProperty
     {
         public string Floor { get; set; }
     }

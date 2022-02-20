@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InsuranceRiskAssessment.DataAccessLayer.Entities
 {
-    public abstract class RealEstate : BaseEntity
+    public abstract class RealEstateProperty : BaseEntity
     {
         public string Country { get; set; }
         public string Region { get; set; }

@@ -11,6 +11,7 @@
 using System;
 using System.Reflection;
 
+[assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap4")]
 [assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("aspnet-InsuranceRiskAssessment-2E5A4067-F418-405C-B640-E2E07896469B")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("InsuranceRiskAssessment.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]

@@ -30,7 +30,6 @@ namespace InsuranceRiskAssessment
             services.AddDbContext<InsuranceRiskAssessmentDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<InsuranceRiskAssessmentDbContext>();
@@ -43,7 +42,6 @@ namespace InsuranceRiskAssessment
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseMigrationsEndPoint();
             }
             else
             {

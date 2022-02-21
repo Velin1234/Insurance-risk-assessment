@@ -9,9 +9,9 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Abstractions.RealEstateServ
 {
     public interface ICommercialPropertyService
     {
-        bool CreateCommercialProperty(string country, string region, string city, string adress, bool fireExtinguishers,
+        bool CreateCommercialProperty(string country, string region, string city, string address, bool fireExtinguishers,
             bool emergencyExit, double squareFeet, bool alarmSystem, bool gasBottles);
-        bool UpdateCommercialProperty(int commercialPropertyId, string country, string region, string city, string adress, bool fireExtinguishers,
+        bool UpdateCommercialProperty(int commercialPropertyId, string country, string region, string city, string address, bool fireExtinguishers,
             bool emergencyExit, double squareFeet, bool alarmSystem, bool gasBottles);
         List<CommercialProperty> GetCommercialProperty();
         CommercialProperty GetCommercialPropertyById(int commercialPropertyId);

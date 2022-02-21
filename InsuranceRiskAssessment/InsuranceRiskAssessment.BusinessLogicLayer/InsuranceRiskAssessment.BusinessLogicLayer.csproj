@@ -8,8 +8,4 @@
     <ProjectReference Include="..\InsuranceRiskAssessment.DataAccessLayer\InsuranceRiskAssessment.DataAccessLayer.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\RealEstateServicess\" />
-  </ItemGroup>
-
 </Project>

@@ -10,3 +10,6 @@ D:\Insurance-risk-assessment\InsuranceRiskAssessment\InsuranceRiskAssessment.Bus
 D:\Insurance-risk-assessment\InsuranceRiskAssessment\InsuranceRiskAssessment.BusinessLogicLayer\obj\Debug\net5.0\refint\InsuranceRiskAssessment.BusinessLogicLayer.dll
 D:\Insurance-risk-assessment\InsuranceRiskAssessment\InsuranceRiskAssessment.BusinessLogicLayer\obj\Debug\net5.0\InsuranceRiskAssessment.BusinessLogicLayer.pdb
 D:\Insurance-risk-assessment\InsuranceRiskAssessment\InsuranceRiskAssessment.BusinessLogicLayer\obj\Debug\net5.0\ref\InsuranceRiskAssessment.BusinessLogicLayer.dll
+D:\Insurance-risk-assessment\InsuranceRiskAssessment\InsuranceRiskAssessment.BusinessLogicLayer\bin\Debug\net5.0\InsuranceRiskAssessment.DataAccessLayer.dll
+D:\Insurance-risk-assessment\InsuranceRiskAssessment\InsuranceRiskAssessment.BusinessLogicLayer\bin\Debug\net5.0\InsuranceRiskAssessment.DataAccessLayer.pdb
+D:\Insurance-risk-assessment\InsuranceRiskAssessment\InsuranceRiskAssessment.BusinessLogicLayer\obj\Debug\net5.0\InsuranceRiskAssessment.BusinessLogicLayer.csproj.CopyComplete

@@ -2347,6 +2347,9 @@
         }
       },
       "InsuranceRiskAssessment.BusinessLogicLayer/1.0.0": {
+        "dependencies": {
+          "InsuranceRiskAssessment.DataAccessLayer": "1.0.0"
+        },
         "runtime": {
           "InsuranceRiskAssessment.BusinessLogicLayer.dll": {}
         },

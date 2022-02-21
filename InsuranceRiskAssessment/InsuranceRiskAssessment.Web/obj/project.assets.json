@@ -2866,6 +2866,9 @@
       "InsuranceRiskAssessment.BusinessLogicLayer/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "InsuranceRiskAssessment.DataAccessLayer": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/InsuranceRiskAssessment.BusinessLogicLayer.dll": {}
         },

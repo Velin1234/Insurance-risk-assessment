@@ -27,7 +27,11 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\Insurance-risk-assessment\\InsuranceRiskAssessment\\InsuranceRiskAssessment.DataAccessLayer\\InsuranceRiskAssessment.DataAccessLayer.csproj": {
+                "projectPath": "D:\\Insurance-risk-assessment\\InsuranceRiskAssessment\\InsuranceRiskAssessment.DataAccessLayer\\InsuranceRiskAssessment.DataAccessLayer.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

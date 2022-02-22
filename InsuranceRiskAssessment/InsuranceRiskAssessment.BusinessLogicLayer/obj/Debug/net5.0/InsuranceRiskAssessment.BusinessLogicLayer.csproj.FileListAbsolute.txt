@@ -1,0 +1,12 @@
+D:\Insurance-risk-assessment\InsuranceRiskAssessment\InsuranceRiskAssessment.BusinessLogicLayer\bin\Debug\net5.0\InsuranceRiskAssessment.BusinessLogicLayer.deps.json
+D:\Insurance-risk-assessment\InsuranceRiskAssessment\InsuranceRiskAssessment.BusinessLogicLayer\bin\Debug\net5.0\InsuranceRiskAssessment.BusinessLogicLayer.dll
+D:\Insurance-risk-assessment\InsuranceRiskAssessment\InsuranceRiskAssessment.BusinessLogicLayer\bin\Debug\net5.0\InsuranceRiskAssessment.BusinessLogicLayer.pdb
+D:\Insurance-risk-assessment\InsuranceRiskAssessment\InsuranceRiskAssessment.BusinessLogicLayer\obj\Debug\net5.0\InsuranceRiskAssessment.BusinessLogicLayer.csproj.AssemblyReference.cache
+D:\Insurance-risk-assessment\InsuranceRiskAssessment\InsuranceRiskAssessment.BusinessLogicLayer\obj\Debug\net5.0\InsuranceRiskAssessment.BusinessLogicLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\Insurance-risk-assessment\InsuranceRiskAssessment\InsuranceRiskAssessment.BusinessLogicLayer\obj\Debug\net5.0\InsuranceRiskAssessment.BusinessLogicLayer.AssemblyInfoInputs.cache
+D:\Insurance-risk-assessment\InsuranceRiskAssessment\InsuranceRiskAssessment.BusinessLogicLayer\obj\Debug\net5.0\InsuranceRiskAssessment.BusinessLogicLayer.AssemblyInfo.cs
+D:\Insurance-risk-assessment\InsuranceRiskAssessment\InsuranceRiskAssessment.BusinessLogicLayer\obj\Debug\net5.0\InsuranceRiskAssessment.BusinessLogicLayer.csproj.CoreCompileInputs.cache
+D:\Insurance-risk-assessment\InsuranceRiskAssessment\InsuranceRiskAssessment.BusinessLogicLayer\obj\Debug\net5.0\InsuranceRiskAssessment.BusinessLogicLayer.dll
+D:\Insurance-risk-assessment\InsuranceRiskAssessment\InsuranceRiskAssessment.BusinessLogicLayer\obj\Debug\net5.0\refint\InsuranceRiskAssessment.BusinessLogicLayer.dll
+D:\Insurance-risk-assessment\InsuranceRiskAssessment\InsuranceRiskAssessment.BusinessLogicLayer\obj\Debug\net5.0\InsuranceRiskAssessment.BusinessLogicLayer.pdb
+D:\Insurance-risk-assessment\InsuranceRiskAssessment\InsuranceRiskAssessment.BusinessLogicLayer\obj\Debug\net5.0\ref\InsuranceRiskAssessment.BusinessLogicLayer.dll

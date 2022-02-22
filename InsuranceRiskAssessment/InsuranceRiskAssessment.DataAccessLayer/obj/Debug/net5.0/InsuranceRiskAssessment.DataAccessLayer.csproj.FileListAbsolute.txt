@@ -1,0 +1,15 @@
+D:\Insurance-risk-assessment\InsuranceRiskAssessment\InsuranceRiskAssessment.DataAccessLayer\obj\Debug\net5.0\InsuranceRiskAssessment.DataAccessLayer.csproj.AssemblyReference.cache
+D:\Insurance-risk-assessment\InsuranceRiskAssessment\InsuranceRiskAssessment.DataAccessLayer\obj\Debug\net5.0\InsuranceRiskAssessment.DataAccessLayer.GeneratedMSBuildEditorConfig.editorconfig
+D:\Insurance-risk-assessment\InsuranceRiskAssessment\InsuranceRiskAssessment.DataAccessLayer\obj\Debug\net5.0\InsuranceRiskAssessment.DataAccessLayer.AssemblyInfoInputs.cache
+D:\Insurance-risk-assessment\InsuranceRiskAssessment\InsuranceRiskAssessment.DataAccessLayer\obj\Debug\net5.0\InsuranceRiskAssessment.DataAccessLayer.AssemblyInfo.cs
+D:\Insurance-risk-assessment\InsuranceRiskAssessment\InsuranceRiskAssessment.DataAccessLayer\obj\Debug\net5.0\InsuranceRiskAssessment.DataAccessLayer.csproj.CoreCompileInputs.cache
+D:\Insurance-risk-assessment\InsuranceRiskAssessment\InsuranceRiskAssessment.DataAccessLayer\bin\Debug\net5.0\InsuranceRiskAssessment.DataAccessLayer.deps.json
+D:\Insurance-risk-assessment\InsuranceRiskAssessment\InsuranceRiskAssessment.DataAccessLayer\bin\Debug\net5.0\InsuranceRiskAssessment.DataAccessLayer.runtimeconfig.json
+D:\Insurance-risk-assessment\InsuranceRiskAssessment\InsuranceRiskAssessment.DataAccessLayer\bin\Debug\net5.0\InsuranceRiskAssessment.DataAccessLayer.runtimeconfig.dev.json
+D:\Insurance-risk-assessment\InsuranceRiskAssessment\InsuranceRiskAssessment.DataAccessLayer\bin\Debug\net5.0\InsuranceRiskAssessment.DataAccessLayer.dll
+D:\Insurance-risk-assessment\InsuranceRiskAssessment\InsuranceRiskAssessment.DataAccessLayer\bin\Debug\net5.0\InsuranceRiskAssessment.DataAccessLayer.pdb
+D:\Insurance-risk-assessment\InsuranceRiskAssessment\InsuranceRiskAssessment.DataAccessLayer\obj\Debug\net5.0\InsuranceRiskAssessment.DataAccessLayer.dll
+D:\Insurance-risk-assessment\InsuranceRiskAssessment\InsuranceRiskAssessment.DataAccessLayer\obj\Debug\net5.0\refint\InsuranceRiskAssessment.DataAccessLayer.dll
+D:\Insurance-risk-assessment\InsuranceRiskAssessment\InsuranceRiskAssessment.DataAccessLayer\obj\Debug\net5.0\InsuranceRiskAssessment.DataAccessLayer.pdb
+D:\Insurance-risk-assessment\InsuranceRiskAssessment\InsuranceRiskAssessment.DataAccessLayer\obj\Debug\net5.0\InsuranceRiskAssessment.DataAccessLayer.genruntimeconfig.cache
+D:\Insurance-risk-assessment\InsuranceRiskAssessment\InsuranceRiskAssessment.DataAccessLayer\obj\Debug\net5.0\ref\InsuranceRiskAssessment.DataAccessLayer.dll

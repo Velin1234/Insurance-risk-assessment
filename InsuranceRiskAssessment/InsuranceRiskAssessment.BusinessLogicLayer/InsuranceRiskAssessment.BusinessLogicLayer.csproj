@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Abstractions\" />
-    <Folder Include="Services\" />
+    <ProjectReference Include="..\InsuranceRiskAssessment.DataAccessLayer\InsuranceRiskAssessment.DataAccessLayer.csproj" />
   </ItemGroup>
 
 </Project>

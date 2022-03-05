@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InsuranceRiskAssessment.DataAccessLayer.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,5 +18,6 @@ namespace InsuranceRiskAssessment.DataAccessLayer.Entities
         public double SquareFeet { get; set; }
         public bool AlarmSystem { get; set; }
         public bool GasBottles { get; set; }
+
     }
 }

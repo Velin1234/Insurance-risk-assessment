@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace InsuranceRiskAssessment.DataAccessLayer.Data
 {
-    public class InsuranceRiskAssessmentDbContext : IdentityDbContext
+    public class InsuranceRiskAssessmentDbContext : IdentityDbContext<InsuranceBrokerUser>
     {
         public InsuranceRiskAssessmentDbContext(DbContextOptions<InsuranceRiskAssessmentDbContext> options)
             : base(options)

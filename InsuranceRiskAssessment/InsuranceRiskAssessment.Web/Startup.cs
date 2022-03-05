@@ -31,7 +31,9 @@ namespace InsuranceRiskAssessment
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddIdentity<InsuranceBrokerUser,IdentityRole>().AddEntityFrameworkStores<InsuranceRiskAssessmentDbContext>();
+
+            services.AddDefaultIdentity<InsuranceBrokerUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<InsuranceRiskAssessmentDbContext>();
             services.AddControllersWithViews();
         }

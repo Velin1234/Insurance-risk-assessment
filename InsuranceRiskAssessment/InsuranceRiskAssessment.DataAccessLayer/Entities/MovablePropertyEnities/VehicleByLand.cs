@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InsuranceRiskAssessment.DataAccessLayer.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,5 +13,7 @@ namespace InsuranceRiskAssessment.DataAccessLayer.Entities.MovablePropertyEnitie
         public bool Parktronic { get; set; }
         public string MostCommonRoutes { get; set; }
         public string RegisterNumber { get; set; }
+        public virtual InsuranceBrokerUser InsuranceBroker { get; set; }
+
     }
 }

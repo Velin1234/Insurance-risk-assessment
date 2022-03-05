@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InsuranceRiskAssessment.DataAccessLayer.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,5 +10,7 @@ namespace InsuranceRiskAssessment.DataAccessLayer.Entities.RealEstateEntities
     public class ResidentialBuilding : RealEstateProperty
     {
         public string Floor { get; set; }
+        public virtual InsuranceBrokerUser InsuranceBroker { get; set; }
+
     }
 }

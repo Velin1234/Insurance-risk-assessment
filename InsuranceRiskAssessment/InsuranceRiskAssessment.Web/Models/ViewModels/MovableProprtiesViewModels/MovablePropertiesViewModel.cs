@@ -31,7 +31,7 @@ namespace InsuranceRiskAssessment.Web.Models.ViewModels.MovableProprtiesViewMode
         [DisplayName("Държава")]
         public string RegisteredCountry { get; set; }
         [Required]
-        [DisplayName("Регион")]
+        [DisplayName("Област")]
         public string RegisteredRegion { get; set; }
         [Required]
         [DisplayName("Град/Село")]

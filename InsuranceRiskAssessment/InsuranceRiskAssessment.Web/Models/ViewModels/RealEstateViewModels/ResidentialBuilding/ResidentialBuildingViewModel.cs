@@ -5,6 +5,7 @@ namespace InsuranceRiskAssessment.Web.Models.ViewModels.RealEstateViewModels.Res
 {
     public class ResidentialBuildingViewModel: RealEstatePropertyViewModel
     {
+        [DisplayName("Етаж")]
         public string Floor { get; set; }
     }
 }

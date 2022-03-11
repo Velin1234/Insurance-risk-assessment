@@ -7,44 +7,82 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using InsuranceRiskAssessment.DataAccessLayer.Data;
 using InsuranceRiskAssessment.DataAccessLayer.Entities.MovablePropertyEnities;
+using InsuranceRiskAssessment.BusinessLogicLayer.Abstractions.MovablePropertyServices;
+using InsuranceRiskAssessment.Web.Models.ViewModels.MovableProprtiesViewModels.AirTransport;
+using InsuranceRiskAssessment.Web.Models.ViewModels;
+using Microsoft.AspNetCore.Http;
 
 namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
 {
     public class AirTransportsController : Controller
     {
-        private readonly InsuranceRiskAssessmentDbContext _context;
+        private readonly IAirTransportService _airTransportService;
 
-        public AirTransportsController(InsuranceRiskAssessmentDbContext context)
+        public AirTransportsController(IAirTransportService airTransportService)
         {
-            _context = context;
+            _airTransportService = airTransportService;
         }
 
         // GET: AirTransports
-        public async Task<IActionResult> Index()
+        public ActionResult Index()
         {
-            return View(await _context.AirTransports.ToListAsync());
+            List<AirTransportViewModel> airTransports = _airTransportService.GetAirTransports()
+                .Select(item => new AirTransportViewModel()
+                {
+                    Id = item.Id,
+                    ManifactureYear = item.ManifactureYear,
+                    SecurityEquipmenPossession = item.SecurityEquipmenPossession,
+                    TechnicalServiceability = item.TechnicalServiceability,
+                    DistanceTraveled = item.DistanceTraveled,
+                    Height = item.Height,
+                    Weight = item.Weight,
+                    Width = item.Width,
+                    RegisteredCountry = item.RegisteredCountry,
+                    RegisteredRegion = item.RegisteredRegion,
+                    RegisteredCity = item.RegisteredCity,
+                    CreatedAt = item.CreatedAt,
+                    ModifiedAt = item.ModifiedAt,
+                    PreviousAccidents = item.PreviousAccidents,
+                    ClimatZone = item.ClimatZone,
+                    Functionality = item.Functionality,
+                    ResultValue = item.ResultValue
+
+                }).ToList();
+
+            return View(airTransports);
         }
 
         // GET: AirTransports/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public ActionResult Details(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            var item = _airTransportService.GetAirTransportById(id);
 
-            var airTransport = await _context.AirTransports
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (airTransport == null)
+            AirTransportDetailsViewModel model = new AirTransportDetailsViewModel()
             {
-                return NotFound();
-            }
+                Id = item.Id,
+                ManifactureYear = item.ManifactureYear,
+                SecurityEquipmenPossession = item.SecurityEquipmenPossession,
+                TechnicalServiceability = item.TechnicalServiceability,
+                DistanceTraveled = item.DistanceTraveled,
+                Height = item.Height,
+                Weight = item.Weight,
+                Width = item.Width,
+                RegisteredCountry = item.RegisteredCountry,
+                RegisteredRegion = item.RegisteredRegion,
+                RegisteredCity = item.RegisteredCity,
+                CreatedAt = item.CreatedAt,
+                ModifiedAt = item.ModifiedAt,
+                PreviousAccidents = item.PreviousAccidents,
+                ClimatZone = item.ClimatZone,
+                Functionality = item.Functionality,
+                ResultValue = item.ResultValue
+            };
 
-            return View(airTransport);
+            return View(model);
         }
 
         // GET: AirTransports/Create
-        public IActionResult Create()
+        public ActionResult Create()
         {
             return View();
         }
@@ -54,31 +92,53 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ClimatZone,Functionality,ManifactureYear,SecurityEquipmenPossession,TechnicalServiceability,DistanceTraveled,Height,Weight,Width,RegisteredCountry,RegisteredRegion,RegisteredCity,Id,CreatedAt,ModifiedAt,PreviousAccidents")] AirTransport airTransport)
+        public ActionResult Create([FromForm] AirTransportAddViewModel model)
         {
-            if (ModelState.IsValid)
+            var created = _airTransportService.CreateAirTransport(model.ManifactureYear, model.SecurityEquipmenPossession, model.TechnicalServiceability,
+                model.DistanceTraveled, model.Height, model.Weight, model.Width, model.RegisteredCountry, model.RegisteredRegion,
+                model.RegisteredCity, model.ClimatZone, model.Functionality);
+
+            if (created)
             {
-                _context.Add(airTransport);
-                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(airTransport);
+            else
+            {
+                return View();
+            }
         }
 
         // GET: AirTransports/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
+            var entity = _airTransportService.GetAirTransportById(id);
+            if (entity == null)
             {
                 return NotFound();
             }
 
-            var airTransport = await _context.AirTransports.FindAsync(id);
-            if (airTransport == null)
+            AirTransportEditViewModel model = new AirTransportEditViewModel()
             {
-                return NotFound();
-            }
-            return View(airTransport);
+                Id = entity.Id,
+                ManifactureYear = entity.ManifactureYear,
+                SecurityEquipmenPossession = entity.SecurityEquipmenPossession,
+                TechnicalServiceability = entity.TechnicalServiceability,
+                DistanceTraveled = entity.DistanceTraveled,
+                Height = entity.Height,
+                Weight = entity.Weight,
+                Width = entity.Width,
+                RegisteredCountry = entity.RegisteredCountry,
+                RegisteredRegion = entity.RegisteredRegion,
+                RegisteredCity = entity.RegisteredCity,
+                CreatedAt = entity.CreatedAt,
+                ModifiedAt = entity.ModifiedAt,
+                PreviousAccidents = entity.PreviousAccidents,
+                ClimatZone = entity.ClimatZone,
+                Functionality = entity.Functionality,
+                ResultValue = entity.ResultValue
+            };
+
+            return View(model);
         }
 
         // POST: AirTransports/Edit/5
@@ -86,68 +146,64 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ClimatZone,Functionality,ManifactureYear,SecurityEquipmenPossession,TechnicalServiceability,DistanceTraveled,Height,Weight,Width,RegisteredCountry,RegisteredRegion,RegisteredCity,Id,CreatedAt,ModifiedAt,PreviousAccidents")] AirTransport airTransport)
+        public ActionResult Edit(int id, AirTransportEditViewModel model)
         {
-            if (id != airTransport.Id)
-            {
-                return NotFound();
-            }
+            var updated = _airTransportService.UpdateAirTransport(id, model.ManifactureYear, model.SecurityEquipmenPossession, model.TechnicalServiceability,
+                model.DistanceTraveled, model.Height, model.Weight, model.Width, model.RegisteredCountry, model.RegisteredRegion,
+                model.RegisteredCity, model.ClimatZone, model.Functionality);
 
-            if (ModelState.IsValid)
+            if (updated)
             {
-                try
-                {
-                    _context.Update(airTransport);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!AirTransportExists(airTransport.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
                 return RedirectToAction(nameof(Index));
             }
-            return View(airTransport);
+            else
+            {
+                return View();
+            }
         }
 
         // GET: AirTransports/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public ActionResult Delete(int id)
         {
-            if (id == null)
+            var item = _airTransportService.GetAirTransportById(id);
+            AirTransportDetailsViewModel model = new AirTransportDetailsViewModel()
             {
-                return NotFound();
-            }
-
-            var airTransport = await _context.AirTransports
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (airTransport == null)
-            {
-                return NotFound();
-            }
-
-            return View(airTransport);
+                Id = item.Id,
+                ManifactureYear = item.ManifactureYear,
+                SecurityEquipmenPossession = item.SecurityEquipmenPossession,
+                TechnicalServiceability = item.TechnicalServiceability,
+                DistanceTraveled = item.DistanceTraveled,
+                Height = item.Height,
+                Weight = item.Weight,
+                Width = item.Width,
+                RegisteredCountry = item.RegisteredCountry,
+                RegisteredRegion = item.RegisteredRegion,
+                RegisteredCity = item.RegisteredCity,
+                CreatedAt = item.CreatedAt,
+                ModifiedAt = item.ModifiedAt,
+                PreviousAccidents = item.PreviousAccidents,
+                ClimatZone = item.ClimatZone,
+                Functionality = item.Functionality,
+                ResultValue = item.ResultValue
+            };
+            return View(model);
         }
 
-        // POST: AirTransports/Delete/5
-        [HttpPost, ActionName("Delete")]
+        // GET: AirTransports/Delete/5
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public ActionResult Delete(int id, IFormCollection collection)
         {
-            var airTransport = await _context.AirTransports.FindAsync(id);
-            _context.AirTransports.Remove(airTransport);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            var deleted = _airTransportService.Remove(id);
+            if (deleted)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                return View();
+            }
         }
 
-        private bool AirTransportExists(int id)
-        {
-            return _context.AirTransports.Any(e => e.Id == id);
-        }
     }
 }

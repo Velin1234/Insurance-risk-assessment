@@ -7,44 +7,83 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using InsuranceRiskAssessment.DataAccessLayer.Data;
 using InsuranceRiskAssessment.DataAccessLayer.Entities.MovablePropertyEnities;
+using InsuranceRiskAssessment.BusinessLogicLayer.Abstractions.MovablePropertyServices;
+using InsuranceRiskAssessment.Web.Models.ViewModels.MovableProprtiesViewModels.SeaTransport;
+using Microsoft.AspNetCore.Http;
 
 namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
 {
     public class SeaTransportsController : Controller
     {
-        private readonly InsuranceRiskAssessmentDbContext _context;
+        private readonly ISeaTransportService _seaTransportService;
 
-        public SeaTransportsController(InsuranceRiskAssessmentDbContext context)
+        public SeaTransportsController(ISeaTransportService seaTransportService)
         {
-            _context = context;
+            _seaTransportService = seaTransportService;
         }
 
         // GET: SeaTransports
-        public async Task<IActionResult> Index()
+        public ActionResult Index()
         {
-            return View(await _context.SeaTransports.ToListAsync());
+            List<SeaTransportViewModel> seaTransports = _seaTransportService.GetSeaTransports()
+               .Select(item => new SeaTransportViewModel()
+               {
+                   Id = item.Id,
+                   ManifactureYear = item.ManifactureYear,
+                   SecurityEquipmenPossession = item.SecurityEquipmenPossession,
+                   TechnicalServiceability = item.TechnicalServiceability,
+                   DistanceTraveled = item.DistanceTraveled,
+                   Height = item.Height,
+                   Weight = item.Weight,
+                   Width = item.Width,
+                   RegisteredCountry = item.RegisteredCountry,
+                   RegisteredRegion = item.RegisteredRegion,
+                   RegisteredCity = item.RegisteredCity,
+                   CreatedAt = item.CreatedAt,
+                   ModifiedAt = item.ModifiedAt,
+                   PreviousAccidents = item.PreviousAccidents,
+                   ClimatZone = item.ClimatZone,
+                   Functionality = item.Functionality,
+                   TypeOfMovability = item.TypeOfMovability,
+                   DoesRoutePassesPirateZones = item.DoesRoutePassesPirateZones,
+                   ResultValue = item.ResultValue
+
+               }).ToList();
+
+            return View(seaTransports);
         }
 
         // GET: SeaTransports/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public ActionResult Details(int id)
         {
-            if (id == null)
+            var item = _seaTransportService.GetSeaTransportById(id);
+            SeaTransportDetailsViewModel model = new SeaTransportDetailsViewModel()
             {
-                return NotFound();
-            }
-
-            var seaTransport = await _context.SeaTransports
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (seaTransport == null)
-            {
-                return NotFound();
-            }
-
-            return View(seaTransport);
+                Id = item.Id,
+                ManifactureYear = item.ManifactureYear,
+                SecurityEquipmenPossession = item.SecurityEquipmenPossession,
+                TechnicalServiceability = item.TechnicalServiceability,
+                DistanceTraveled = item.DistanceTraveled,
+                Height = item.Height,
+                Weight = item.Weight,
+                Width = item.Width,
+                RegisteredCountry = item.RegisteredCountry,
+                RegisteredRegion = item.RegisteredRegion,
+                RegisteredCity = item.RegisteredCity,
+                CreatedAt = item.CreatedAt,
+                ModifiedAt = item.ModifiedAt,
+                PreviousAccidents = item.PreviousAccidents,
+                ClimatZone = item.ClimatZone,
+                Functionality = item.Functionality,
+                TypeOfMovability = item.TypeOfMovability,
+                DoesRoutePassesPirateZones = item.DoesRoutePassesPirateZones,
+                ResultValue = item.ResultValue
+            };
+            return View(model);
         }
 
         // GET: SeaTransports/Create
-        public IActionResult Create()
+        public ActionResult Create()
         {
             return View();
         }
@@ -54,31 +93,55 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ClimatZone,DoesRoutePassesPirateZones,Functionality,TypeOfMovability,ManifactureYear,SecurityEquipmenPossession,TechnicalServiceability,DistanceTraveled,Height,Weight,Width,RegisteredCountry,RegisteredRegion,RegisteredCity,Id,CreatedAt,ModifiedAt,PreviousAccidents")] SeaTransport seaTransport)
+        public ActionResult Create([FromForm] SeaTransportAddViewModel model)
         {
-            if (ModelState.IsValid)
+            var created = _seaTransportService.CreateSeaTransport(model.ManifactureYear, model.SecurityEquipmenPossession, model.TechnicalServiceability,
+                model.DistanceTraveled, model.Height, model.Weight, model.Width, model.RegisteredCountry, model.RegisteredRegion,
+                model.RegisteredCity, model.ClimatZone, model.DoesRoutePassesPirateZones, model.Functionality, model.TypeOfMovability);
+
+            if (created)
             {
-                _context.Add(seaTransport);
-                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(seaTransport);
+            else
+            {
+                return View();
+            }
         }
 
         // GET: SeaTransports/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
+            var entity = _seaTransportService.GetSeaTransportById(id);
+            if (entity == null)
             {
                 return NotFound();
             }
 
-            var seaTransport = await _context.SeaTransports.FindAsync(id);
-            if (seaTransport == null)
+            SeaTransportDetailsViewModel model = new SeaTransportDetailsViewModel()
             {
-                return NotFound();
-            }
-            return View(seaTransport);
+                Id = entity.Id,
+                ManifactureYear = entity.ManifactureYear,
+                SecurityEquipmenPossession = entity.SecurityEquipmenPossession,
+                TechnicalServiceability = entity.TechnicalServiceability,
+                DistanceTraveled = entity.DistanceTraveled,
+                Height = entity.Height,
+                Weight = entity.Weight,
+                Width = entity.Width,
+                RegisteredCountry = entity.RegisteredCountry,
+                RegisteredRegion = entity.RegisteredRegion,
+                RegisteredCity = entity.RegisteredCity,
+                CreatedAt = entity.CreatedAt,
+                ModifiedAt = entity.ModifiedAt,
+                PreviousAccidents = entity.PreviousAccidents,
+                ClimatZone = entity.ClimatZone,
+                Functionality = entity.Functionality,
+                TypeOfMovability = entity.TypeOfMovability,
+                DoesRoutePassesPirateZones = entity.DoesRoutePassesPirateZones,
+                ResultValue = entity.ResultValue
+            };
+
+            return View(model);
         }
 
         // POST: SeaTransports/Edit/5
@@ -86,68 +149,66 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ClimatZone,DoesRoutePassesPirateZones,Functionality,TypeOfMovability,ManifactureYear,SecurityEquipmenPossession,TechnicalServiceability,DistanceTraveled,Height,Weight,Width,RegisteredCountry,RegisteredRegion,RegisteredCity,Id,CreatedAt,ModifiedAt,PreviousAccidents")] SeaTransport seaTransport)
+        public ActionResult Edit(int id, SeaTransportViewModel model)
         {
-            if (id != seaTransport.Id)
-            {
-                return NotFound();
-            }
+            var updated = _seaTransportService.UpdateSeaTransport(id, model.ManifactureYear, model.SecurityEquipmenPossession, model.TechnicalServiceability,
+                model.DistanceTraveled, model.Height, model.Weight, model.Width, model.RegisteredCountry, model.RegisteredRegion,
+                model.RegisteredCity, model.ClimatZone, model.DoesRoutePassesPirateZones, model.Functionality, model.TypeOfMovability);
 
-            if (ModelState.IsValid)
+
+            if (updated)
             {
-                try
-                {
-                    _context.Update(seaTransport);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!SeaTransportExists(seaTransport.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
                 return RedirectToAction(nameof(Index));
             }
-            return View(seaTransport);
+            else
+            {
+                return View();
+            }
         }
 
         // GET: SeaTransports/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public ActionResult Delete(int id)
         {
-            if (id == null)
+            var item = _seaTransportService.GetSeaTransportById(id);
+            SeaTransportDetailsViewModel model = new SeaTransportDetailsViewModel()
             {
-                return NotFound();
-            }
-
-            var seaTransport = await _context.SeaTransports
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (seaTransport == null)
-            {
-                return NotFound();
-            }
-
-            return View(seaTransport);
+                Id = item.Id,
+                ManifactureYear = item.ManifactureYear,
+                SecurityEquipmenPossession = item.SecurityEquipmenPossession,
+                TechnicalServiceability = item.TechnicalServiceability,
+                DistanceTraveled = item.DistanceTraveled,
+                Height = item.Height,
+                Weight = item.Weight,
+                Width = item.Width,
+                RegisteredCountry = item.RegisteredCountry,
+                RegisteredRegion = item.RegisteredRegion,
+                RegisteredCity = item.RegisteredCity,
+                CreatedAt = item.CreatedAt,
+                ModifiedAt = item.ModifiedAt,
+                PreviousAccidents = item.PreviousAccidents,
+                ClimatZone = item.ClimatZone,
+                Functionality = item.Functionality,
+                TypeOfMovability = item.TypeOfMovability,
+                DoesRoutePassesPirateZones = item.DoesRoutePassesPirateZones,
+                ResultValue = item.ResultValue
+            };
+            return View(model);
         }
 
-        // POST: SeaTransports/Delete/5
-        [HttpPost, ActionName("Delete")]
+        // GET: SeaTransports/Delete/5
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public ActionResult Delete(int id, IFormCollection collection)
         {
-            var seaTransport = await _context.SeaTransports.FindAsync(id);
-            _context.SeaTransports.Remove(seaTransport);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool SeaTransportExists(int id)
-        {
-            return _context.SeaTransports.Any(e => e.Id == id);
+            var deleted = _seaTransportService.Remove(id);
+            if (deleted)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                return View();
+            }
         }
     }
 }

@@ -7,44 +7,84 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using InsuranceRiskAssessment.DataAccessLayer.Data;
 using InsuranceRiskAssessment.DataAccessLayer.Entities.MovablePropertyEnities;
+using InsuranceRiskAssessment.BusinessLogicLayer.Abstractions.MovablePropertyServices;
+using InsuranceRiskAssessment.Web.Models.ViewModels.MovableProprtiesViewModels.VehicleByLand;
+using InsuranceRiskAssessment.Web.Models.ViewModels.MovableProprtiesViewModels.SeaTransport;
 
 namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
 {
     public class VehicleByLandsController : Controller
     {
-        private readonly InsuranceRiskAssessmentDbContext _context;
+        private readonly IVehicleByLandService _vehicleByLandService;
 
-        public VehicleByLandsController(InsuranceRiskAssessmentDbContext context)
+        public VehicleByLandsController(IVehicleByLandService vehicleByLandService)
         {
-            _context = context;
+            _vehicleByLandService = vehicleByLandService;
         }
 
         // GET: VehicleByLands
-        public async Task<IActionResult> Index()
+        public ActionResult Index()
         {
-            return View(await _context.VehiclesByLand.ToListAsync());
+            List<VehicleByLandViewModel> vehiclesByLand = _vehicleByLandService.GetVehiclesByLand()
+              .Select(item => new VehicleByLandViewModel()
+              {
+                  Id = item.Id,
+                  ManifactureYear = item.ManifactureYear,
+                  SecurityEquipmenPossession = item.SecurityEquipmenPossession,
+                  TechnicalServiceability = item.TechnicalServiceability,
+                  DistanceTraveled = item.DistanceTraveled,
+                  Height = item.Height,
+                  Weight = item.Weight,
+                  Width = item.Width,
+                  RegisteredCountry = item.RegisteredCountry,
+                  RegisteredRegion = item.RegisteredRegion,
+                  RegisteredCity = item.RegisteredCity,
+                  CreatedAt = item.CreatedAt,
+                  ModifiedAt = item.ModifiedAt,
+                  PreviousAccidents = item.PreviousAccidents,
+                  FuelType = item.FuelType,
+                  RegisterNumber = item.RegisterNumber,
+                  Parktronic = item.Parktronic,
+                  MostCommonRoutes = item.MostCommonRoutes,
+                  ResultValue = item.ResultValue
+
+              }).ToList();
+
+            return View(vehiclesByLand);
+
         }
 
         // GET: VehicleByLands/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public ActionResult Details(int id)
         {
-            if (id == null)
+            var item = _vehicleByLandService.GetVehicleByLandById(id);
+            VehicleByLandDetailsViewModel model = new VehicleByLandDetailsViewModel()
             {
-                return NotFound();
-            }
-
-            var vehicleByLand = await _context.VehiclesByLand
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (vehicleByLand == null)
-            {
-                return NotFound();
-            }
-
-            return View(vehicleByLand);
+                Id = item.Id,
+                ManifactureYear = item.ManifactureYear,
+                SecurityEquipmenPossession = item.SecurityEquipmenPossession,
+                TechnicalServiceability = item.TechnicalServiceability,
+                DistanceTraveled = item.DistanceTraveled,
+                Height = item.Height,
+                Weight = item.Weight,
+                Width = item.Width,
+                RegisteredCountry = item.RegisteredCountry,
+                RegisteredRegion = item.RegisteredRegion,
+                RegisteredCity = item.RegisteredCity,
+                CreatedAt = item.CreatedAt,
+                ModifiedAt = item.ModifiedAt,
+                PreviousAccidents = item.PreviousAccidents,
+                FuelType = item.FuelType,
+                RegisterNumber = item.RegisterNumber,
+                Parktronic = item.Parktronic,
+                MostCommonRoutes = item.MostCommonRoutes,
+                ResultValue = item.ResultValue
+            };
+            return View(model);
         }
 
         // GET: VehicleByLands/Create
-        public IActionResult Create()
+        public ActionResult Create()
         {
             return View();
         }
@@ -54,31 +94,54 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FuelType,Parktronic,MostCommonRoutes,RegisterNumber,ManifactureYear,SecurityEquipmenPossession,TechnicalServiceability,DistanceTraveled,Height,Weight,Width,RegisteredCountry,RegisteredRegion,RegisteredCity,Id,CreatedAt,ModifiedAt,PreviousAccidents")] VehicleByLand vehicleByLand)
+        public ActionResult Create([FromForm] VehicleByLandAddViewModel model)
         {
-            if (ModelState.IsValid)
+            var created = _vehicleByLandService.CreateVehicleByLand(model.ManifactureYear, model.SecurityEquipmenPossession, model.TechnicalServiceability,
+                model.DistanceTraveled, model.Height, model.Weight, model.Width, model.RegisteredCountry, model.RegisteredRegion,
+                model.RegisteredCity, model.FuelType, model.Parktronic, model.MostCommonRoutes, model.RegisterNumber);
+
+            if (created)
             {
-                _context.Add(vehicleByLand);
-                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(vehicleByLand);
+            else
+            {
+                return View();
+            }
         }
 
         // GET: VehicleByLands/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
+            var entity = _vehicleByLandService.GetVehicleByLandById(id);
+            if (entity == null)
             {
                 return NotFound();
             }
 
-            var vehicleByLand = await _context.VehiclesByLand.FindAsync(id);
-            if (vehicleByLand == null)
+            VehicleByLandDetailsViewModel model = new VehicleByLandDetailsViewModel()
             {
-                return NotFound();
-            }
-            return View(vehicleByLand);
+                Id = entity.Id,
+                ManifactureYear = entity.ManifactureYear,
+                SecurityEquipmenPossession = entity.SecurityEquipmenPossession,
+                TechnicalServiceability = entity.TechnicalServiceability,
+                DistanceTraveled = entity.DistanceTraveled,
+                Height = entity.Height,
+                Weight = entity.Weight,
+                Width = entity.Width,
+                RegisteredCountry = entity.RegisteredCountry,
+                RegisteredRegion = entity.RegisteredRegion,
+                RegisteredCity = entity.RegisteredCity,
+                CreatedAt = entity.CreatedAt,
+                ModifiedAt = entity.ModifiedAt,
+                PreviousAccidents = entity.PreviousAccidents,
+                FuelType = entity.FuelType,
+                RegisterNumber = entity.RegisterNumber,
+                Parktronic = entity.Parktronic,
+                MostCommonRoutes = entity.MostCommonRoutes,
+                ResultValue = entity.ResultValue
+            };
+            return View(model);
         }
 
         // POST: VehicleByLands/Edit/5
@@ -86,68 +149,65 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("FuelType,Parktronic,MostCommonRoutes,RegisterNumber,ManifactureYear,SecurityEquipmenPossession,TechnicalServiceability,DistanceTraveled,Height,Weight,Width,RegisteredCountry,RegisteredRegion,RegisteredCity,Id,CreatedAt,ModifiedAt,PreviousAccidents")] VehicleByLand vehicleByLand)
+        public ActionResult Edit(int id, VehicleByLand model)
         {
-            if (id != vehicleByLand.Id)
-            {
-                return NotFound();
-            }
+            var updated = _vehicleByLandService.UpdateVehicleByLand(id, model.ManifactureYear, model.SecurityEquipmenPossession, model.TechnicalServiceability,
+                model.DistanceTraveled, model.Height, model.Weight, model.Width, model.RegisteredCountry, model.RegisteredRegion,
+                model.RegisteredCity, model.FuelType, model.Parktronic, model.MostCommonRoutes, model.RegisterNumber);
 
-            if (ModelState.IsValid)
+            if (updated)
             {
-                try
-                {
-                    _context.Update(vehicleByLand);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!VehicleByLandExists(vehicleByLand.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
                 return RedirectToAction(nameof(Index));
             }
-            return View(vehicleByLand);
+            else
+            {
+                return View();
+            }
         }
 
         // GET: VehicleByLands/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public ActionResult Delete(int id)
         {
-            if (id == null)
+            var item = _vehicleByLandService.GetVehicleByLandById(id);
+            VehicleByLandDetailsViewModel model = new VehicleByLandDetailsViewModel()
             {
-                return NotFound();
-            }
-
-            var vehicleByLand = await _context.VehiclesByLand
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (vehicleByLand == null)
-            {
-                return NotFound();
-            }
-
-            return View(vehicleByLand);
+                Id = item.Id,
+                ManifactureYear = item.ManifactureYear,
+                SecurityEquipmenPossession = item.SecurityEquipmenPossession,
+                TechnicalServiceability = item.TechnicalServiceability,
+                DistanceTraveled = item.DistanceTraveled,
+                Height = item.Height,
+                Weight = item.Weight,
+                Width = item.Width,
+                RegisteredCountry = item.RegisteredCountry,
+                RegisteredRegion = item.RegisteredRegion,
+                RegisteredCity = item.RegisteredCity,
+                CreatedAt = item.CreatedAt,
+                ModifiedAt = item.ModifiedAt,
+                PreviousAccidents = item.PreviousAccidents,
+                FuelType = item.FuelType,
+                RegisterNumber = item.RegisterNumber,
+                Parktronic = item.Parktronic,
+                MostCommonRoutes = item.MostCommonRoutes,
+                ResultValue = item.ResultValue
+            };
+            return View(model);
         }
 
         // POST: VehicleByLands/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int id)
         {
-            var vehicleByLand = await _context.VehiclesByLand.FindAsync(id);
-            _context.VehiclesByLand.Remove(vehicleByLand);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool VehicleByLandExists(int id)
-        {
-            return _context.VehiclesByLand.Any(e => e.Id == id);
+            var deleted = _vehicleByLandService.Remove(id);
+            if (deleted)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                return View();
+            }
         }
     }
 }

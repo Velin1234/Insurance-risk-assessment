@@ -3,3 +3,11 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
+#nav {
+    position: fixed;
+    z-index: 1030;
+}
+#registerBtn,#loginBtn{
+    margin-right:0px !important;
+    height:2rem;
+}

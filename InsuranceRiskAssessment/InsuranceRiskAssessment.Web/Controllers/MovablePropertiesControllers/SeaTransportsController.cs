@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using InsuranceRiskAssessment.DataAccessLayer.Data;
-using InsuranceRiskAssessment.DataAccessLayer.Entities.MovablePropertyEnities;
-using InsuranceRiskAssessment.BusinessLogicLayer.Abstractions.MovablePropertyServices;
+﻿using InsuranceRiskAssessment.BusinessLogicLayer.Abstractions.MovablePropertyServices;
 using InsuranceRiskAssessment.Web.Models.ViewModels.MovableProprtiesViewModels.SeaTransport;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
 {
@@ -118,7 +112,7 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
                 return NotFound();
             }
 
-            SeaTransportDetailsViewModel model = new SeaTransportDetailsViewModel()
+            SeaTransportEditViewModel model = new SeaTransportEditViewModel()
             {
                 Id = entity.Id,
                 ManifactureYear = entity.ManifactureYear,
@@ -149,12 +143,11 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, SeaTransportViewModel model)
+        public ActionResult Edit(int id, SeaTransportEditViewModel model)
         {
             var updated = _seaTransportService.UpdateSeaTransport(id, model.ManifactureYear, model.SecurityEquipmenPossession, model.TechnicalServiceability,
                 model.DistanceTraveled, model.Height, model.Weight, model.Width, model.RegisteredCountry, model.RegisteredRegion,
                 model.RegisteredCity, model.ClimatZone, model.DoesRoutePassesPirateZones, model.Functionality, model.TypeOfMovability);
-
 
             if (updated)
             {

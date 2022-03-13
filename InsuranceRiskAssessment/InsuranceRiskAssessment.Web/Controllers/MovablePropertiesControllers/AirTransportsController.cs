@@ -1,16 +1,10 @@
-﻿using System;
+﻿using InsuranceRiskAssessment.BusinessLogicLayer.Abstractions.MovablePropertyServices;
+using InsuranceRiskAssessment.Web.Models.ViewModels;
+using InsuranceRiskAssessment.Web.Models.ViewModels.MovableProprtiesViewModels.AirTransport;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using InsuranceRiskAssessment.DataAccessLayer.Data;
-using InsuranceRiskAssessment.DataAccessLayer.Entities.MovablePropertyEnities;
-using InsuranceRiskAssessment.BusinessLogicLayer.Abstractions.MovablePropertyServices;
-using InsuranceRiskAssessment.Web.Models.ViewModels.MovableProprtiesViewModels.AirTransport;
-using InsuranceRiskAssessment.Web.Models.ViewModels;
-using Microsoft.AspNetCore.Http;
 
 namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
 {

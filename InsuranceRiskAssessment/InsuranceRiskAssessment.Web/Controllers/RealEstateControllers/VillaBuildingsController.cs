@@ -1,50 +1,74 @@
-﻿using System;
+﻿using InsuranceRiskAssessment.BusinessLogicLayer.Abstractions.RealEstateServices;
+using InsuranceRiskAssessment.Web.Models.ViewModels.RealEstateViewModels.VillaBuilding;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using InsuranceRiskAssessment.DataAccessLayer.Data;
-using InsuranceRiskAssessment.DataAccessLayer.Entities.RealEstateEntities;
 
 namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
 {
     public class VillaBuildingsController : Controller
     {
-        private readonly InsuranceRiskAssessmentDbContext _context;
+        private readonly IVillaBuildingService _villaBuildingService;
 
-        public VillaBuildingsController(InsuranceRiskAssessmentDbContext context)
+        public VillaBuildingsController(IVillaBuildingService villaBuildingService)
         {
-            _context = context;
+            _villaBuildingService = villaBuildingService;
         }
 
         // GET: VillaBuildings
-        public async Task<IActionResult> Index()
+        public ActionResult Index()
         {
-            return View(await _context.VillaBuildings.ToListAsync());
+            List<VillaBuildingViewModel> villaBuildings = _villaBuildingService.GetVillaBuildings()
+                .Select(item => new VillaBuildingViewModel()
+                {
+                    Id = item.Id,
+                    Country = item.Country,
+                    Region = item.Region,
+                    City = item.City,
+                    Address = item.Address,
+                    FireExtinguishers = item.FireExtinguishers,
+                    EmergencyExit = item.EmergencyExit,
+                    SquareFeet = item.SquareFeet,
+                    AlarmSystem = item.AlarmSystem,
+                    GasBottles = item.GasBottles,
+                    CreatedAt = item.CreatedAt,
+                    ModifiedAt = item.ModifiedAt,
+                    PreviousAccidents = item.PreviousAccidents,
+                    ResultValue = item.ResultValue
+                }).ToList();
+
+            return View(villaBuildings);
         }
 
         // GET: VillaBuildings/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public ActionResult Details(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
+            var item = _villaBuildingService.GetVillaBuildingById(id);
 
-            var villaBuilding = await _context.VillaBuildings
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (villaBuilding == null)
+            VillaBuildingDetailsViewModel model = new VillaBuildingDetailsViewModel()
             {
-                return NotFound();
-            }
+                Id = item.Id,
+                Country = item.Country,
+                Region = item.Region,
+                City = item.City,
+                Address = item.Address,
+                FireExtinguishers = item.FireExtinguishers,
+                EmergencyExit = item.EmergencyExit,
+                SquareFeet = item.SquareFeet,
+                AlarmSystem = item.AlarmSystem,
+                GasBottles = item.GasBottles,
+                CreatedAt = item.CreatedAt,
+                ModifiedAt = item.ModifiedAt,
+                PreviousAccidents = item.PreviousAccidents,
+                ResultValue = item.ResultValue
+            };
 
-            return View(villaBuilding);
+            return View(model);
         }
 
         // GET: VillaBuildings/Create
-        public IActionResult Create()
+        public ActionResult Create()
         {
             return View();
         }
@@ -54,31 +78,50 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Country,Region,City,Address,FireExtinguishers,EmergencyExit,SquareFeet,AlarmSystem,GasBottles,Id,CreatedAt,ModifiedAt,PreviousAccidents")] VillaBuilding villaBuilding)
+        public ActionResult Create([FromForm] VillaBuildingAddViewModel model)
         {
-            if (ModelState.IsValid)
+            var created = _villaBuildingService.CreateVillaBuilding(model.Country, model.Region,
+                model.City, model.Address, model.FireExtinguishers, model.EmergencyExit, model.SquareFeet, model.AlarmSystem,
+                model.GasBottles);
+
+            if (created)
             {
-                _context.Add(villaBuilding);
-                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(villaBuilding);
+            else
+            {
+                return View();
+            }
         }
 
         // GET: VillaBuildings/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public ActionResult Edit(int id)
         {
-            if (id == null)
+            var entity = _villaBuildingService.GetVillaBuildingById(id);
+            if (entity == null)
             {
                 return NotFound();
             }
 
-            var villaBuilding = await _context.VillaBuildings.FindAsync(id);
-            if (villaBuilding == null)
+            VillaBuildingEditViewModel model = new VillaBuildingEditViewModel()
             {
-                return NotFound();
-            }
-            return View(villaBuilding);
+                Id = entity.Id,
+                Country = entity.Country,
+                Region = entity.Region,
+                City = entity.City,
+                Address = entity.Address,
+                FireExtinguishers = entity.FireExtinguishers,
+                EmergencyExit = entity.EmergencyExit,
+                SquareFeet = entity.SquareFeet,
+                AlarmSystem = entity.AlarmSystem,
+                GasBottles = entity.GasBottles,
+                CreatedAt = entity.CreatedAt,
+                ModifiedAt = entity.ModifiedAt,
+                PreviousAccidents = entity.PreviousAccidents,
+                ResultValue = entity.ResultValue
+            };
+
+            return View(model);
         }
 
         // POST: VillaBuildings/Edit/5
@@ -86,68 +129,60 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Country,Region,City,Address,FireExtinguishers,EmergencyExit,SquareFeet,AlarmSystem,GasBottles,Id,CreatedAt,ModifiedAt,PreviousAccidents")] VillaBuilding villaBuilding)
+        public ActionResult Edit(int id, VillaBuildingEditViewModel model)
         {
-            if (id != villaBuilding.Id)
-            {
-                return NotFound();
-            }
+            var updated = _villaBuildingService.UpdateVillaBuilding(id, model.Country, model.Region,
+                 model.City, model.Address, model.FireExtinguishers, model.EmergencyExit, model.SquareFeet, model.AlarmSystem,
+                 model.GasBottles);
 
-            if (ModelState.IsValid)
+            if (updated)
             {
-                try
-                {
-                    _context.Update(villaBuilding);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!VillaBuildingExists(villaBuilding.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
                 return RedirectToAction(nameof(Index));
             }
-            return View(villaBuilding);
+            else
+            {
+                return View();
+            }
         }
 
         // GET: VillaBuildings/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public ActionResult Delete(int id)
         {
-            if (id == null)
+            var item = _villaBuildingService.GetVillaBuildingById(id);
+            VillaBuildingDetailsViewModel model = new VillaBuildingDetailsViewModel()
             {
-                return NotFound();
-            }
-
-            var villaBuilding = await _context.VillaBuildings
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (villaBuilding == null)
-            {
-                return NotFound();
-            }
-
-            return View(villaBuilding);
+                Id = item.Id,
+                Country = item.Country,
+                Region = item.Region,
+                City = item.City,
+                Address = item.Address,
+                FireExtinguishers = item.FireExtinguishers,
+                EmergencyExit = item.EmergencyExit,
+                SquareFeet = item.SquareFeet,
+                AlarmSystem = item.AlarmSystem,
+                GasBottles = item.GasBottles,
+                CreatedAt = item.CreatedAt,
+                ModifiedAt = item.ModifiedAt,
+                PreviousAccidents = item.PreviousAccidents,
+                ResultValue = item.ResultValue
+            };
+            return View(model);
         }
 
         // POST: VillaBuildings/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public ActionResult Delete(int id, IFormCollection collection)
         {
-            var villaBuilding = await _context.VillaBuildings.FindAsync(id);
-            _context.VillaBuildings.Remove(villaBuilding);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool VillaBuildingExists(int id)
-        {
-            return _context.VillaBuildings.Any(e => e.Id == id);
+            var deleted = _villaBuildingService.Remove(id);
+            if (deleted)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                return View();
+            }
         }
     }
 }

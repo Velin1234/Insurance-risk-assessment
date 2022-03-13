@@ -1,15 +1,8 @@
-﻿using System;
+﻿using InsuranceRiskAssessment.BusinessLogicLayer.Abstractions.MovablePropertyServices;
+using InsuranceRiskAssessment.Web.Models.ViewModels.MovableProprtiesViewModels.VehicleByLand;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using InsuranceRiskAssessment.DataAccessLayer.Data;
-using InsuranceRiskAssessment.DataAccessLayer.Entities.MovablePropertyEnities;
-using InsuranceRiskAssessment.BusinessLogicLayer.Abstractions.MovablePropertyServices;
-using InsuranceRiskAssessment.Web.Models.ViewModels.MovableProprtiesViewModels.VehicleByLand;
-using InsuranceRiskAssessment.Web.Models.ViewModels.MovableProprtiesViewModels.SeaTransport;
 
 namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
 {
@@ -119,7 +112,7 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
                 return NotFound();
             }
 
-            VehicleByLandDetailsViewModel model = new VehicleByLandDetailsViewModel()
+            VehicleByLandEditViewModel model = new VehicleByLandEditViewModel()
             {
                 Id = entity.Id,
                 ManifactureYear = entity.ManifactureYear,
@@ -149,7 +142,7 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, VehicleByLand model)
+        public ActionResult Edit(int id, VehicleByLandEditViewModel model)
         {
             var updated = _vehicleByLandService.UpdateVehicleByLand(id, model.ManifactureYear, model.SecurityEquipmenPossession, model.TechnicalServiceability,
                 model.DistanceTraveled, model.Height, model.Weight, model.Width, model.RegisteredCountry, model.RegisteredRegion,

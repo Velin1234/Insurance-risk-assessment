@@ -1,9 +1,6 @@
 ﻿using InsuranceRiskAssessment.DataAccessLayer.Entities.MovablePropertyEnities;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InsuranceRiskAssessment.BusinessLogicLayer.Abstractions.MovablePropertyServices
 {
@@ -11,7 +8,7 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Abstractions.MovablePropert
     {
         bool CreateVehicleByLand(DateTime manifactureYear, bool securityEquipmenPossession, bool technicalServiceability,
             int distanceTraveled, double height, double weight, double width, string registeredCountry, string registeredRegion,
-            string registeredCity,string fuelType, bool parktronic, string mostCommonRoutes, string registerNumber);
+            string registeredCity, string fuelType, bool parktronic, string mostCommonRoutes, string registerNumber);
         bool UpdateVehicleByLand(int vehicleByLandId, DateTime manifactureYear, bool securityEquipmenPossession, bool technicalServiceability,
             int distanceTraveled, double height, double weight, double width, string registeredCountry, string registeredRegion,
             string registeredCity, string fuelType, bool parktronic, string mostCommonRoutes, string registerNumber);

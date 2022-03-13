@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace InsuranceRiskAssessment.Web.Models.ViewModels.RealEstateViewModels.ResidentialBuilding
 {
-    public class ResidentialBuildingEditViewModel: RealEstatePropertyViewModel
+    public class ResidentialBuildingEditViewModel : RealEstatePropertyViewModel
     {
         [Required]
         [DisplayName("Етаж")]

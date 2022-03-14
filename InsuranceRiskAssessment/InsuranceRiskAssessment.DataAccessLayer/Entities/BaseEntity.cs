@@ -13,5 +13,6 @@ namespace InsuranceRiskAssessment.DataAccessLayer.Entities
         public DateTime CreatedAt { get; set; }
         public DateTime ModifiedAt { get; set; }
         public bool PreviousAccidents { get; set; }
+        public int ResultValue { get; set; }
     }
 }

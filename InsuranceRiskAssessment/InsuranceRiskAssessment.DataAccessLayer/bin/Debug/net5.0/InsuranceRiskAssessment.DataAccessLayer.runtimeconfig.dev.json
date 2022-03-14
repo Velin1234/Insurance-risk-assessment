@@ -1,8 +1,0 @@
-{
-  "runtimeOptions": {
-    "additionalProbingPaths": [
-      "C:\\Users\\venit\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\venit\\.nuget\\packages"
-    ]
-  }
-}

@@ -1,7 +1,10 @@
 using InsuranceRiskAssessment.DataAccessLayer.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+<<<<<<< HEAD
+=======
 using Microsoft.AspNetCore.Identity;
+>>>>>>> main
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,8 +27,7 @@ namespace InsuranceRiskAssessment
             services.AddDbContext<InsuranceRiskAssessmentDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<InsuranceBrokerUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<InsuranceRiskAssessmentDbContext>();
             services.AddControllersWithViews();
         }

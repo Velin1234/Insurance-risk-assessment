@@ -1,12 +1,7 @@
-﻿using InsuranceRiskAssessment.DataAccessLayer.Entities;
-using InsuranceRiskAssessment.DataAccessLayer.Entities.MovablePropertyEnities;
+﻿using InsuranceRiskAssessment.DataAccessLayer.Entities.MovablePropertyEnities;
 using InsuranceRiskAssessment.DataAccessLayer.Entities.RealEstateEntities;
 using Microsoft.AspNetCore.Identity;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InsuranceRiskAssessment.DataAccessLayer.Data
 {

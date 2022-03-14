@@ -3,9 +3,6 @@ using InsuranceRiskAssessment.DataAccessLayer.Abstractions;
 using InsuranceRiskAssessment.DataAccessLayer.Entities.MovablePropertyEnities;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertyServices
 {
@@ -59,12 +56,13 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertySer
         public bool UpdateSeaTransport(int seaTransportId, DateTime manifactureYear, bool securityEquipmenPossession, bool technicalServiceability,
             int distanceTraveled, double height, double weight, double width, string registeredCountry,
             string registeredRegion, string registeredCity, string climatZone, bool doesRoutePassesPirateZones, string functionality, string typeOfMovability)
-        {var seaTransport = GetSeaTransportById(seaTransportId);
+        {
+            var seaTransport = GetSeaTransportById(seaTransportId);
             if (seaTransport == default(SeaTransport))
             {
                 return false;
             }
-            
+
             seaTransport.ManifactureYear = manifactureYear;
             seaTransport.SecurityEquipmenPossession = securityEquipmenPossession;
             seaTransport.TechnicalServiceability = technicalServiceability;

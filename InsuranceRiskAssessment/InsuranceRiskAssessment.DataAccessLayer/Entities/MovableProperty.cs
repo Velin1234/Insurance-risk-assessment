@@ -1,13 +1,8 @@
-﻿using InsuranceRiskAssessment.DataAccessLayer.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
 namespace InsuranceRiskAssessment.DataAccessLayer.Entities
 {
-    
+
     public abstract class MovableProperty : BaseEntity
     {
         public DateTime ManifactureYear { get; set; }

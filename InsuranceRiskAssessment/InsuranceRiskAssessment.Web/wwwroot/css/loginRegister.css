@@ -1,0 +1,98 @@
+﻿/*RegisterForm*/
+
+.registerContainer {
+    display: flex;
+    padding-top: 120px;
+    justify-content: center;
+    height: 100%;
+}
+.header{
+    padding-top:20px
+}
+.registerForm {
+    color: white;
+    font-size: 30px;
+    padding: 0px 20px 20px 20px;
+    height: 100%;
+    background-color: #27272a
+}
+
+.form-group.registerBtnGroup {
+    padding-left: 400px;
+}
+
+/*Login Form*/
+
+.loginContainer {
+    display: flex;
+    padding-top: 120px;
+    justify-content: center;
+    height: 100%;
+}
+
+.loginForm {
+    color: white;
+    font-size: 30px;
+    padding: 10px 20px 0px 20px;
+    height: 100%;
+    background-color: #27272a
+}
+
+.form-group.emailInput {
+    font-size: 24px;
+    padding-top: 20px;
+}
+
+.form-control.emailBox {
+    padding: 6px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid #5a4fcf;
+    background-color: black;
+    color: white;
+    width: 50%;
+    font-size: 16px;
+}
+
+.form-group.passwordInput {
+    font-size: 24px;
+}
+
+.form-control.passwordBox {
+    padding: 6px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid #5a4fcf;
+    background-color: black;
+    color: white;
+    width: 50%;
+    font-size: 16px;
+}
+
+.form-group.loginBtnGroup {
+    padding-left: 400px;
+    z-index:1;
+}
+
+.form-group.noProfileGroup{
+    position:relative;
+    bottom:50px;
+    width:200px;
+}
+
+.noProfile {
+    color: #5a4fcf !important;
+    font-size:16px;
+}
+
+.validationMsg{
+    font-size:12px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}

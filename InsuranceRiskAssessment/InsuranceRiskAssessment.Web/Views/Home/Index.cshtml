@@ -4,8 +4,8 @@
 
 <!-- hero section -->
 <section id="home" class="min-h-100vh flex justify-start items-center">
-    <div class="mx-5 md-mx-l5">
-        <div>
+    <div id='mainLabel' class="mx-5 md-mx-l5">
+        <div class='mainLabel'>
             <h1 class="white fs-l3 lh-2 md-fs-xl1 md-lh-1 fw-900 ">Мястото за оценка<br />на вашия риск.</h1>
         </div>
     </div>
@@ -17,16 +17,16 @@
         <div class="p-10 md-p-l10 flex justify-center items-center flex-column text-center">
             <h2 class="white fs-l3 fw-900">Оцени риска на своето Движемо имущество.</h2>
             <p class="indigo-lightest fw-600 fs-m1 opacity-30 my-5">
-                Автомобили, Лодки , Самолети и каравани.
+                Автомобили, лодки ,самолети и каравани.
             </p>
-            <a href="#" class="button-md bg-indigo white fs-s3 br-3 black fw-600 no-underline m-5">Оцени сега</a>
+            <a asp-area="Identity" asp-page="/Account/Login" class="button-md bg-indigo white fs-s3 br-3 black fw-600 no-underline m-5">Оцени сега</a>
         </div>
         <div class="p-10 md-p-l10 flex justify-center items-center flex-column text-center">
             <h2 class="white fs-l3 fw-900">Оцени риска на своето Недвижемо имущество.</h2>
             <p class="indigo-lightest fw-600 fs-m1 opacity-30 my-5">
                 Бизнес сгради , жилищни сгради , вилни сгради, стопанско имущество.
             </p>
-            <a href="#" class="button-md bg-indigo white fs-s3 br-3 black fw-600 no-underline m-5">Оцени сега</a>
+            <a asp-area="Identity" asp-page="/Account/Login" class="button-md bg-indigo white fs-s3 br-3 black fw-600 no-underline m-5">Оцени сега</a>
         </div>
     </div>
     <ul class="absolute list-none w-100pc flex justify-between top-50pc">
@@ -51,13 +51,13 @@
                 <div class="flex justify-center items-center bg-indigo-lightest-10 white w-l5 h-l5 br-round mb-5">
                     <i data-feather="home" class="w-l5"></i>
                 </div>
-                <h4 class="white fw-600 fs-m3 mb-5">Storage</h4>
+                <h4 class="white fw-600 fs-m3 mb-5">Недвижемо имущество</h4>
                 <div class="indigo-lightest fw-600 fs-m1 lh-3 opacity-50">
-                    Lorem ipsum dolor sit amet, consectetur
-                    adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Оценете точният застрахователен риск на вашите блокове,кооперации,предприятия,
+                    стопански сградим гаражи, работилници и търговски предприятия.
                 </div>
-                <a href="#"
-                   class="mt-5 button bg-indigo-lightest-10 fs-s3 white no-underline hover-opacity-100 hover-scale-up-1 ease-300">Read</a>
+                <a asp-area="Identity" asp-page="/Account/Login"
+                   class="mt-5 button bg-indigo-lightest-10 fs-s3 white no-underline hover-opacity-100 hover-scale-up-1 ease-300">Оценете сега</a>
             </div>
         </div>
         <div class="w-100pc md-w-40pc">
@@ -65,13 +65,12 @@
                 <div class="flex justify-center items-center bg-indigo-lightest-10 white w-l5 h-l5 br-round mb-5">
                     <i data-feather="truck" class="w-l5"></i>
                 </div>
-                <h4 class="white fw-600 fs-m3 mb-5">Compute</h4>
+                <h4 class="white fw-600 fs-m3 mb-5">Движемо имущество</h4>
                 <div class="indigo-lightest fw-600 fs-m1 opacity-50">
-                    Lorem ipsum dolor sit amet, consectetur
-                    adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Най-точната оценка на вашият морски , въздушен и сухопътен транспорт. 
                 </div>
-                <a href="#"
-                   class="mt-5 button bg-indigo-lightest-10 fs-s3 white no-underline hover-opacity-100 hover-scale-up-1 ease-300">Read</a>
+                <a asp-area="Identity" asp-page="/Account/Login"
+                   class="mt-5 button bg-indigo-lightest-10 fs-s3 white no-underline hover-opacity-100 hover-scale-up-1 ease-300">Оценете сега</a>
             </div>
         </div>
         <div class="w-100pc md-w-40pc">
@@ -79,13 +78,12 @@
                 <div class="flex justify-center items-center bg-indigo-lightest-10 white w-l5 h-l5 br-round mb-5">
                     <i data-feather="percent" class="w-l5"></i>
                 </div>
-                <h4 class="white fw-600 fs-m3 mb-5">Database</h4>
+                <h4 class="white fw-600 fs-m3 mb-5">Точен резултат</h4>
                 <div class="indigo-lightest fw-600 fs-m1 opacity-50">
-                    Lorem ipsum dolor sit amet, consectetur
-                    adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Само с няколко лесни стъпки можете да разберете точния риск на вашата собственост.
                 </div>
-                <a href="#"
-                   class="mt-5 button bg-indigo-lightest-10 fs-s3 white no-underline hover-opacity-100 hover-scale-up-1 ease-300">Read</a>
+                <a asp-area="Identity" asp-page="/Account/Login"
+                   class="mt-5 button bg-indigo-lightest-10 fs-s3 white no-underline hover-opacity-100 hover-scale-up-1 ease-300">Оценете сега</a>
             </div>
         </div>
     </div>
@@ -139,7 +137,7 @@
                 </p>
                 <div class="flex items-center my-5">
                     <div class="ml-4 fs-s1">
-                        <div class="indigo-lightest">Теодора Янева</div>
+                        <div class="indigo-lightest">Теодора Корадова</div>
                         <div class="indigo-lightest opacity-20">Застраховател</div>
                     </div>
                 </div>
@@ -153,7 +151,7 @@
                 </p>
                 <div class="flex items-center my-5">
                     <div class="ml-4 fs-s1">
-                        <div class="indigo-lightest">Теодора</div>
+                        <div class="indigo-lightest">Янко Митов</div>
                         <div class="indigo-lightest opacity-20">Застраховател</div>
                     </div>
                 </div>

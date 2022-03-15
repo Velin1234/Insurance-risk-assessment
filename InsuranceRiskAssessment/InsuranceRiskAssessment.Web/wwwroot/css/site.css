@@ -1,13 +1,20 @@
-﻿#home {
-    background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.8)), url("../img/home-bkg.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-#nav {
+﻿#nav {
     position: fixed;
     z-index: 1030;
 }
-#registerBtn,#loginBtn{
-    margin-right:0px !important;
-    height:2rem;
+
+#registerBtn, #loginBtn {
+    margin-right: 0px !important;
+    margin-left: 0.5rem !important;
+    height: 2rem;
+}
+
+#home {
+    background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,1)), url("../img/home-bkg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#mainLabel {
+    padding-top: 3rem;
 }

@@ -3,47 +3,76 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - InsuranceRiskAssessment</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shorthandcss@1.1.1/dist/shorthand.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:200,300,400,500,600,700,800,900&display=swap" />
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 </head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">InsuranceRiskAssessment</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                    <partial name="_LoginPartial" />
+
+<body class="bg-black muli">
+    <nav id="nav" class="w-100pc flex flex-column md-flex-row md-px-10 py-5">
+        <div class="flex justify-between">
+            <a href="@Url.Action("Index","Home")#home" class="flex items-center p-1 mr-2 no-underline">
+                <img class="max-h-l2 w-auto" src="~/img/logo.png" />
+            </a>
+            <a data-toggle="toggle-nav" data-target="#nav-items" href="#"
+               class="flex items-center ml-auto md-hidden indigo-lighter opacity-50 hover-opacity-100 ease-300 p-1 m-3">
+                <i data-feather="menu"></i>
+            </a>
+        </div>
+        <div id="nav-items" class="hidden flex sm-w-100pc flex-column md-flex md-flex-row md-justify-end items-center">
+            <a href="@Url.Action("Index","Home")#home" class="fs-s1 mx-3 py-3 indigo no-underline hover-underline">Начало</a>
+            <a href="@Url.Action("Index","Home")#features" class="fs-s1 mx-3 py-3 indigo no-underline hover-underline">Предложения</a>
+            <a href="@Url.Action("Index","Home")#testimonials" class="fs-s1 mx-3 py-3 indigo no-underline hover-underline">Отзиви</a>
+            <partial name="_LoginPartial" />
+        </div>
+    </nav>
+
+    @RenderBody()
+
+    <!-- footer -->
+    <footer class="p-5 md-p-l5 bg-indigo-lightest-10">
+        <div class="flex flex-wrap">
+            <div class="md-w-25pc mb-10">
+                <img src="~/img/logo.png" class="w-l5" alt="">
+                <div class="white opacity-70 fs-s2 mt-4 md-pr-10">
+                    <p>
+                        Web приложение за оценка на застрахователен риск, изготвено за защита на дипломна работа, към ПГЕЕ"K.Фотинов".
+                    </p>
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - InsuranceRiskAssessment - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="w-100pc md-w-25pc">
+                <div class="flex w-75pc md-w-100pc mx-auto">
+                    <input type="text"
+                           class="input flex-grow-1 bw-0 fw-200 bg-indigo-lightest-10 white ph-indigo-lightest focus-white opacity-80 fs-s3 py-5 br-r-0"
+                           placeholder="Email Address">
+                    <button class="button bg-indigo indigo-lightest fw-300 fs-s3 br-l-0">Start</button>
+                </div>
+                <div class="flex justify-around my-8">
+                    <a href="#" class="relative p-5 bg-indigo br-round white hover-scale-up-1 ease-400">
+                        <i data-feather="twitter" class="absolute-center h-4"></i>
+                    </a>
+                    <a href="#" class="relative p-5 bg-indigo br-round white hover-scale-up-1 ease-400">
+                        <i data-feather="facebook" class="absolute-center h-4"></i>
+                    </a>
+                    <a href="#" class="relative p-5 bg-indigo br-round white hover-scale-up-1 ease-400">
+                        <i data-feather="instagram" class="absolute-center h-4"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/cferdinandi/smooth-scroll@15.0.0/dist/smooth-scroll.polyfills.min.js"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

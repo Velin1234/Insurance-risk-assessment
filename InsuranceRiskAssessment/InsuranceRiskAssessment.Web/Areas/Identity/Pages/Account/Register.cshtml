@@ -1,0 +1,42 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Регистрация";
+}
+<link rel="stylesheet" type="text/css" href="~/css/loginRegister.css" />
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="registerContainer">
+    <div class="col-md-4">
+        <section class="registerForm">
+            <form asp-route-returnUrl="@Model.ReturnUrl" method="post" class='registerForm'>
+                <h1 class='header'>Създай нов профил:</h1>
+                <hr />
+                <div asp-validation-summary="All" id='validation' class="text-danger"></div>
+                <div class="form-group emailInput">
+                    <label asp-for="Input.Email">Имейл:</label>
+                    <input asp-for="Input.Email" class="form-control emailBox" /><br>
+                    <span asp-validation-for="Input.Email" class="validationMsg"></span>
+                </div>
+                <div class="form-group passwordInput">
+                    <label asp-for="Input.Password">Парола:</label>
+                    <input asp-for="Input.Password" class="form-control passwordBox" /><br>
+                    <span asp-validation-for="Input.Password" class="validationMsg"></span>
+                </div>
+                <div class="form-group passwordInput">
+                    <label asp-for="Input.ConfirmPassword">Потвърди парола:</label>
+                    <input asp-for="Input.ConfirmPassword" class="form-control passwordBox" /><br>
+                    <span asp-validation-for="Input.ConfirmPassword" class="validationMsg"></span>
+                </div>
+                <div class="form-group registerBtnGroup">
+                    <button type="submit" class="button bg-white black fw-600 no-underline mx-5">Регистрирай се</button>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+<partial name="_ValidationScriptsPartial" />
+}

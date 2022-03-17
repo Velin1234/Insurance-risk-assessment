@@ -1,0 +1,42 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Вход";
+}
+<link rel="stylesheet" type="text/css" href="~/css/loginRegister.css" />
+<h1>@ViewData["Title"]</h1>
+
+<div class="loginContainer">
+    <div class="col-md-4">
+        <section class="loginForm">
+            <form id="account" method="post" class="loginForm">
+                <h1>Влезте с вашият профил:</h1>
+                <hr />
+                <div asp-validation-summary="All" id='validation' class="text-danger"></div>
+                <div class="form-group emailInput">
+                    <label asp-for="Input.Email">Имейл:</label>
+                    <input asp-for="Input.Email" class="form-control emailBox" /><br>
+                    <span asp-validation-for="Input.Email" class="validationMsg"></span>
+                </div>
+                <div class="form-group passwordInput">
+                    <label asp-for="Input.Password">Парола:</label>
+                    <input asp-for="Input.Password" class="form-control passwordBox" /><br>
+                    <span asp-validation-for="Input.Password" class="validationMsg"></span>
+                </div>
+                <div class="form-group loginBtnGroup">
+                    <button type="submit" class="button bg-white black fw-600 no-underline mx-5">Влез</button>
+                </div>
+                <div class="form-group noProfileGroup">
+                    <p>
+                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" class='noProfile'>Нямате профил?</a>
+                    </p>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+<partial name="_ValidationScriptsPartial" />
+}

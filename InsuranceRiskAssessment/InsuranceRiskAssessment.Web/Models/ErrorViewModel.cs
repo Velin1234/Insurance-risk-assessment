@@ -1,5 +1,3 @@
-using System;
-
 namespace InsuranceRiskAssessment.Models
 {
     public class ErrorViewModel

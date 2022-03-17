@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace InsuranceRiskAssessment.DataAccessLayer.Entities
+﻿namespace InsuranceRiskAssessment.DataAccessLayer.Entities
 {
     public abstract class RealEstateProperty : BaseEntity
     {
@@ -17,5 +11,6 @@ namespace InsuranceRiskAssessment.DataAccessLayer.Entities
         public double SquareFeet { get; set; }
         public bool AlarmSystem { get; set; }
         public bool GasBottles { get; set; }
+
     }
 }

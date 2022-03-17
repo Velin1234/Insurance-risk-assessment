@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using InsuranceRiskAssessment.DataAccessLayer.Data;
 
 namespace InsuranceRiskAssessment.DataAccessLayer.Entities.RealEstateEntities
 {
     public class ResidentialBuilding : RealEstateProperty
     {
         public string Floor { get; set; }
+        public virtual InsuranceBrokerUser InsuranceBroker { get; set; }
+
     }
 }

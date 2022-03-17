@@ -13,20 +13,20 @@
             <form asp-route-returnUrl="@Model.ReturnUrl" method="post" class='registerForm'>
                 <h1 class='header'>Създай нов профил:</h1>
                 <hr />
-                <div asp-validation-summary="All" class="text-danger"></div>
+                <div asp-validation-summary="All" id='validation' class="text-danger"></div>
                 <div class="form-group emailInput">
                     <label asp-for="Input.Email">Имейл:</label>
-                    <input asp-for="Input.Email" class="form-control emailBox" />
+                    <input asp-for="Input.Email" class="form-control emailBox" /><br>
                     <span asp-validation-for="Input.Email" class="validationMsg"></span>
                 </div>
                 <div class="form-group passwordInput">
                     <label asp-for="Input.Password">Парола:</label>
-                    <input asp-for="Input.Password" class="form-control passwordBox" />
+                    <input asp-for="Input.Password" class="form-control passwordBox" /><br>
                     <span asp-validation-for="Input.Password" class="validationMsg"></span>
                 </div>
                 <div class="form-group passwordInput">
                     <label asp-for="Input.ConfirmPassword">Потвърди парола:</label>
-                    <input asp-for="Input.ConfirmPassword" class="form-control passwordBox" />
+                    <input asp-for="Input.ConfirmPassword" class="form-control passwordBox" /><br>
                     <span asp-validation-for="Input.ConfirmPassword" class="validationMsg"></span>
                 </div>
                 <div class="form-group registerBtnGroup">

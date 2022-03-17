@@ -1,5 +1,12 @@
 ﻿/*RegisterForm*/
-
+#nav {
+    position: fixed;
+    z-index: 1030;
+    background-color: #222222 !important;
+}
+#validation {
+    font-size: 20px;
+}
 .registerContainer {
     display: flex;
     padding-top: 120px;

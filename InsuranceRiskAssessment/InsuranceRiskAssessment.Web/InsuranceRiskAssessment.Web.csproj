@@ -27,8 +27,4 @@
     <ProjectReference Include="..\InsuranceRiskAssessment.DataAccessLayer\InsuranceRiskAssessment.DataAccessLayer.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\img\" />
-  </ItemGroup>
-
 </Project>

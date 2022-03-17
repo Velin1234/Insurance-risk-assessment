@@ -1,11 +1,12 @@
 ﻿#nav {
     position: fixed;
     z-index: 1030;
+    background-color: #222222 !important;
 }
 
 #registerBtn, #loginBtn {
     margin-right: 0px !important;
-    margin-left: 0.5rem !important;
+    margin-left: 0.5rem !important; 
     height: 2rem;
 }
 

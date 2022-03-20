@@ -23,7 +23,7 @@ namespace InsuranceRiskAssessment
             services.AddDbContext<InsuranceRiskAssessmentDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<InsuranceBrokerUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddDefaultIdentity<InsuranceBrokerUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<InsuranceRiskAssessmentDbContext>();
             services.AddControllersWithViews();
         }

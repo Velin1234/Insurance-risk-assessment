@@ -207,6 +207,7 @@
           }
         }
       },
+      "Microsoft.EntityFrameworkCore.Tools/5.0.12": {},
       "Microsoft.Extensions.Caching.Abstractions/5.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Primitives": "5.0.0"
@@ -1461,7 +1462,8 @@
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.12",
           "Microsoft.EntityFrameworkCore": "5.0.12",
           "Microsoft.EntityFrameworkCore.Proxies": "5.0.12",
-          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.12"
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.12",
+          "Microsoft.EntityFrameworkCore.Tools": "5.0.12"
         },
         "runtime": {
           "InsuranceRiskAssessment.DataAccessLayer.dll": {}
@@ -1565,6 +1567,13 @@
       "sha512": "sha512-leJohwUxtdDQcpnkzvx0Kkq92AZ8akgaxR8TChts3fD07iqWktPMqs+u5CLcGQwGFd8GuCXUZXBJxvUM1/UNJg==",
       "path": "microsoft.entityframeworkcore.sqlserver/5.0.12",
       "hashPath": "microsoft.entityframeworkcore.sqlserver.5.0.12.nupkg.sha512"
+    },
+    "Microsoft.EntityFrameworkCore.Tools/5.0.12": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fk6P7PZmbN/148oR2RBTnCWsTMdNKlOL/OgF6HJOY8HBbNLIdW720hYIbckmwQ6kad2gaKGXYoW9tDDu69cCQA==",
+      "path": "microsoft.entityframeworkcore.tools/5.0.12",
+      "hashPath": "microsoft.entityframeworkcore.tools.5.0.12.nupkg.sha512"
     },
     "Microsoft.Extensions.Caching.Abstractions/5.0.0": {
       "type": "package",

@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@using InsuranceRiskAssessment.DataAccessLayer.Data
+@inject SignInManager<InsuranceBrokerUser> SignInManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -13,24 +17,43 @@
 </head>
 
 <body class="bg-black muli">
-    <nav id="nav" class="w-100pc flex flex-column md-flex-row md-px-10 py-5">
-        <div class="flex justify-between">
-            <a href="@Url.Action("Index","Home")#home" class="flex items-center p-1 mr-2 no-underline">
-                <img class="max-h-l2 w-auto" src="~/img/logo.png" />
-            </a>
-            <a data-toggle="toggle-nav" data-target="#nav-items" href="#"
+    @if (!SignInManager.IsSignedIn(User))
+    {
+        <nav id="nav" class="w-100pc flex flex-column md-flex-row md-px-10 py-5">
+            <div class="flex justify-between">
+                <a href="@Url.Action("Index","Home")#home" class="flex items-center p-1 mr-2 no-underline">
+                    <img class="max-h-l2 w-auto" src="~/img/logo.png" />
+                </a>
+                <a data-toggle="toggle-nav" data-target="#nav-items" href="#"
                class="flex items-center ml-auto md-hidden indigo-lighter opacity-50 hover-opacity-100 ease-300 p-1 m-3">
-                <i data-feather="menu"></i>
-            </a>
-        </div>
-        <div id="nav-items" class="hidden flex sm-w-100pc flex-column md-flex md-flex-row md-justify-end items-center">
-            <a href="@Url.Action("Index","Home")#home" class="fs-s1 mx-3 py-3 indigo no-underline hover-underline">Начало</a>
-            <a href="@Url.Action("Index","Home")#features" class="fs-s1 mx-3 py-3 indigo no-underline hover-underline">Предложения</a>
-            <a href="@Url.Action("Index","Home")#testimonials" class="fs-s1 mx-3 py-3 indigo no-underline hover-underline">Отзиви</a>
-            <partial name="_LoginPartial" />
-        </div>
-    </nav>
-
+                    <i data-feather="menu"></i>
+                </a>
+            </div>
+            <div id="nav-items" class="hidden flex sm-w-100pc flex-column md-flex md-flex-row md-justify-end items-center">
+                <a href="@Url.Action("Index","Home")#home" class="fs-s1 mx-3 py-3 indigo no-underline hover-underline">Начало</a>
+                <a href="@Url.Action("Index","Home")#features" class="fs-s1 mx-3 py-3 indigo no-underline hover-underline">Предложения</a>
+                <a href="@Url.Action("Index","Home")#testimonials" class="fs-s1 mx-3 py-3 indigo no-underline hover-underline">Отзиви</a>
+                <partial name="_LoginPartial" />
+            </div>
+        </nav>
+    }
+    else
+    {
+        <nav id="nav" class="w-100pc flex flex-column md-flex-row md-px-10 py-5">
+            <div class="flex justify-between">
+                <a href="@Url.Action("Index","Home")#home" class="flex items-center p-1 mr-2 no-underline">
+                    <img class="max-h-l2 w-auto" src="~/img/logo.png" />
+                </a>
+                <a data-toggle="toggle-nav" data-target="#nav-items" href="#"
+               class="flex items-center ml-auto md-hidden indigo-lighter opacity-50 hover-opacity-100 ease-300 p-1 m-3">
+                    <i data-feather="menu"></i>
+                </a>
+            </div>
+            <div id="nav-items" class="hidden flex sm-w-100pc flex-column md-flex md-flex-row md-justify-end items-center">
+                <partial name="_LoginPartial" />
+            </div>
+        </nav>
+    }
     @RenderBody()
 
     <!-- footer -->

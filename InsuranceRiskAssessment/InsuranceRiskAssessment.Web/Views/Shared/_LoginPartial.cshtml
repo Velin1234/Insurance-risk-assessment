@@ -5,13 +5,13 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
-        <a  class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@User.Identity.Name!</a>
-        <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button type="submit" class="nav-link btn btn-link text-dark">Излез</button>
-        </form>
+    <p>@User.Identity.Name!</p>
+    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+        <button type="submit" class="nav-link btn btn-link text-dark">Излез</button>
+    </form>
 }
 else
 {
-        <a id="loginBtn" class="button bg-white black fw-600 no-underline mx-5" asp-area="Identity" asp-page="/Account/Register">Регистрирай се</a>
-        <a id="registerBtn" class="button bg-white black fw-600 no-underline mx-5" asp-area="Identity" asp-page="/Account/Login">Вход</a>
+    <a id="loginBtn" class="button bg-white black fw-600 no-underline mx-5" asp-area="Identity" asp-page="/Account/Register">Регистрирай се</a>
+    <a id="registerBtn" class="button bg-white black fw-600 no-underline mx-5" asp-area="Identity" asp-page="/Account/Login">Вход</a>
 }

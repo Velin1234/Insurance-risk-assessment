@@ -1,8 +1,13 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity
+@using InsuranceRiskAssessment.DataAccessLayer.Data
+@inject SignInManager<InsuranceBrokerUser> SignInManager
+
+@{
     ViewData["Title"] = "Начална страница";
 }
 
-<!-- hero section -->
+@if (!SignInManager.IsSignedIn(User))
+{
 <section id="home" class="min-h-100vh flex justify-start items-center">
     <div id='mainLabel' class="mx-5 md-mx-l5">
         <div class='mainLabel'>
@@ -11,7 +16,6 @@
     </div>
 </section>
 
-<!-- slider -->
 <section id="features" class="relative bg-indigo-lightest-10">
     <div id="slider-1">
         <div class="p-10 md-p-l10 flex justify-center items-center flex-column text-center">
@@ -43,7 +47,6 @@
     </ul>
 </section>
 
-<!-- features -->
 <section class="p-10 md-p-l5">
     <div class="flex flex-column md-flex-row mx-auto">
         <div class="w-100pc md-w-40pc">
@@ -125,7 +128,6 @@
     </section>
 *@
 
-<!-- testimonials -->
 <section id="testimonials" class="p-10 md-p-l5">
     <div id="slider-2">
         <div class="px-3">
@@ -187,3 +189,7 @@
         </div>
     </div>
 </section>
+}
+else{
+    
+}

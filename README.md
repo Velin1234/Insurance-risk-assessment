@@ -7,14 +7,12 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/Velin1234/Insurance-risk-assessment">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
+    <img src="https://github.com/Velin1234/Insurance-risk-assessment/blob/main/InsuranceRiskAssessment/InsuranceRiskAssessment.Web/wwwroot/img/logo.png" alt="Logo" width="120" height="120">
 
   <h3 align="center">Insurance Risk Assesment</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects! 
+    Разработена дипломна работа с тема "Оценка на застрахователен риск" към ПГЕЕ "К.Фотинов".
   </p>
 </div>
 
@@ -46,8 +44,6 @@
 <!-- ABOUT THE PROJECT -->
 ## Относно този проект
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
 There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
 
 Here's why:
@@ -70,8 +66,7 @@ Use the `BLANK_README.md` to get started.
 <!-- GETTING STARTED -->
 ## Начало
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+За да стартирате приложението и придобиете локално копие, следвайте тези прости стъпки.
 
 ### Необходим софтуер
 

@@ -7,7 +7,7 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.RealEstateServices
 {
     public class CommercialProprtyService : ICommercialPropertyService
     {
-        public readonly IRepository<CommercialProperty> _commercialPropertyRepository;
+        private readonly IRepository<CommercialProperty> _commercialPropertyRepository;
         public CommercialProprtyService(IRepository<CommercialProperty> commercialPropertyRepository)
         {
             _commercialPropertyRepository = commercialPropertyRepository;

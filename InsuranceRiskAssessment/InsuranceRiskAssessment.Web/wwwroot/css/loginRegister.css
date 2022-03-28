@@ -142,6 +142,10 @@
     font-size: 18px;
 }
 
+    .noProfile:hover {
+        color: #a381c3 !important;
+    }
+
 .button-user-login {
     position: absolute;
     right: 10px;

@@ -8,7 +8,7 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertySer
 {
     public class AirTransportService : IAirTransportService
     {
-        public readonly IRepository<AirTransport> _airTransportRepository;
+        private readonly IRepository<AirTransport> _airTransportRepository;
         public AirTransportService(IRepository<AirTransport> airTransportRepository)
         {
             _airTransportRepository = airTransportRepository;

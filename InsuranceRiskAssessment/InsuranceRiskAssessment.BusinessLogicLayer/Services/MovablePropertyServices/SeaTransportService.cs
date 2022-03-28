@@ -8,7 +8,7 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertySer
 {
     public class SeaTransportService : ISeaTransportService
     {
-        public readonly IRepository<SeaTransport> _seaTransportRepository;
+        private readonly IRepository<SeaTransport> _seaTransportRepository;
         public SeaTransportService(IRepository<SeaTransport> seaTransportRepository)
         {
             _seaTransportRepository = seaTransportRepository;

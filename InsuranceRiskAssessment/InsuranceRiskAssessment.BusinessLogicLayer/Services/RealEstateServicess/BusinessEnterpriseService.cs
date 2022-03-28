@@ -7,7 +7,7 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.RealEstateServices
 {
     public class BusinessEnterpriseService : IBusinessEnterpriseService
     {
-        public readonly IRepository<BusinessEnterprise> _businessEnterpriseRepository;
+        private readonly IRepository<BusinessEnterprise> _businessEnterpriseRepository;
 
         public BusinessEnterpriseService(IRepository<BusinessEnterprise> businessEnterpriseRepository)
         {

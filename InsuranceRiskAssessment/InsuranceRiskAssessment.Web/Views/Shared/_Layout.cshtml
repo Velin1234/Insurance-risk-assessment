@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/movableProperties.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shorthandcss@1.1.1/dist/shorthand.min.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:200,300,400,500,600,700,800,900&display=swap" />
     <link rel="stylesheet" type="text/css"
@@ -50,8 +51,8 @@
                 </a>
             </div>
             <div id="nav-items" class="hidden flex sm-w-100pc flex-column md-flex md-flex-row md-justify-end items-center">
-                <a href="@Url.Action("Index","Home")#home" class="navItem">Недвижемо</a>
-                <a href="@Url.Action("Index","Home")#home" class="navItem">Движемо</a>
+                <a href="@Url.Action("Index","RealEstates")" class="navItem">Недвижемо</a>
+                <a href="@Url.Action("Index","MovableProperties")" class="navItem">Движемо</a>
                 <partial name="_LoginPartial" />
             </div>
         </nav>

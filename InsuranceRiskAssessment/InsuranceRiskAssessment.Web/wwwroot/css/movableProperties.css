@@ -10,7 +10,9 @@
     align-items: center;
     flex-direction: column;
 }
-
+a{
+    text-decoration:none;
+}
 .category {
     display: flex;
     justify-content: center;
@@ -24,6 +26,7 @@
     font-size: 60px;
     padding: 50px;
     text-shadow: 2px 2px 4px #000000;
+    
 }
 
 .icon {

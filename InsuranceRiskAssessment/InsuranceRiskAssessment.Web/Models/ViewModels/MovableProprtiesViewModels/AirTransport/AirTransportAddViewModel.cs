@@ -1,8 +1,7 @@
-﻿using InsuranceRiskAssessment.Web.Models.ViewModels.MovableProprtiesViewModels;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace InsuranceRiskAssessment.Web.Models.ViewModels
+namespace InsuranceRiskAssessment.Web.Models.ViewModels.MovableProprtiesViewModels.AirTransport
 {
     public class AirTransportAddViewModel : MovablePropertiesViewModel
     {

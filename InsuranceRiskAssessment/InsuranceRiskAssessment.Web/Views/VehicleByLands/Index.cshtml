@@ -1,7 +1,7 @@
-﻿@model IEnumerable<InsuranceRiskAssessment.DataAccessLayer.Entities.MovablePropertyEnities.SeaTransport>
+﻿@model IEnumerable<InsuranceRiskAssessment.Web.Models.ViewModels.MovableProprtiesViewModels.VehicleByLand.VehicleByLandViewModel>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Резултати за наземни транспорти";
 }
 
 <h1>Index</h1>
@@ -13,16 +13,16 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ClimatZone)
+                @Html.DisplayNameFor(model => model.FuelType)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DoesRoutePassesPirateZones)
+                @Html.DisplayNameFor(model => model.Parktronic)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Functionality)
+                @Html.DisplayNameFor(model => model.MostCommonRoutes)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.TypeOfMovability)
+                @Html.DisplayNameFor(model => model.RegisterNumber)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ManifactureYear)
@@ -70,16 +70,16 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.ClimatZone)
+                @Html.DisplayFor(modelItem => item.FuelType)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DoesRoutePassesPirateZones)
+                @Html.DisplayFor(modelItem => item.Parktronic)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Functionality)
+                @Html.DisplayFor(modelItem => item.MostCommonRoutes)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TypeOfMovability)
+                @Html.DisplayFor(modelItem => item.RegisterNumber)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ManifactureYear)

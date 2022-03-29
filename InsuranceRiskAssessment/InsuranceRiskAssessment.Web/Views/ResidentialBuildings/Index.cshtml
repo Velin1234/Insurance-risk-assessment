@@ -1,4 +1,4 @@
-﻿@model IEnumerable<InsuranceRiskAssessment.DataAccessLayer.Entities.RealEstateEntities.VillaBuilding>
+﻿@model IEnumerable<InsuranceRiskAssessment.Web.Models.ViewModels.RealEstateViewModels.ResidentialBuilding.ResidentialBuildingViewModel>
 
 @{
     ViewData["Title"] = "Index";
@@ -12,6 +12,9 @@
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Floor)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Country)
             </th>
@@ -54,6 +57,9 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Floor)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Country)
             </td>

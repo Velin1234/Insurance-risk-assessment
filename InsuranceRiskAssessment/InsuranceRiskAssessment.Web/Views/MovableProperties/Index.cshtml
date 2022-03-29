@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Движемо имущество";
+}
+
+<div class="container">
+    <div class="categories">
+        <a href="@Url.Action("Index","AirTransports")">
+            <div id="airCategory" class="category">
+                <p class="category-text"><i class="icon" data-feather="wind"></i>  Въздушен транспорт  <i class="icon" data-feather="wind"></i></p>
+            </div>
+        </a>
+        
+        <a href="@Url.Action("Index","SeaTransports")">
+            <div id="seaCategory" class="category">
+                <p class="category-text"><i class="icon" data-feather="anchor"></i>  Воден транспорт  <i class="icon" data-feather="anchor"></i></p>
+            </div>
+        </a>
+
+        <a href="@Url.Action("Index","VehicleByLands")">
+            <div id="landCategory" class="category">
+                <p class="category-text"><i class="icon" data-feather="truck"></i>  Наземен транспорт  <i class="icon" data-feather="truck"></i></p>
+            </div>
+        </a>
+    </div>
+</div>

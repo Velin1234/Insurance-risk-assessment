@@ -7,7 +7,7 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.RealEstateServices
 {
     public class VillaBuildingService : IVillaBuildingService
     {
-        public readonly IRepository<VillaBuilding> _villaBuildingRepository;
+        private readonly IRepository<VillaBuilding> _villaBuildingRepository;
         public VillaBuildingService(IRepository<VillaBuilding> villaBuildingRepository)
         {
             _villaBuildingRepository = villaBuildingRepository;

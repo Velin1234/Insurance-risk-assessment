@@ -8,7 +8,7 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertySer
 {
     public class VehicleByLandService : IVehicleByLandService
     {
-        public readonly IRepository<VehicleByLand> _vehicleByLandRepository;
+        private readonly IRepository<VehicleByLand> _vehicleByLandRepository;
         public VehicleByLandService(IRepository<VehicleByLand> vehicleByLandRepository)
         {
             _vehicleByLandRepository = vehicleByLandRepository;

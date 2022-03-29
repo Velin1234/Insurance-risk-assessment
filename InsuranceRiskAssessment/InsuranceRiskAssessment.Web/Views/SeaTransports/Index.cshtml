@@ -1,7 +1,6 @@
-﻿@model IEnumerable<InsuranceRiskAssessment.DataAccessLayer.Entities.MovablePropertyEnities.VehicleByLand>
-
+﻿@model IEnumerable<InsuranceRiskAssessment.Web.Models.ViewModels.MovableProprtiesViewModels.SeaTransport.SeaTransportViewModel>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Резултати за водни транспорти";
 }
 
 <h1>Index</h1>
@@ -13,16 +12,16 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.FuelType)
+                @Html.DisplayNameFor(model => model.ClimatZone)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Parktronic)
+                @Html.DisplayNameFor(model => model.DoesRoutePassesPirateZones)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.MostCommonRoutes)
+                @Html.DisplayNameFor(model => model.Functionality)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.RegisterNumber)
+                @Html.DisplayNameFor(model => model.TypeOfMovability)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ManifactureYear)
@@ -70,16 +69,16 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.FuelType)
+                @Html.DisplayFor(modelItem => item.ClimatZone)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Parktronic)
+                @Html.DisplayFor(modelItem => item.DoesRoutePassesPirateZones)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.MostCommonRoutes)
+                @Html.DisplayFor(modelItem => item.Functionality)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.RegisterNumber)
+                @Html.DisplayFor(modelItem => item.TypeOfMovability)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ManifactureYear)

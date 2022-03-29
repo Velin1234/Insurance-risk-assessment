@@ -1,0 +1,164 @@
+﻿.container {
+    width: 100vw;
+    height: 880px;
+}
+
+.realEstatesContainer {
+    width: 100vw;
+    height: 1125px;
+}
+
+.categories {
+    padding-top: 130px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+}
+
+.category {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 250px
+}
+
+.category-text {
+    color: white;
+    font-size: 60px;
+    padding: 50px;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+}
+
+#landCategory {
+    background-color: #48BF91;
+}
+
+    #landCategory:hover {
+        background-color: #20523f;
+        cursor: pointer;
+    }
+
+        #landCategory:hover .category-text {
+            color: #999999
+        }
+
+        #landCategory:hover .icon {
+            color: white;
+        }
+
+#seaCategory {
+    background-color: #0076BE;
+}
+
+    #seaCategory:hover {
+        background-color: #00426a;
+        cursor: pointer;
+    }
+
+        #seaCategory:hover .category-text {
+            color: #999999
+        }
+
+        #seaCategory:hover .icon {
+            color: white;
+        }
+
+#airCategory {
+    background-color: #65cfed;
+}
+
+    #airCategory:hover {
+        background-color: #438ea3;
+        cursor: pointer;
+    }
+
+        #airCategory:hover .category-text {
+            color: #999999
+        }
+
+        #airCategory:hover .icon {
+            color: white;
+        }
+
+#businessCategory {
+    background-color: #70518d;
+}
+
+    #businessCategory:hover {
+        background-color: #47325c;
+        cursor: pointer;
+    }
+
+        #businessCategory:hover .category-text {
+            color: #999999
+        }
+
+        #businessCategory:hover .icon {
+            color: white;
+        }
+
+#villaCategory {
+    background-color: #359673;
+}
+
+    #villaCategory:hover {
+        background-color: #1f5743;
+        cursor: pointer;
+    }
+
+        #villaCategory:hover .category-text {
+            color: #999999
+        }
+
+        #villaCategory:hover .icon {
+            color: white;
+        }
+
+#residentialCategory {
+    background-color: #9fa125;
+}
+
+    #residentialCategory:hover {
+        background-color: #717319;
+        cursor: pointer;
+    }
+
+        #residentialCategory:hover .category-text {
+            color: #999999
+        }
+
+        #residentialCategory:hover .icon {
+            color: white;
+        }
+
+#commercialCategory {
+    background-color: #26632e;
+}
+
+    #commercialCategory:hover {
+        background-color: #19421f;
+        cursor: pointer;
+    }
+
+        #commercialCategory:hover .category-text {
+            color: #999999
+        }
+
+        #commercialCategory:hover .icon {
+            color: white;
+        }
+
+footer {
+    width: 100vw;
+}

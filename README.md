@@ -56,6 +56,7 @@
 * [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
 * [ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-6.0)
 * [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* [Feather Icons](https://feathericons.com)
 <p align="right">(<a href="#top">Обратно нагоре</a>)</p>
 
 <!-- GETTING STARTED -->

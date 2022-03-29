@@ -1,5 +1,7 @@
 using InsuranceRiskAssessment.BusinessLogicLayer.Abstractions.MovablePropertyServices;
+using InsuranceRiskAssessment.BusinessLogicLayer.Abstractions.RealEstateServices;
 using InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertyServices;
+using InsuranceRiskAssessment.BusinessLogicLayer.Services.RealEstateServicess;
 using InsuranceRiskAssessment.DataAccessLayer.Abstractions;
 using InsuranceRiskAssessment.DataAccessLayer.Data;
 using InsuranceRiskAssessment.DataAccessLayer.Repositories;
@@ -34,7 +36,11 @@ namespace InsuranceRiskAssessment
             services.AddTransient<IAirTransportService, AirTransportService>();
             services.AddTransient<ISeaTransportService, SeaTransportService>();
             services.AddTransient<IVehicleByLandService, VehicleByLandService>();
-            //Add rest services
+            services.AddTransient<IBusinessEnterpriseService, BusinessEnterpriseService>();
+            services.AddTransient<ICommercialPropertyService, CommercialProprtyService>();
+            services.AddTransient<IResidentialBuildingService, ResidentialBuildingService>();
+            services.AddTransient<IVillaBuildingService, VillaBuildingService>();
+
             services.AddControllersWithViews();
         }
 

@@ -146,6 +146,10 @@
     top:350px;
 }
 
+body {
+    width: 100vw;
+}
+
 .mainPageImage {
     width: 300px;
     height: 300px;

@@ -1,3 +1,31 @@
-﻿<div class="container">
+﻿@{
+    ViewData["Title"] = "Недвижемо имущество";
+}
 
+<div class="realEstatesContainer">
+    <div class="categories">
+        <a href="@Url.Action("Index","BusinessEnterprises")">
+            <div id="businessCategory" class="category">
+                <p class="category-text"><i class="icon" data-feather="briefcase"></i>  Бизнес предприятия  <i class="icon" data-feather="briefcase"></i></p>
+            </div>
+        </a>
+        
+        <a href="@Url.Action("Index","CommercialProperties")">
+            <div id="villaCategory" class="category">
+                <p class="category-text"><i class="icon" data-feather="home"></i>  Вилни сгради  <i class="icon" data-feather="home"></i></p>
+            </div>
+        </a>
+
+        <a href="@Url.Action("Index","ResidentialBuildings")">
+            <div id="residentialCategory" class="category">
+                <p class="category-text"><i class="icon" data-feather="trello"></i>  Жилищни сгради  <i class="icon" data-feather="trello"></i></p>
+            </div>
+        </a>
+
+        <a href="@Url.Action("Index","VillaBuildings")">
+            <div id="commercialCategory" class="category">
+                <p class="category-text"><i class="icon" data-feather="home"></i>  Стопанско имущество  <i class="icon" data-feather="home"></i></p>
+            </div>
+        </a>
+    </div>
 </div>

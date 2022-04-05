@@ -1,118 +1,21 @@
 ﻿@model IEnumerable<InsuranceRiskAssessment.Web.Models.ViewModels.MovableProprtiesViewModels.AirTransport.AirTransportViewModel>
 
 @{
-    ViewData["Title"] = "Въздушни транспорти";
+    ViewData["Title"] = "Insurance Risk Assesment - Въздушни транспорти";
 }
 <div class="air-index-container">
-        <a asp-action="Create"><i data-feather="plus" class="create-icon"></i></a>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.ClimatZone)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Functionality)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ManifactureYear)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.SecurityEquipmenPossession)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.TechnicalServiceability)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.DistanceTraveled)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Height)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Weight)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Width)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.RegisteredCountry)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.RegisteredRegion)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.RegisteredCity)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.CreatedAt)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ModifiedAt)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.PreviousAccidents)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ClimatZone)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Functionality)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ManifactureYear)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.SecurityEquipmenPossession)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.TechnicalServiceability)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DistanceTraveled)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Height)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Weight)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Width)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.RegisteredCountry)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.RegisteredRegion)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.RegisteredCity)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.CreatedAt)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ModifiedAt)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.PreviousAccidents)
-                    </td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
+    <a asp-action="Create" class="link-create"> <i data-feather="plus" class="create-icon"></i></a>
+    <div class="item-container">
+        @foreach (var item in Model)
+        {
+            <a asp-action="Details" asp-route-id="@item.Id">
+                <div class="itemBox">
+                    <span class="item-name">@Html.DisplayFor(modelItem => item.Functionality)</span>
+                    <spam class="item-result">@Html.DisplayFor(modelItem => item.ResultValue)</spam>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="delete-button"><i data-feather="trash"></i></a>
+                </div>
+            </a>
+        }
+    </div>
 </div>
 

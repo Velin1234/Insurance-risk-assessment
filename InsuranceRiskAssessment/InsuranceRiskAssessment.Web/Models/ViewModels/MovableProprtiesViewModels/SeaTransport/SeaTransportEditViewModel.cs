@@ -6,8 +6,7 @@ namespace InsuranceRiskAssessment.Web.Models.ViewModels.MovableProprtiesViewMode
     public class SeaTransportEditViewModel : MovablePropertiesViewModel
     {
         [Required]
-        [DisplayName("Климатична зона")]
-        public string ClimatZone { get; set; }
+        public string Name { get; set; }
         [Required]
         [DisplayName("Маршрута минава ли през пиратска активност")]
         public bool DoesRoutePassesPirateZones { get; set; }

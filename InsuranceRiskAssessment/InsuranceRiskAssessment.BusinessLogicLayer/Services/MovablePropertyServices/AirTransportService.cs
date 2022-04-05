@@ -15,7 +15,7 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertySer
         }
         public bool CreateAirTransport(DateTime manifactureYear, bool securityEquipmenPossession, bool technicalServiceability, int distanceTraveled,
             double height, double weight, double width, string registeredCountry, string registeredRegion,
-            string registeredCity, string climatZone, string functionality)
+            string registeredCity, string functionality, string name)
         {
             var airTransport = new AirTransport()
             {
@@ -29,8 +29,8 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertySer
                 RegisteredCountry = registeredCountry,
                 RegisteredRegion = registeredRegion,
                 RegisteredCity = registeredCity,
-                ClimatZone = climatZone,
-                Functionality = functionality
+                Functionality = functionality,
+                Name = name
             };
             return _airTransportRepository.Create(airTransport);
         }
@@ -52,7 +52,7 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertySer
 
         public bool UpdateAirTransport(int airTransportId, DateTime manifactureYear, bool securityEquipmenPossession, bool technicalServiceability,
             int distanceTraveled, double height, double weight, double width, string registeredCountry, string registeredRegion,
-            string registeredCity, string climatZone, string functionality)
+            string registeredCity, string functionality, string name)
         {
             var airTransport = GetAirTransportById(airTransportId);
             if (airTransport == default(AirTransport))
@@ -70,7 +70,6 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertySer
             airTransport.RegisteredCountry = registeredCountry;
             airTransport.RegisteredRegion = registeredRegion;
             airTransport.RegisteredCity = registeredCity;
-            airTransport.ClimatZone = climatZone;
             airTransport.Functionality = functionality;
 
             return _airTransportRepository.Update(airTransport);

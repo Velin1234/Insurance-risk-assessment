@@ -37,8 +37,8 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
                     CreatedAt = item.CreatedAt,
                     ModifiedAt = item.ModifiedAt,
                     PreviousAccidents = item.PreviousAccidents,
-                    ClimatZone = item.ClimatZone,
                     Functionality = item.Functionality,
+                    Name = item.Name,
                     ResultValue = item.ResultValue
 
                 }).ToList();
@@ -67,7 +67,7 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
                 CreatedAt = item.CreatedAt,
                 ModifiedAt = item.ModifiedAt,
                 PreviousAccidents = item.PreviousAccidents,
-                ClimatZone = item.ClimatZone,
+                Name = item.Name,
                 Functionality = item.Functionality,
                 ResultValue = item.ResultValue
             };
@@ -90,7 +90,7 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
         {
             var created = _airTransportService.CreateAirTransport(model.ManifactureYear, model.SecurityEquipmenPossession, model.TechnicalServiceability,
                 model.DistanceTraveled, model.Height, model.Weight, model.Width, model.RegisteredCountry, model.RegisteredRegion,
-                model.RegisteredCity, model.ClimatZone, model.Functionality);
+                model.RegisteredCity, model.Name, model.Functionality);
 
             if (created)
             {
@@ -127,7 +127,7 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
                 CreatedAt = entity.CreatedAt,
                 ModifiedAt = entity.ModifiedAt,
                 PreviousAccidents = entity.PreviousAccidents,
-                ClimatZone = entity.ClimatZone,
+                Name = entity.Name,
                 Functionality = entity.Functionality,
                 ResultValue = entity.ResultValue
             };
@@ -144,7 +144,7 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
         {
             var updated = _airTransportService.UpdateAirTransport(id, model.ManifactureYear, model.SecurityEquipmenPossession, model.TechnicalServiceability,
                 model.DistanceTraveled, model.Height, model.Weight, model.Width, model.RegisteredCountry, model.RegisteredRegion,
-                model.RegisteredCity, model.ClimatZone, model.Functionality);
+                model.RegisteredCity, model.Name, model.Functionality);
 
             if (updated)
             {
@@ -176,7 +176,7 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
                 CreatedAt = item.CreatedAt,
                 ModifiedAt = item.ModifiedAt,
                 PreviousAccidents = item.PreviousAccidents,
-                ClimatZone = item.ClimatZone,
+                Name = item.Name,
                 Functionality = item.Functionality,
                 ResultValue = item.ResultValue
             };

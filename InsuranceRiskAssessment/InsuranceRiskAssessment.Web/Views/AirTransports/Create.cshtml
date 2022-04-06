@@ -4,83 +4,153 @@
     ViewData["Title"] = "Insurance Risk Assesment - Оцени въздушен транспорт";
 }
 
+<script>
+    function getAirTransportResultValue() {
+       let resultBox = document.getElementsByClassName("result")[0];
+       const functionalityType = document.getElementById("functionalityInput").value;
+       const dateTimeInput = document.getElementsByClassName("dateInput")[0].value;
+       const manufactureYear = dateTimeInput.slice(0,4);
+       const currentYear = new Date().getFullYear();
+       const previousIncidents = document.getElementById("previousIncidentsInput");
+       const securityEquipmenPossession = document.getElementById("securityEquipmenPossession");
+       const technicalServicability = document.getElementById("technicalServicability");
+       const traveledDistance = document.getElementById("traveledDistance").value;
+
+       let years;
+       if(manufactureYear !== ""){
+           years = currentYear-manufactureYear;
+       }
+
+       let initialValue = 100;
+       switch(functionalityType){
+           case "Търговски":
+            initialValue -= 5;
+           break;
+           case "Военен":
+             initialValue -= 20;
+           break;
+           case "Товарен":
+            initialValue -= 10;
+            break;
+       }
+       if (years >= 5 && years <= 10)
+       {
+           initialValue -= 10;
+       }
+       else if (years > 10 && years <= 15)
+       {
+           initialValue -= 15;
+       }
+       else if (years > 15)
+       {
+           initialValue -= 20;
+       }
+
+       if (previousIncidents.checked)
+       {
+           initialValue -= 5;
+       }       
+
+       if(!technicalServicability.checked){
+           initialValue -= 20;
+       }
+
+       if(!securityEquipmenPossession.checked){
+           initialValue -= 15;
+       }
+
+       if (traveledDistance >= 100000 && traveledDistance < 200000)
+            {
+                initialValue -= 10;
+            }
+            else if (traveledDistance >= 200000)
+            {
+                initialValue -= 20;
+            }
+
+
+       resultBox.textContent = initialValue;
+    }
+</script>
+
 <div class="create-container">
     <div class="create-form">
-    <form asp-action="Create">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <a asp-action="Index"><i data-feather="arrow-left" class="back-icon"></i></a>
-        <div class="form-group">
-            <label asp-for="Name" class="control-label">Име:</label>
-            <input asp-for="Name" class="textInput" /><br />
-        </div>
-        <div class="form-group">
-            <label asp-for="Functionality" class="control-label">Функционалност:</label>
-            <select asp-for="Functionality" class="select-form">
-                <option value="Търговски">Търговски</option>
-                <option value="Военен">Военен</option>
-                <option value="Товарен">Товарен</option>
-            </select>
-        </div>
-        <div class="form-group">
-            <label asp-for="ManifactureYear" class="control-label">Година на производство:</label>
-            <input type="date" asp-for="ManifactureYear" class="dateInput" /><br />
-        </div>
-        <div class="form-group">
-            <label asp-for="DistanceTraveled" class="control-label">Изминато разстояние:</label>
-            <input asp-for="DistanceTraveled" min="1" class="textInput" /><br />
-        </div>
-        <div class="form-group">
-            <label asp-for="Height" class="control-label">Височина:</label>
-            <input type="number" min="1" asp-for="Height" class="textInput" /><br />
-        </div>
-        <div class="form-group">
-            <label asp-for="Weight" class="control-label">Тегло:</label>
-            <input type="number" asp-for="Weight" min="1" class="textInput" /><br />
-        </div>
-        <div class="form-group">
-            <label asp-for="Width" class="control-label">Широчина:</label>
-            <input type="number" asp-for="Width" min="1" class="textInput" /><br />
-        </div>
-        <div class="form-group">
-            <label asp-for="RegisteredCountry" class="control-label">Държава:</label>
-            <input asp-for="RegisteredCountry" class="textInput" /><br />
-        </div>
-        <div class="form-group">
-            <label asp-for="RegisteredRegion" class="control-label">Област:</label>
-            <input asp-for="RegisteredRegion" class="textInput" /><br />
-        </div>
-        <div class="form-group">
-            <label asp-for="RegisteredCity" class="control-label">Град/Село:</label>
-            <input asp-for="RegisteredCity" class="textInput" /><br />
-        </div>
-        <div class="form-group form-check">
-            <label class="form-check-label">
-                <input class="checkboxInput" asp-for="SecurityEquipmenPossession" /> @Html.DisplayNameFor(model => model.SecurityEquipmenPossession)
-            </label>
-        </div>
-        <div class="form-group form-check">
-            <label class="form-check-label">
-                <input class="checkboxInput" asp-for="TechnicalServiceability" /> @Html.DisplayNameFor(model => model.TechnicalServiceability)
-            </label>
-        </div>
-        <div class="form-group form-check">
-            <label class="form-check-label">
-                <input class="checkboxInput" asp-for="PreviousAccidents" /> @Html.DisplayNameFor(model => model.PreviousAccidents)
-            </label>
-        </div>
-        <div class="form-group">
-            <input class="create-result" type="submit" value="Запази резултат" />
-        </div>        
-    </form>
-    <button class="show-result">Покажи резултат</button>
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <a asp-action="Index"><i data-feather="arrow-left" class="back-icon"></i></a>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Име:</label>
+                <input asp-for="Name" class="textInput" /><br />
+            </div>
+            <div class="form-group">
+                <label asp-for="Functionality" class="control-label">Функционалност:</label>
+                <select asp-for="Functionality" id="functionalityInput" class="select-form">
+                    <option value="Търговски">Търговски</option>
+                    <option value="Военен">Военен</option>
+                    <option value="Товарен">Товарен</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ManifactureYear" class="control-label">Година на производство:</label>
+                <input type="date" max="@DateTime.Now.ToString("yyyy-MM-dd")" asp-for="ManifactureYear" class="dateInput" /><br />
+            </div>
+            <div class="form-group">
+                <label asp-for="DistanceTraveled" class="control-label">Изминато разстояние:</label>
+                <input id="traveledDistance" asp-for="DistanceTraveled" min="1" class="textInput" /><br />
+            </div>
+            <div class="form-group">
+                <label asp-for="Height" class="control-label">Височина:</label>
+                <input type="number" min="1" asp-for="Height" class="textInput" /><br />
+            </div>
+            <div class="form-group">
+                <label asp-for="Weight" class="control-label">Тегло:</label>
+                <input type="number" asp-for="Weight" min="1" class="textInput" /><br />
+            </div>
+            <div class="form-group">
+                <label asp-for="Width" class="control-label">Широчина:</label>
+                <input type="number" asp-for="Width" min="1" class="textInput" /><br />
+            </div>
+            <div class="form-group">
+                <label asp-for="RegisteredCountry" class="control-label">Държава:</label>
+                <input asp-for="RegisteredCountry" class="textInput" /><br />
+            </div>
+            <div class="form-group">
+                <label asp-for="RegisteredRegion" class="control-label">Област:</label>
+                <input asp-for="RegisteredRegion" class="textInput" /><br />
+            </div>
+            <div class="form-group">
+                <label asp-for="RegisteredCity" class="control-label">Град/Село:</label>
+                <input asp-for="RegisteredCity" class="textInput" /><br />
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input id="securityEquipmenPossession" class="checkboxInput" asp-for="SecurityEquipmenPossession" /> @Html.DisplayNameFor(model => model.SecurityEquipmenPossession)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input id="technicalServicability" class="checkboxInput" asp-for="TechnicalServiceability" /> @Html.DisplayNameFor(model => model.TechnicalServiceability)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input id="previousIncidentsInput" class="checkboxInput" asp-for="PreviousAccidents" /> @Html.DisplayNameFor(model => model.PreviousAccidents)
+                </label>
+            </div>
+            <div class="form-group">
+                <input class="create-result" type="submit" value="Запази резултат" />
+            </div>
+        </form>
+        <button class="show-result" OnClick="getAirTransportResultValue();">Покажи резултат</button>
     </div>
     <div class="result-box">
-         <span class=result>100</span>
+        <span class="result">100</span>
     </div>
 </div>
 
 @section Scripts {
     @{
     await Html.RenderPartialAsync("_ValidationScriptsPartial");
+
 }
 }

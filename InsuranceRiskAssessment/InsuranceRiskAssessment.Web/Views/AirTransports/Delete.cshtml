@@ -9,9 +9,9 @@
         <a asp-action="Index"><i data-feather="arrow-left" class="back-icon-delete"></i></a>
         <p class='delete-header'>Сигурни ли сте, че искате да изтриете този резултат?</p>
         <label asp-for="Name">Име:</label>
-        <span>@Html.DisplayFor(model => model.Functionality)</span><br />
+        <span class="delete-span">@Html.DisplayFor(model => model.Name)</span><br />
         <label asp-for="ResultValue">Резултат:</label>
-        <span>@Html.DisplayFor(model => model.ResultValue)</span>
+        <span class="delete-span">@Html.DisplayFor(model => model.ResultValue)</span>
         <form asp-action="Delete">
             <input type="hidden" asp-for="Id" />
             <input type="submit" value="Изтрий" class="delete-btn" />

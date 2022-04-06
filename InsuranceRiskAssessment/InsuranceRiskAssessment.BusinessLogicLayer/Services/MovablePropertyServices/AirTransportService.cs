@@ -13,7 +13,7 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertySer
         {
             _airTransportRepository = airTransportRepository;
         }
-        public bool CreateAirTransport(DateTime manifactureYear, bool securityEquipmenPossession, bool technicalServiceability, int distanceTraveled,
+        public bool CreateAirTransport(DateTime manifactureYear, bool securityEquipmenPossession, bool technicalServiceability, bool previousIncidents, int distanceTraveled,
             double height, double weight, double width, string registeredCountry, string registeredRegion,
             string registeredCity, string functionality, string name)
         {
@@ -22,6 +22,7 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertySer
                 ManifactureYear = manifactureYear,
                 SecurityEquipmenPossession = securityEquipmenPossession,
                 TechnicalServiceability = technicalServiceability,
+                PreviousAccidents = previousIncidents,
                 DistanceTraveled = distanceTraveled,
                 Height = height,
                 Weight = weight,
@@ -30,7 +31,8 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertySer
                 RegisteredRegion = registeredRegion,
                 RegisteredCity = registeredCity,
                 Functionality = functionality,
-                Name = name
+                Name = name,
+                ResultValue = GetResultValue(manifactureYear, securityEquipmenPossession, technicalServiceability, previousIncidents, distanceTraveled, functionality)
             };
             return _airTransportRepository.Create(airTransport);
         }
@@ -50,8 +52,8 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertySer
             return _airTransportRepository.RemoveById(airTransportId);
         }
 
-        public bool UpdateAirTransport(int airTransportId, DateTime manifactureYear, bool securityEquipmenPossession, bool technicalServiceability,
-            int distanceTraveled, double height, double weight, double width, string registeredCountry, string registeredRegion,
+        public bool UpdateAirTransport(int airTransportId, DateTime manifactureYear, bool securityEquipmenPossession,
+            bool technicalServiceability, bool previousIncidents, int distanceTraveled, double height, double weight, double width, string registeredCountry, string registeredRegion,
             string registeredCity, string functionality, string name)
         {
             var airTransport = GetAirTransportById(airTransportId);
@@ -62,6 +64,7 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertySer
 
             airTransport.ManifactureYear = manifactureYear;
             airTransport.SecurityEquipmenPossession = securityEquipmenPossession;
+            airTransport.PreviousAccidents = previousIncidents;
             airTransport.TechnicalServiceability = technicalServiceability;
             airTransport.DistanceTraveled = distanceTraveled;
             airTransport.Height = height;
@@ -71,8 +74,68 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertySer
             airTransport.RegisteredRegion = registeredRegion;
             airTransport.RegisteredCity = registeredCity;
             airTransport.Functionality = functionality;
+            airTransport.Name = name;
+            airTransport.ResultValue = GetResultValue(manifactureYear, securityEquipmenPossession, technicalServiceability, previousIncidents, distanceTraveled, functionality);
 
             return _airTransportRepository.Update(airTransport);
+        }
+
+        private int GetResultValue(DateTime manifactureYear, bool securityEquipmenPossession, bool technicalServiceability, bool previousIncidents, int distanceTraveled, string functionality)
+        {
+            int initialResultValue = 100;
+
+            int currentYear = DateTime.Now.Year;
+            int manifacture_year = manifactureYear.Year;
+            int yearDifference = currentYear - manifacture_year;
+
+            if (previousIncidents)
+            {
+                initialResultValue -= 5;
+            }
+            if (yearDifference >= 5 && yearDifference <= 10)
+            {
+                initialResultValue -= 10;
+            }
+            else if (yearDifference > 10 && yearDifference <= 15)
+            {
+                initialResultValue -= 15;
+            }
+            else if (yearDifference > 15)
+            {
+                initialResultValue -= 20;
+            }
+            if (!securityEquipmenPossession)
+            {
+                initialResultValue -= 15;
+            }
+            if (!technicalServiceability)
+            {
+                initialResultValue -= 20;
+            }
+            if (distanceTraveled >= 100000 && distanceTraveled < 200000)
+            {
+                initialResultValue -= 10;
+            }
+            else if (distanceTraveled >= 200000)
+            {
+                initialResultValue -= 20;
+            }
+
+            switch (functionality)
+            {
+                case "Търговски":
+                    initialResultValue -= 5;
+                    break;
+                case "Военен":
+                    initialResultValue -= 20;
+                    break;
+                case "Товарен":
+                    initialResultValue  -= 10;
+                    break;
+            }
+
+
+            return initialResultValue;
         }
     }
 }

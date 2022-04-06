@@ -14,21 +14,47 @@
 .delete-container {
     padding-top: 130px;
     width: 100vw;
-    height: 700px;
+    height: 850px;
     color: white;
     padding-left: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.details-container {
+    padding-top: 130px;
+    width: 100vw;
+    height: 1000px;
+    color: white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.details-box {
+    background-color: #27272a;
+    padding: 20px;
+    width: 1050px;
+    margin-top: 20px;
 }
 
 .delete-box {
     background-color: #27272a;
-    padding: 20px;
+    padding: 30px;
     width: 1050px;
-    margin-top:20px;
+    border-radius: 15px;
+    margin-top: 100px;
 }
 
 .delete-header{
     font-size:40px;
     padding-bottom:20px;
+}
+
+.delete-span{
+    font-size: 20px;
 }
 
 .result-box {
@@ -84,6 +110,8 @@ label {
     width: 95vw;
     height: 75vh;
     margin: 20px;
+    flex-wrap: wrap;
+    align-content:flex-start;
 }
 
 .textInput {

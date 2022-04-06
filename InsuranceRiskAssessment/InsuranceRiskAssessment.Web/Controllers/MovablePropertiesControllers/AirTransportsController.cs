@@ -88,9 +88,9 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([FromForm] AirTransportAddViewModel model)
         {
-            var created = _airTransportService.CreateAirTransport(model.ManifactureYear, model.SecurityEquipmenPossession, model.TechnicalServiceability,
+            var created = _airTransportService.CreateAirTransport(model.ManifactureYear, model.SecurityEquipmenPossession, model.TechnicalServiceability,model.PreviousAccidents,
                 model.DistanceTraveled, model.Height, model.Weight, model.Width, model.RegisteredCountry, model.RegisteredRegion,
-                model.RegisteredCity, model.Name, model.Functionality);
+                model.RegisteredCity, model.Functionality, model.Name);
 
             if (created)
             {
@@ -129,7 +129,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
                 PreviousAccidents = entity.PreviousAccidents,
                 Name = entity.Name,
                 Functionality = entity.Functionality,
-                ResultValue = entity.ResultValue
             };
 
             return View(model);
@@ -142,9 +141,9 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, AirTransportEditViewModel model)
         {
-            var updated = _airTransportService.UpdateAirTransport(id, model.ManifactureYear, model.SecurityEquipmenPossession, model.TechnicalServiceability,
+            var updated = _airTransportService.UpdateAirTransport(id, model.ManifactureYear, model.SecurityEquipmenPossession, model.TechnicalServiceability,model.PreviousAccidents,
                 model.DistanceTraveled, model.Height, model.Weight, model.Width, model.RegisteredCountry, model.RegisteredRegion,
-                model.RegisteredCity, model.Name, model.Functionality);
+                model.RegisteredCity, model.Functionality, model.Name);
 
             if (updated)
             {

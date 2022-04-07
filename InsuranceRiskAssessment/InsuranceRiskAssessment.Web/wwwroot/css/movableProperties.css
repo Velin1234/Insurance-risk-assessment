@@ -108,7 +108,7 @@ label {
     border: 2px solid #70518d;
     border-radius: 4%;
     width: 95vw;
-    height: 75vh;
+    min-height: 700px;
     margin: 20px;
     flex-wrap: wrap;
     align-content:flex-start;

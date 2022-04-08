@@ -67,13 +67,16 @@
 
 ### Необходим софтуер
 
+Visual Studio 2022
+.NET Core SDK
+SQL Server
 
 ### Инсталация
 1. Клонирайте репо-то
 ```
 git clone https://github.com/Velin1234/Insurance-risk-assessment.git
 ```
-2. Отворете .sln файла
+2. Отворете .sln файла във Visual Studio 2022
 3. Изберете .Web проекта като стартов
 4. Отворете Package manager конзолата и напишете
 ```

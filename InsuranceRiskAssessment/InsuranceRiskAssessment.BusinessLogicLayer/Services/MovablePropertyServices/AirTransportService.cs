@@ -28,6 +28,7 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertySer
                 Weight = weight,
                 Width = width,
                 RegisteredCountry = registeredCountry,
+                ModifiedAt = DateTime.Now,
                 RegisteredRegion = registeredRegion,
                 RegisteredCity = registeredCity,
                 Functionality = functionality,
@@ -70,6 +71,7 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertySer
             airTransport.Height = height;
             airTransport.Weight = weight;
             airTransport.Width = width;
+            airTransport.ModifiedAt = DateTime.Now;
             airTransport.RegisteredCountry = registeredCountry;
             airTransport.RegisteredRegion = registeredRegion;
             airTransport.RegisteredCity = registeredCity;
@@ -83,7 +85,6 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertySer
         private int GetResultValue(DateTime manifactureYear, bool securityEquipmenPossession, bool technicalServiceability, bool previousIncidents, int distanceTraveled, string functionality)
         {
             int initialResultValue = 100;
-
             int currentYear = DateTime.Now.Year;
             int manifacture_year = manifactureYear.Year;
             int yearDifference = currentYear - manifacture_year;
@@ -120,7 +121,6 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertySer
             {
                 initialResultValue -= 20;
             }
-
             switch (functionality)
             {
                 case "Търговски":
@@ -133,7 +133,6 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertySer
                     initialResultValue  -= 10;
                     break;
             }
-
 
             return initialResultValue;
         }

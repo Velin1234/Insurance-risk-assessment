@@ -16,7 +16,7 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertySer
 
         public bool CreateSeaTransport(DateTime manifactureYear, bool securityEquipmenPossession, bool technicalServiceability,
             int distanceTraveled, double height, double weight, double width, string registeredCountry,
-            string registeredRegion, string registeredCity, string climatZone, bool doesRoutePassesPirateZones, string functionality, string typeOfMovability)
+            string registeredRegion, string registeredCity, bool doesRoutePassesPirateZones, string functionality, string typeOfMovability, string name)
         {
             var seaTransport = new SeaTransport()
             {
@@ -30,7 +30,6 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertySer
                 RegisteredCountry = registeredCountry,
                 RegisteredRegion = registeredRegion,
                 RegisteredCity = registeredCity,
-                ClimatZone = climatZone,
                 DoesRoutePassesPirateZones = doesRoutePassesPirateZones,
                 Functionality = functionality,
                 TypeOfMovability = typeOfMovability
@@ -55,7 +54,7 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertySer
 
         public bool UpdateSeaTransport(int seaTransportId, DateTime manifactureYear, bool securityEquipmenPossession, bool technicalServiceability,
             int distanceTraveled, double height, double weight, double width, string registeredCountry,
-            string registeredRegion, string registeredCity, string climatZone, bool doesRoutePassesPirateZones, string functionality, string typeOfMovability)
+            string registeredRegion, string registeredCity, bool doesRoutePassesPirateZones, string functionality, string typeOfMovability, string name)
         {
             var seaTransport = GetSeaTransportById(seaTransportId);
             if (seaTransport == default(SeaTransport))
@@ -73,7 +72,6 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertySer
             seaTransport.RegisteredCountry = registeredCountry;
             seaTransport.RegisteredRegion = registeredRegion;
             seaTransport.RegisteredCity = registeredCity;
-            seaTransport.ClimatZone = climatZone;
             seaTransport.DoesRoutePassesPirateZones = doesRoutePassesPirateZones;
             seaTransport.Functionality = functionality;
             seaTransport.TypeOfMovability = typeOfMovability;

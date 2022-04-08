@@ -2,7 +2,7 @@
 {
     public class AirTransportDetailsViewModel : MovablePropertiesViewModel
     {
-        public string ClimatZone { get; set; }
         public string Functionality { get; set; }
+        public string Name { get; set; }
     }
 }

@@ -1,102 +1,82 @@
-﻿@model InsuranceRiskAssessment.DataAccessLayer.Entities.MovablePropertyEnities.AirTransport
+﻿@model InsuranceRiskAssessment.Web.Models.ViewModels.MovableProprtiesViewModels.AirTransport.AirTransportEditViewModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Insurance Risk Assesment - Промени резултат от въздушен транспорт";
 }
 
-<h1>Edit</h1>
-
-<h4>AirTransport</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="create-container">
+    <div class="create-form">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <a asp-action="Index"><i data-feather="arrow-left" class="back-icon"></i></a>
             <div class="form-group">
-                <label asp-for="ClimatZone" class="control-label"></label>
-                <input asp-for="ClimatZone" class="form-control" />
-                <span asp-validation-for="ClimatZone" class="text-danger"></span>
+                <label asp-for="Name" class="control-label">Име:</label>
+                <input asp-for="Name" class="textInput" /><br />
             </div>
             <div class="form-group">
-                <label asp-for="Functionality" class="control-label"></label>
-                <input asp-for="Functionality" class="form-control" />
-                <span asp-validation-for="Functionality" class="text-danger"></span>
+                <label asp-for="Functionality" class="control-label">Функционалност:</label>
+                <select asp-for="Functionality" id="functionalityInput" class="select-form">
+                    <option value="Търговски">Търговски</option>
+                    <option value="Военен">Военен</option>
+                    <option value="Товарен">Товарен</option>
+                </select>
             </div>
             <div class="form-group">
-                <label asp-for="ManifactureYear" class="control-label"></label>
-                <input asp-for="ManifactureYear" class="form-control" />
-                <span asp-validation-for="ManifactureYear" class="text-danger"></span>
+                <label asp-for="ManifactureYear" class="control-label">Година на производство:</label>
+                <input type="date" max="@DateTime.Now.ToString("yyyy-MM-dd")" asp-for="ManifactureYear" class="dateInput" /><br />
+            </div>
+            <div class="form-group">
+                <label asp-for="DistanceTraveled" class="control-label">Изминато разстояние(км.):</label>
+                <input id="traveledDistance" asp-for="DistanceTraveled" min="1" class="textInput" /><br />
+            </div>
+            <div class="form-group">
+                <label asp-for="Height" class="control-label">Височина(м.):</label>
+                <input type="number" min="1" asp-for="Height" class="textInput" /><br />
+            </div>
+            <div class="form-group">
+                <label asp-for="Weight" class="control-label">Тегло(кг.):</label>
+                <input type="number" asp-for="Weight" min="1" class="textInput" /><br />
+            </div>
+            <div class="form-group">
+                <label asp-for="Width" class="control-label">Широчина(м.):</label>
+                <input type="number" asp-for="Width" min="1" class="textInput" /><br />
+            </div>
+            <div class="form-group">
+                <label asp-for="RegisteredCountry" class="control-label">Държава:</label>
+                <input asp-for="RegisteredCountry" class="textInput" /><br />
+            </div>
+            <div class="form-group">
+                <label asp-for="RegisteredRegion" class="control-label">Област:</label>
+                <input asp-for="RegisteredRegion" class="textInput" /><br />
+            </div>
+            <div class="form-group">
+                <label asp-for="RegisteredCity" class="control-label">Град/Село:</label>
+                <input asp-for="RegisteredCity" class="textInput" /><br />
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="SecurityEquipmenPossession" /> @Html.DisplayNameFor(model => model.SecurityEquipmenPossession)
+                    <input id="securityEquipmenPossession" class="checkboxInput" asp-for="SecurityEquipmenPossession" /> @Html.DisplayNameFor(model => model.SecurityEquipmenPossession)
                 </label>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="TechnicalServiceability" /> @Html.DisplayNameFor(model => model.TechnicalServiceability)
+                    <input id="technicalServicability" class="checkboxInput" asp-for="TechnicalServiceability" /> @Html.DisplayNameFor(model => model.TechnicalServiceability)
                 </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="DistanceTraveled" class="control-label"></label>
-                <input asp-for="DistanceTraveled" class="form-control" />
-                <span asp-validation-for="DistanceTraveled" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Height" class="control-label"></label>
-                <input asp-for="Height" class="form-control" />
-                <span asp-validation-for="Height" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Weight" class="control-label"></label>
-                <input asp-for="Weight" class="form-control" />
-                <span asp-validation-for="Weight" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Width" class="control-label"></label>
-                <input asp-for="Width" class="form-control" />
-                <span asp-validation-for="Width" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RegisteredCountry" class="control-label"></label>
-                <input asp-for="RegisteredCountry" class="form-control" />
-                <span asp-validation-for="RegisteredCountry" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RegisteredRegion" class="control-label"></label>
-                <input asp-for="RegisteredRegion" class="form-control" />
-                <span asp-validation-for="RegisteredRegion" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RegisteredCity" class="control-label"></label>
-                <input asp-for="RegisteredCity" class="form-control" />
-                <span asp-validation-for="RegisteredCity" class="text-danger"></span>
-            </div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="CreatedAt" class="control-label"></label>
-                <input asp-for="CreatedAt" class="form-control" />
-                <span asp-validation-for="CreatedAt" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ModifiedAt" class="control-label"></label>
-                <input asp-for="ModifiedAt" class="form-control" />
-                <span asp-validation-for="ModifiedAt" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="PreviousAccidents" /> @Html.DisplayNameFor(model => model.PreviousAccidents)
+                    <input id="previousIncidentsInput" class="checkboxInput" asp-for="PreviousAccidents" /> @Html.DisplayNameFor(model => model.PreviousAccidents)
                 </label>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input class="create-result" type="submit" value="Запази резултат" />
             </div>
         </form>
+        <button class="show-result" OnClick="getAirTransportResultValue();">Покажи резултат</button>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
+    <div class="result-box">
+        <span class="result">@Model.ResultValue</span>
+    </div>
 </div>
 
 @section Scripts {

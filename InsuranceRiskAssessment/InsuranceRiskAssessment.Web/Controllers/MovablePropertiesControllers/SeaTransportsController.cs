@@ -36,7 +36,7 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
                    CreatedAt = item.CreatedAt,
                    ModifiedAt = item.ModifiedAt,
                    PreviousAccidents = item.PreviousAccidents,
-                   ClimatZone = item.ClimatZone,
+                   Name = item.Name,
                    Functionality = item.Functionality,
                    TypeOfMovability = item.TypeOfMovability,
                    DoesRoutePassesPirateZones = item.DoesRoutePassesPirateZones,
@@ -67,7 +67,7 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
                 CreatedAt = item.CreatedAt,
                 ModifiedAt = item.ModifiedAt,
                 PreviousAccidents = item.PreviousAccidents,
-                ClimatZone = item.ClimatZone,
+                Name = item.Name,
                 Functionality = item.Functionality,
                 TypeOfMovability = item.TypeOfMovability,
                 DoesRoutePassesPirateZones = item.DoesRoutePassesPirateZones,
@@ -91,7 +91,7 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
         {
             var created = _seaTransportService.CreateSeaTransport(model.ManifactureYear, model.SecurityEquipmenPossession, model.TechnicalServiceability,
                 model.DistanceTraveled, model.Height, model.Weight, model.Width, model.RegisteredCountry, model.RegisteredRegion,
-                model.RegisteredCity, model.ClimatZone, model.DoesRoutePassesPirateZones, model.Functionality, model.TypeOfMovability);
+                model.RegisteredCity, model.DoesRoutePassesPirateZones, model.Functionality, model.TypeOfMovability,model.Name);
 
             if (created)
             {
@@ -128,7 +128,7 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
                 CreatedAt = entity.CreatedAt,
                 ModifiedAt = entity.ModifiedAt,
                 PreviousAccidents = entity.PreviousAccidents,
-                ClimatZone = entity.ClimatZone,
+                Name = entity.Name,
                 Functionality = entity.Functionality,
                 TypeOfMovability = entity.TypeOfMovability,
                 DoesRoutePassesPirateZones = entity.DoesRoutePassesPirateZones,
@@ -147,7 +147,7 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
         {
             var updated = _seaTransportService.UpdateSeaTransport(id, model.ManifactureYear, model.SecurityEquipmenPossession, model.TechnicalServiceability,
                 model.DistanceTraveled, model.Height, model.Weight, model.Width, model.RegisteredCountry, model.RegisteredRegion,
-                model.RegisteredCity, model.ClimatZone, model.DoesRoutePassesPirateZones, model.Functionality, model.TypeOfMovability);
+                model.RegisteredCity, model.DoesRoutePassesPirateZones, model.Functionality, model.TypeOfMovability, model.Name);
 
             if (updated)
             {
@@ -179,7 +179,7 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
                 CreatedAt = item.CreatedAt,
                 ModifiedAt = item.ModifiedAt,
                 PreviousAccidents = item.PreviousAccidents,
-                ClimatZone = item.ClimatZone,
+                Name = item.Name,
                 Functionality = item.Functionality,
                 TypeOfMovability = item.TypeOfMovability,
                 DoesRoutePassesPirateZones = item.DoesRoutePassesPirateZones,

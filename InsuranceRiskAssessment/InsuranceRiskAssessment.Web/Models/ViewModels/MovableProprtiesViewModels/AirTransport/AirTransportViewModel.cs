@@ -4,9 +4,9 @@ namespace InsuranceRiskAssessment.Web.Models.ViewModels.MovableProprtiesViewMode
 {
     public class AirTransportViewModel : MovablePropertiesViewModel
     {
-        [DisplayName("Климатична зона")]
-        public string ClimatZone { get; set; }
+        public string Name { get; set; }
         [DisplayName("Функционалност")]
         public string Functionality { get; set; }
+        
     }
 }

@@ -4,7 +4,7 @@ namespace InsuranceRiskAssessment.DataAccessLayer.Entities.MovablePropertyEnitie
 {
     public class AirTransport : MovableProperty
     {
-        public string ClimatZone { get; set; }
+        public string Name { get; set; }
         public string Functionality { get; set; }
         public virtual InsuranceBrokerUser InsuranceBroker { get; set; }
 

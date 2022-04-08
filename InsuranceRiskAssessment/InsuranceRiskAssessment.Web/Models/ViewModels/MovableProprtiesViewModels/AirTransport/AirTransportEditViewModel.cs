@@ -6,10 +6,9 @@ namespace InsuranceRiskAssessment.Web.Models.ViewModels.MovableProprtiesViewMode
     public class AirTransportEditViewModel : MovablePropertiesViewModel
     {
         [Required]
-        [DisplayName("Климатична зона")]
-        public string ClimatZone { get; set; }
-        [Required]
         [DisplayName("Функционалност")]
         public string Functionality { get; set; }
+        [Required]
+        public string Name { get; set; }
     }
 }

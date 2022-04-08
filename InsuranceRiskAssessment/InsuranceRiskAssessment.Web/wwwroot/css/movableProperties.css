@@ -1,0 +1,357 @@
+﻿.air-index-container {
+    padding-top: 130px;
+    width: 100vw;
+    height: 1000px;
+}
+
+.create-container {
+    padding-top: 130px;
+    width: 100vw;
+    height: 1000px;
+    display: flex;
+}
+
+.delete-container {
+    padding-top: 130px;
+    width: 100vw;
+    height: 850px;
+    color: white;
+    padding-left: 50px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.details-container {
+    padding-top: 130px;
+    width: 100vw;
+    height: 1000px;
+    color: white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.details-box {
+    background-color: #27272a;
+    padding: 20px;
+    width: 1050px;
+    margin-top: 20px;
+    border-radius:15px;
+    font-size:25px;
+}
+
+.details-span {
+    font-size: 20px;
+    color: #70518d;
+}
+
+.delete-box {
+    background-color: #27272a;
+    padding: 30px;
+    width: 1050px;
+    border-radius: 15px;
+    margin-top: 100px;
+}
+
+.details-icon {
+    color: #70518d;
+}
+
+.model-details {
+    padding-left: 25px;
+}
+
+.edit-btn {
+    color: #70518d;
+    margin-top: 20px;
+    margin-left: 90%;
+    margin-bottom: 10px;
+}
+.edit-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.delete-header{
+    font-size:40px;
+    padding-bottom:20px;
+}
+
+.delete-span{
+    font-size: 20px;
+}
+
+.result-box {
+    width: 350px;
+    height: 350px;
+    padding-top: 20px;
+    border-radius: 15px;
+    margin-top: 420px;
+    margin-left: 15px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.result {
+    font-size: 130pt;
+}
+
+.create-icon {
+    color: #70518d;
+    width: 45px;
+    height: 45px;
+    margin-top: 20px;
+}
+
+label {
+    font-size: 24px;
+}
+
+.back-icon {
+    color: #70518d;
+    height: 30px;
+    width: 30px;
+    margin-bottom: 10px;
+}
+
+.back-icon-delete {
+    color: #70518d;
+    height: 30px;
+    width: 30px;
+    margin-bottom: 10px;
+}
+
+.link-create {
+    margin-left: 90vw;
+}
+
+.item-container {
+    display: flex;
+    border: 2px solid #70518d;
+    border-radius: 4%;
+    width: 95vw;
+    min-height: 700px;
+    margin: 20px;
+    flex-wrap: wrap;
+    align-content:flex-start;
+}
+
+.textInput {
+    padding: 6px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid #70518d;
+    border-radius: 10px;
+    background-color: black;
+    color: white;
+    width: 50%;
+    font-size: 16px;
+}
+
+.select-form {
+    border-color: #70518d;
+    color: white;
+    background-color: black;
+    height: 30px;
+    font-size: 16px;
+}
+
+.dateInput {
+    border-color: black;
+    font-size: 16px;
+    background: #70518d;
+    color: white;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.itemBox {
+    position: relative;
+    margin: 10px;
+    width: 250px;
+    height: 130px;
+    background-color: white;
+    border-radius: 15%;
+}
+
+.item-name {
+    font-size: 20px;
+    padding-left: 20px;
+    display: block;
+    padding-top: 10px;
+}
+
+.item-result {
+    padding-left: 200px;
+    display: block;
+    padding-top: 45px;
+    font-size: 24px;
+}
+
+.delete-button {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+}
+
+.create-form {
+    position: relative;
+    color: white;
+    background-color: #27272a;
+    width: 700px;
+    padding: 30px;
+    border-radius: 10px;
+    margin-left: 20vw;
+    margin-top: 30px;
+    margin-bottom: 100px;
+}
+
+.create-result {
+    margin-top: 20px !important;
+    appearance: none;
+    background-color: white;
+    border: 2px solid #1A1A1A;
+    border-radius: 15px;
+    box-sizing: border-box;
+    color: #3B3B3B;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+    min-height: 40px;
+    min-width: 0;
+    outline: none;
+    padding: 5px 24px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+    will-change: transform;
+    width: 200px;
+}
+
+    .create-result:hover {
+        color: #fff;
+        background-color: #70518d;
+        box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+        transform: translateY(-2px);
+    }
+
+    .create-result:active {
+        box-shadow: none;
+        transform: translateY(0);
+    }
+
+.show-result {
+    position: absolute;
+    bottom: 60px;
+    right: 30px;
+    margin-top: 20px !important;
+    appearance: none;
+    background-color: white;
+    border: 2px solid #1A1A1A;
+    border-radius: 15px;
+    box-sizing: border-box;
+    color: #3B3B3B;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+    min-height: 40px;
+    min-width: 0;
+    outline: none;
+    padding: 5px 24px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+    will-change: transform;
+    width: 200px;
+}
+
+    .show-result:hover {
+        color: #fff;
+        background-color: #70518d;
+        box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+        transform: translateY(-2px);
+    }
+
+    .show-result:active {
+        box-shadow: none;
+        transform: translateY(0);
+    }
+
+.delete-btn {
+    margin-top: 20px !important;
+    appearance: none;
+    background-color: white;
+    border: 2px solid #1A1A1A;
+    border-radius: 15px;
+    box-sizing: border-box;
+    color: #3B3B3B;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+    margin: 0;
+    min-height: 40px;
+    min-width: 0;
+    outline: none;
+    padding: 5px 24px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+    will-change: transform;
+    width: 200px;
+}
+
+    .delete-btn:hover {
+        color: #fff;
+        background-color: #70518d;
+        box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+        transform: translateY(-2px);
+    }
+
+    .delete-btn:active{
+    box-shadow: none;
+    transform: translateY(0);
+    }
+
+    .checkboxInput {
+        width: 15px;
+        height: 15px;
+    }
+
+label {
+    font-size: 20px;
+}
+
+
+span {
+    font-size: 12px;
+    color: #70518d;
+}

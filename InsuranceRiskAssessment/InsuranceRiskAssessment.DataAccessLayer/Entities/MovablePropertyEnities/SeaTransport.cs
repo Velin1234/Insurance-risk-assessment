@@ -4,7 +4,7 @@ namespace InsuranceRiskAssessment.DataAccessLayer.Entities.MovablePropertyEnitie
 {
     public class SeaTransport : MovableProperty
     {
-        public string ClimatZone { get; set; }
+        public string Name { get; set; }
         public bool DoesRoutePassesPirateZones { get; set; }
         public string Functionality { get; set; }
         public string TypeOfMovability { get; set; }

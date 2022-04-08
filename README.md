@@ -67,9 +67,9 @@
 
 ### Необходим софтуер
 
-Visual Studio 2022
-.NET Core SDK
-SQL Server
+* Visual Studio 2022
+* .NET Core SDK
+* SQL Server
 
 ### Инсталация
 1. Клонирайте репо-то

@@ -8,10 +8,10 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Abstractions.MovablePropert
     {
         bool CreateSeaTransport(DateTime manifactureYear, bool securityEquipmenPossession, bool technicalServiceability,
             int distanceTraveled, double height, double weight, double width, string registeredCountry, string registeredRegion,
-            string registeredCity, bool doesRoutePassesPirateZones, string functionality, string typeOfMovability, string name);
+            string registeredCity, bool doesRoutePassesPirateZones, string functionality, string typeOfMovability, string name,bool previousIncidents);
         bool UpdateSeaTransport(int seaTransportId, DateTime manifactureYear, bool securityEquipmenPossession, bool technicalServiceability,
             int distanceTraveled, double height, double weight, double width, string registeredCountry, string registeredRegion,
-            string registeredCity, bool doesRoutePassesPirateZones, string functionality, string typeOfMovability,string name);
+            string registeredCity, bool doesRoutePassesPirateZones, string functionality, string typeOfMovability,string name, bool previousIncidents);
         List<SeaTransport> GetSeaTransports();
         SeaTransport GetSeaTransportById(int seaTransportId);
         bool Remove(int seaTransportId);

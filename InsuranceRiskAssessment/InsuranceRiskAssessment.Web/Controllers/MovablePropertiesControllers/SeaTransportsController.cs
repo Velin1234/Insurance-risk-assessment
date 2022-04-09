@@ -91,7 +91,7 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
         {
             var created = _seaTransportService.CreateSeaTransport(model.ManifactureYear, model.SecurityEquipmenPossession, model.TechnicalServiceability,
                 model.DistanceTraveled, model.Height, model.Weight, model.Width, model.RegisteredCountry, model.RegisteredRegion,
-                model.RegisteredCity, model.DoesRoutePassesPirateZones, model.Functionality, model.TypeOfMovability,model.Name);
+                model.RegisteredCity, model.DoesRoutePassesPirateZones, model.Functionality, model.TypeOfMovability,model.Name,model.PreviousAccidents);
 
             if (created)
             {
@@ -147,7 +147,7 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
         {
             var updated = _seaTransportService.UpdateSeaTransport(id, model.ManifactureYear, model.SecurityEquipmenPossession, model.TechnicalServiceability,
                 model.DistanceTraveled, model.Height, model.Weight, model.Width, model.RegisteredCountry, model.RegisteredRegion,
-                model.RegisteredCity, model.DoesRoutePassesPirateZones, model.Functionality, model.TypeOfMovability, model.Name);
+                model.RegisteredCity, model.DoesRoutePassesPirateZones, model.Functionality, model.TypeOfMovability, model.Name, model.PreviousAccidents);
 
             if (updated)
             {

@@ -129,6 +129,7 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
                 PreviousAccidents = entity.PreviousAccidents,
                 Name = entity.Name,
                 Functionality = entity.Functionality,
+                ResultValue = entity.ResultValue
             };
 
             return View(model);

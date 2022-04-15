@@ -85,7 +85,7 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
         {
             var created = _businessEnterpriseService.CreateBusinessEnterprise(model.Country, model.Region,
                 model.City, model.Address, model.FireExtinguishers, model.EmergencyExit, model.SquareFeet, model.AlarmSystem,
-                model.GasBottles, model.PurposeOfTheEnterprise);
+                model.GasBottles, model.PurposeOfTheEnterprise, model.PreviousAccidents);
 
             if (created)
             {
@@ -137,7 +137,7 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
         {
             var updated = _businessEnterpriseService.UpdateBusinessEnterprise(id, model.Country, model.Region,
                 model.City, model.Address, model.FireExtinguishers, model.EmergencyExit, model.SquareFeet, model.AlarmSystem,
-                model.GasBottles, model.PurposeOfTheEnterprise);
+                model.GasBottles, model.PurposeOfTheEnterprise,model.PreviousAccidents);
 
             if (updated)
             {

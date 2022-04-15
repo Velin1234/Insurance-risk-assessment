@@ -211,3 +211,40 @@ function getLandTransportResultValue() {
 
     resultBox.textContent = initialValue;
 }
+
+function getBusinessResultValue() {
+    let resultBox = document.getElementsByClassName("result")[0];
+    const previousIncidents = document.getElementById("previousIncidentsInput");
+    const fireExtinguishers = document.getElementById("fireExtinguishersInput");
+    const emergencyExit = document.getElementById("emergencyExitInput");
+    const gasBottles = document.getElementById("gasBottlesInput");
+    const alarmSystem = document.getElementById("alarmSystemInput");
+    const purposeOfTheEnterprise = document.getElementById("purposeOfEnterpriseInput").value;
+    let initialValue = 100;
+
+    if (previousIncidents.checked) {
+        initialValue -= 5;
+    }
+    if (!fireExtinguishers.checked) {
+        initialValue -= 25;
+    }
+    if (!emergencyExit.checked) {
+        initialValue -= 30;
+    }
+    if (!alarmSystem.checked) {
+        initialValue -= 10;
+    }
+    if (gasBottles.checked) {
+        initialValue -= 20;
+    }
+    switch (purposeOfTheEnterprise) {
+        case "Производствена дейност":
+            initialValue -= 10;
+            break;
+        case "Преработваща дейност":
+            initialValue -= 10;
+            break;
+    }
+
+    resultBox.textContent = initialValue;
+}

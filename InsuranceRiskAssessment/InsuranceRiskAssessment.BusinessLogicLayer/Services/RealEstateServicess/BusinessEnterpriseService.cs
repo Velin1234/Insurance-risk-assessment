@@ -13,7 +13,7 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.RealEstateServices
         {
             _businessEnterpriseRepository = businessEnterpriseRepository;
         }
-        public bool CreateBusinessEnterprise(string country, string region, string city, string address, bool fireExtinguishers, bool emergencyExit, double squareFeet, bool alarmSystem, bool gasBottles, string purposeOfTheEnterprise)
+        public bool CreateBusinessEnterprise(string country, string region, string city, string address, bool fireExtinguishers, bool emergencyExit, double squareFeet, bool alarmSystem, bool gasBottles, string purposeOfTheEnterprise, bool previousIncidents)
         {
             var businessEnterprise = new BusinessEnterprise()
             {
@@ -26,7 +26,10 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.RealEstateServices
                 SquareFeet = squareFeet,
                 AlarmSystem = alarmSystem,
                 GasBottles = gasBottles,
-                PurposeOfTheEnterprise = purposeOfTheEnterprise
+                PurposeOfTheEnterprise = purposeOfTheEnterprise,
+                ModifiedAt = System.DateTime.Now,
+                PreviousAccidents = previousIncidents,
+                ResultValue = GetResultValue(fireExtinguishers, emergencyExit, alarmSystem, gasBottles, purposeOfTheEnterprise, previousIncidents)
             };
             return _businessEnterpriseRepository.Create(businessEnterprise);
         }
@@ -47,7 +50,7 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.RealEstateServices
         }
 
         public bool UpdateBusinessEnterprise(int businessEnterpriseId, string country, string region, string city, string address, bool fireExtinguishers, bool emergencyExit, double squareFeet,
-            bool alarmSystem, bool gasBottles, string purposeOfTheEnterprise)
+            bool alarmSystem, bool gasBottles, string purposeOfTheEnterprise, bool previousIncidents)
         {
             var businessEnterprise = GetBusinessEnterpriseById(businessEnterpriseId);
             if (businessEnterprise == default(BusinessEnterprise))
@@ -65,8 +68,45 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.RealEstateServices
             businessEnterprise.AlarmSystem = alarmSystem;
             businessEnterprise.GasBottles = gasBottles;
             businessEnterprise.PurposeOfTheEnterprise = purposeOfTheEnterprise;
-
+            businessEnterprise.PreviousAccidents = previousIncidents;
+            businessEnterprise.ModifiedAt = System.DateTime.Now;
+            businessEnterprise.ResultValue = GetResultValue(fireExtinguishers, emergencyExit, alarmSystem, gasBottles, purposeOfTheEnterprise, previousIncidents);
             return _businessEnterpriseRepository.Update(businessEnterprise);
+        }
+        private int GetResultValue(bool fireExtinguishers, bool emergencyExit, bool alarmSystem, bool gasBottles, string purposeOfTheEnterprise, bool previousIncidents)
+        {
+            int initialResultValue = 100;
+            if (previousIncidents)
+            {
+                initialResultValue -= 5;
+            }
+            if (!fireExtinguishers)
+            {
+                initialResultValue -= 25;
+            }
+            if (!emergencyExit)
+            {
+                initialResultValue -= 30;
+            }
+            if (!alarmSystem)
+            {
+                initialResultValue -= 10;
+            }
+            if (gasBottles)
+            {
+                initialResultValue -= 20;
+            }
+            switch (purposeOfTheEnterprise)
+            {
+                case "Производствена дейност":
+                case "Преработваща дейност":
+                    initialResultValue -= 10;
+                    break;
+
+            }
+
+            return initialResultValue;
         }
     }
 }
+

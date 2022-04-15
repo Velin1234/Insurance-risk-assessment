@@ -1,94 +1,81 @@
-﻿@model InsuranceRiskAssessment.DataAccessLayer.Entities.RealEstateEntities.BusinessEnterprise
+﻿@model InsuranceRiskAssessment.Web.Models.ViewModels.RealEstateViewModels.BusinessEnterprise.BusinessEnterpriseEditViewModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Insurance Risk Assesment - Промени резултат от бизнес предприятие";
 }
 
-<h1>Edit</h1>
-
-<h4>BusinessEnterprise</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="create-container">
+    <div class="create-form">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <a asp-action="Index"><i data-feather="arrow-left" class="back-icon"></i></a>
             <div class="form-group">
-                <label asp-for="PurposeOfTheEnterprise" class="control-label"></label>
-                <input asp-for="PurposeOfTheEnterprise" class="form-control" />
-                <span asp-validation-for="PurposeOfTheEnterprise" class="text-danger"></span>
+                <label asp-for="PurposeOfTheEnterprise" class="control-label">Предназначение на предприятието:</label>
+                <select asp-for="PurposeOfTheEnterprise" id="purposeOfEnterpriseInput" class="select-form">
+                    <option value="Производствена дейност">Производствена дейност</option>
+                    <option value="Преработваща дейностоенен">Преработваща дейност</option>
+                    <option value="Предлагане на услуги">Предлагане на услуги</option>
+                </select>
             </div>
             <div class="form-group">
-                <label asp-for="Country" class="control-label"></label>
-                <input asp-for="Country" class="form-control" />
-                <span asp-validation-for="Country" class="text-danger"></span>
+                <label asp-for="Country" class="control-label">Държава:</label>
+                <input asp-for="Country" class="textInput" /><br />
             </div>
             <div class="form-group">
-                <label asp-for="Region" class="control-label"></label>
-                <input asp-for="Region" class="form-control" />
-                <span asp-validation-for="Region" class="text-danger"></span>
+                <label asp-for="Region" class="control-label">Област:</label>
+                <input asp-for="Region" class="textInput" /><br />
             </div>
             <div class="form-group">
-                <label asp-for="City" class="control-label"></label>
-                <input asp-for="City" class="form-control" />
-                <span asp-validation-for="City" class="text-danger"></span>
+                <label asp-for="City" class="control-label">Град/Село:</label>
+                <input asp-for="City" class="textInput" /><br />
             </div>
             <div class="form-group">
-                <label asp-for="Address" class="control-label"></label>
-                <input asp-for="Address" class="form-control" />
-                <span asp-validation-for="Address" class="text-danger"></span>
+                <label asp-for="Address" class="control-label">Адрес:</label>
+                <input asp-for="Address" class="textInput" /><br />
+            </div>
+            <div class="form-group">
+                <label asp-for="SquareFeet" class="control-label">Площ(кв.м):</label>
+                <input type="number" id="squareFeetInput" asp-for="SquareFeet" min="1" class="textInput" /><br />
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="FireExtinguishers" /> @Html.DisplayNameFor(model => model.FireExtinguishers)
+                    <input id="alarmSystemInput" class="checkboxInput" asp-for="AlarmSystem" /> @Html.DisplayNameFor(model => model.AlarmSystem)
                 </label>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="EmergencyExit" /> @Html.DisplayNameFor(model => model.EmergencyExit)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="SquareFeet" class="control-label"></label>
-                <input asp-for="SquareFeet" class="form-control" />
-                <span asp-validation-for="SquareFeet" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="AlarmSystem" /> @Html.DisplayNameFor(model => model.AlarmSystem)
+                    <input id="gasBottlesInput" class="checkboxInput" asp-for="GasBottles" /> @Html.DisplayNameFor(model => model.GasBottles)
                 </label>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="GasBottles" /> @Html.DisplayNameFor(model => model.GasBottles)
+                    <input id="emergencyExitInput" class="checkboxInput" asp-for="EmergencyExit" /> @Html.DisplayNameFor(model => model.EmergencyExit)
                 </label>
-            </div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="CreatedAt" class="control-label"></label>
-                <input asp-for="CreatedAt" class="form-control" />
-                <span asp-validation-for="CreatedAt" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ModifiedAt" class="control-label"></label>
-                <input asp-for="ModifiedAt" class="form-control" />
-                <span asp-validation-for="ModifiedAt" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" asp-for="PreviousAccidents" /> @Html.DisplayNameFor(model => model.PreviousAccidents)
+                    <input id="fireExtinguishersInput" class="checkboxInput" asp-for="FireExtinguishers" /> @Html.DisplayNameFor(model => model.FireExtinguishers)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input id="previousIncidentsInput" class="checkboxInput" asp-for="PreviousAccidents" /> @Html.DisplayNameFor(model => model.PreviousAccidents)
                 </label>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input class="create-result" type="submit" value="Запази резултат" />
             </div>
         </form>
+        <button class="show-result" OnClick="getBusinessResultValue();">Покажи резултат</button>
+    </div>
+    <div class="result-box">
+        <span class="result">@Model.ResultValue</span>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+
+}
 }

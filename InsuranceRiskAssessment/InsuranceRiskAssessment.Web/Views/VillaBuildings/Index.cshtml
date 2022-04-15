@@ -1,101 +1,21 @@
 ﻿@model IEnumerable<InsuranceRiskAssessment.Web.Models.ViewModels.RealEstateViewModels.VillaBuilding.VillaBuildingViewModel>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Insurance Risk Assesment - Вилни сгради";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Country)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Region)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.City)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Address)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FireExtinguishers)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EmergencyExit)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SquareFeet)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AlarmSystem)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GasBottles)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreatedAt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ModifiedAt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PreviousAccidents)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Country)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Region)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.City)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FireExtinguishers)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EmergencyExit)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SquareFeet)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AlarmSystem)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GasBottles)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ModifiedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PreviousAccidents)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="index-container">
+    <a asp-action="Create" class="link-create"> <i data-feather="plus" class="create-icon"></i></a>
+    <div class="item-container">
+        @foreach (var item in Model)
+        {
+            <a asp-action="Details" asp-route-id="@item.Id">
+                <div class="itemBox">
+                    <span class="item-name">@Html.DisplayFor(modelItem => item.City) @Html.DisplayFor(modelItem => item.Address)</span>
+                    <spam class="item-result">@Html.DisplayFor(modelItem => item.ResultValue)</spam>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="delete-button"><i data-feather="trash"></i></a>
+                </div>
+            </a>
+        }
+    </div>
+</div>

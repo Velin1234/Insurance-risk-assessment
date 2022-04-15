@@ -1,90 +1,77 @@
-﻿@model InsuranceRiskAssessment.DataAccessLayer.Entities.RealEstateEntities.CommercialProperty
-
+﻿@model InsuranceRiskAssessment.Web.Models.ViewModels.RealEstateViewModels.CommercialProperty.CommercialPropertyDetailViewModel
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Insurance Risk Assesment - Детайли";
 }
 
-<h1>Details</h1>
+<div class="details-container">
 
-<div>
-    <h4>CommercialProperty</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Country)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Country)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Region)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Region)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.City)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.City)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FireExtinguishers)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FireExtinguishers)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.EmergencyExit)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.EmergencyExit)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.SquareFeet)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.SquareFeet)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AlarmSystem)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AlarmSystem)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.GasBottles)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.GasBottles)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CreatedAt)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CreatedAt)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ModifiedAt)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ModifiedAt)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PreviousAccidents)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PreviousAccidents)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <div class="details-box">
+        <a asp-action="Index"><i data-feather="arrow-left" class="back-icon"></i></a>
+        <div class="model-details">
+            <div>Държава: <span class="details-span">@Html.DisplayFor(model => model.Country)</span></div>
+            <div>Област: <span class="details-span">@Html.DisplayFor(model => model.Region)</span></div>
+            <div>Град/Село: <span class="details-span">@Html.DisplayFor(model => model.City)</span></div>
+            <div>Адрес: <span class="details-span">@Html.DisplayFor(model => model.Address)</span></div>
+            <div>Площ(кв.м): <span class="details-span">@Html.DisplayFor(model => model.SquareFeet)</span></div>
+            <div>
+                Пожарогасители:
+                @if (Model.FireExtinguishers)
+                {
+                    <i data-feather="check" class="details-icon"></i>
+                }
+                else
+                {
+                    <i data-feather="x" class="details-icon"></i>
+                }
+            </div>
+            <div>
+                Предишни инциденти:
+                @if (Model.PreviousAccidents)
+                {
+                    <i data-feather="check" class="details-icon"></i>
+                }
+                else
+                {
+                    <i data-feather="x" class="details-icon"></i>
+                }
+            </div>
+            <div>
+                Аварийни изходи:
+                @if (Model.EmergencyExit)
+                {
+                    <i data-feather="check" class="details-icon"></i>
+                }
+                else
+                {
+                    <i data-feather="x" class="details-icon"></i>
+                }
+            </div>
+            <div>
+                Алармена система:
+                @if (Model.AlarmSystem)
+                {
+                    <i data-feather="check" class="details-icon"></i>
+                }
+                else
+                {
+                    <i data-feather="x" class="details-icon"></i>
+                }
+            </div>
+            <div>
+                Наличие на газови бутилки:
+                @if (Model.GasBottles)
+                {
+                    <i data-feather="check" class="details-icon"></i>
+                }
+                else
+                {
+                    <i data-feather="x" class="details-icon"></i>
+                }
+            </div>
+            <div>Създадено на: <span class="details-span">@Model.CreatedAt.ToShortDateString()</span></div>
+            <div>Последно променено на: <span class="details-span">@Model.ModifiedAt.ToShortDateString()</span></div>
+        </div>
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="edit-btn"> <i data-feather="edit" class="edit-icon"></i></a>
+    </div>
+
 </div>

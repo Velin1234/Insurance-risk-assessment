@@ -83,7 +83,7 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
         {
             var created = _commercialPropertyService.CreateCommercialProperty(model.Country, model.Region,
                 model.City, model.Address, model.FireExtinguishers, model.EmergencyExit, model.SquareFeet, model.AlarmSystem,
-                model.GasBottles);
+                model.GasBottles,model.PreviousAccidents);
 
             if (created)
             {
@@ -134,7 +134,7 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
         {
             var updated = _commercialPropertyService.UpdateCommercialProperty(id, model.Country, model.Region,
                 model.City, model.Address, model.FireExtinguishers, model.EmergencyExit, model.SquareFeet, model.AlarmSystem,
-                model.GasBottles);
+                model.GasBottles, model.PreviousAccidents);
 
             if (updated)
             {

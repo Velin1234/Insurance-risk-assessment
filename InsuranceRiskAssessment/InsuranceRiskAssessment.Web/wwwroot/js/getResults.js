@@ -248,3 +248,31 @@ function getBusinessResultValue() {
 
     resultBox.textContent = initialValue;
 }
+
+function getVillaAndCommercialResultValue() {
+    let resultBox = document.getElementsByClassName("result")[0];
+    const previousIncidents = document.getElementById("previousIncidentsInput");
+    const fireExtinguishers = document.getElementById("fireExtinguishersInput");
+    const emergencyExit = document.getElementById("emergencyExitInput");
+    const gasBottles = document.getElementById("gasBottlesInput");
+    const alarmSystem = document.getElementById("alarmSystemInput");
+    let initialValue = 100;
+
+    if (previousIncidents.checked) {
+        initialValue -= 5;
+    }
+    if (!fireExtinguishers.checked) {
+        initialValue -= 25;
+    }
+    if (!emergencyExit.checked) {
+        initialValue -= 35;
+    }
+    if (!alarmSystem.checked) {
+        initialValue -= 15;
+    }
+    if (gasBottles.checked) {
+        initialValue -= 20;
+    }
+
+    resultBox.textContent = initialValue;
+}

@@ -85,7 +85,7 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
         {
             var created = _residentialBuildingService.CreateResidentialBuilding(model.Country, model.Region,
                 model.City, model.Address, model.FireExtinguishers, model.EmergencyExit, model.SquareFeet, model.AlarmSystem,
-                model.GasBottles, model.Floor);
+                model.GasBottles, model.Floor,model.PreviousAccidents);
 
             if (created)
             {
@@ -137,7 +137,7 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
         {
             var updated = _residentialBuildingService.UpdateResidentialBuilding(id, model.Country, model.Region,
                 model.City, model.Address, model.FireExtinguishers, model.EmergencyExit, model.SquareFeet, model.AlarmSystem,
-                model.GasBottles, model.Floor);
+                model.GasBottles, model.Floor,model.PreviousAccidents);
 
             if (updated)
             {

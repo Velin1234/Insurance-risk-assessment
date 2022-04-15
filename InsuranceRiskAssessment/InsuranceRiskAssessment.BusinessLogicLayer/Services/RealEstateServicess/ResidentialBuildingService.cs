@@ -13,7 +13,7 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.RealEstateServices
             _residentialBuildingRepository = residentialBuildingRepository;
         }
 
-        public bool CreateResidentialBuilding(string country, string region, string city, string address, bool fireExtinguishers, bool emergencyExit, double squareFeet, bool alarmSystem, bool gasBottles, string floor)
+        public bool CreateResidentialBuilding(string country, string region, string city, string address, bool fireExtinguishers, bool emergencyExit, double squareFeet, bool alarmSystem, bool gasBottles, string floor, bool previousIncidents)
         {
             var residentialBuilding = new ResidentialBuilding()
             {
@@ -26,7 +26,10 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.RealEstateServices
                 SquareFeet = squareFeet,
                 AlarmSystem = alarmSystem,
                 GasBottles = gasBottles,
-                Floor = floor
+                Floor = floor,
+                PreviousAccidents = previousIncidents,
+                ModifiedAt = System.DateTime.Now,
+                ResultValue = GetResultValue(fireExtinguishers, emergencyExit, alarmSystem, gasBottles, floor, previousIncidents)
             };
             return _residentialBuildingRepository.Create(residentialBuilding);
         }
@@ -46,7 +49,7 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.RealEstateServices
             return _residentialBuildingRepository.RemoveById(residentialBuildingId);
         }
 
-        public bool UpdateResidentialBuilding(int residentialBuildingId, string country, string region, string city, string address, bool fireExtinguishers, bool emergencyExit, double squareFeet, bool alarmSystem, bool gasBottles, string floor)
+        public bool UpdateResidentialBuilding(int residentialBuildingId, string country, string region, string city, string address, bool fireExtinguishers, bool emergencyExit, double squareFeet, bool alarmSystem, bool gasBottles, string floor, bool previousIncidents)
         {
             var residentialBuilding = GetResidentialBuildingById(residentialBuildingId);
             if (residentialBuilding == default(ResidentialBuilding))
@@ -64,8 +67,46 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.RealEstateServices
             residentialBuilding.AlarmSystem = alarmSystem;
             residentialBuilding.GasBottles = gasBottles;
             residentialBuilding.Floor = floor;
+            residentialBuilding.PreviousAccidents = previousIncidents;
+            residentialBuilding.ModifiedAt = System.DateTime.Now;
+            residentialBuilding.ResultValue = GetResultValue(fireExtinguishers, emergencyExit, alarmSystem, gasBottles, floor, previousIncidents);
 
             return _residentialBuildingRepository.Update(residentialBuilding);
+        }
+        private int GetResultValue(bool fireExtinguishers, bool emergencyExit, bool alarmSystem, bool gasBottles, string floor, bool previousIncidents)
+        {
+            int initialResultValue = 100;
+            if (previousIncidents)
+            {
+                initialResultValue -= 5;
+            }
+            if (!fireExtinguishers)
+            {
+                initialResultValue -= 25;
+            }
+            if (!emergencyExit)
+            {
+                initialResultValue -= 30;
+            }
+            if (!alarmSystem)
+            {
+                initialResultValue -= 15;
+            }
+            if (gasBottles)
+            {
+                initialResultValue -= 20;
+            }
+            switch (floor)
+            {
+                case "Последен":
+                    initialResultValue -= 5;
+                    break;
+                case "Първи":
+                    initialResultValue -= 5;
+                    break;
+            }
+
+            return initialResultValue;
         }
     }
 }

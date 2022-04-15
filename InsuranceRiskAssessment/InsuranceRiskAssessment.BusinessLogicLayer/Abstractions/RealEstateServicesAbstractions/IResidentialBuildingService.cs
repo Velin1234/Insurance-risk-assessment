@@ -6,9 +6,9 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Abstractions.RealEstateServ
     public interface IResidentialBuildingService
     {
         bool CreateResidentialBuilding(string country, string region, string city, string address, bool fireExtinguishers,
-            bool emergencyExit, double squareFeet, bool alarmSystem, bool gasBottles, string floor);
+            bool emergencyExit, double squareFeet, bool alarmSystem, bool gasBottles, string floor, bool previousIncidents);
         bool UpdateResidentialBuilding(int residentialBuildingId, string country, string region, string city, string address, bool fireExtinguishers,
-            bool emergencyExit, double squareFeet, bool alarmSystem, bool gasBottles, string floor);
+            bool emergencyExit, double squareFeet, bool alarmSystem, bool gasBottles, string floor, bool previousIncidents);
         List<ResidentialBuilding> GetResidentialBuildings();
         ResidentialBuilding GetResidentialBuildingById(int residentialBuildingId);
         bool Remove(int businessEnterpriseId);

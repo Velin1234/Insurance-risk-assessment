@@ -276,3 +276,40 @@ function getVillaAndCommercialResultValue() {
 
     resultBox.textContent = initialValue;
 }
+
+function getResidentialResultValue() {
+    let resultBox = document.getElementsByClassName("result")[0];
+    const previousIncidents = document.getElementById("previousIncidentsInput");
+    const fireExtinguishers = document.getElementById("fireExtinguishersInput");
+    const emergencyExit = document.getElementById("emergencyExitInput");
+    const gasBottles = document.getElementById("gasBottlesInput");
+    const alarmSystem = document.getElementById("alarmSystemInput");
+    const floorType = document.getElementById("floorTypeInput").value;
+    let initialValue = 100;
+
+    if (previousIncidents.checked) {
+        initialValue -= 5;
+    }
+    if (!fireExtinguishers.checked) {
+        initialValue -= 25;
+    }
+    if (!emergencyExit.checked) {
+        initialValue -= 35;
+    }
+    if (!alarmSystem.checked) {
+        initialValue -= 10;
+    }
+    if (gasBottles.checked) {
+        initialValue -= 20;
+    }
+    switch (floorType) {
+        case "Последен":
+            initialValue -= 5;
+            break;
+        case "Първи":
+            initialValue -= 5;
+            break;
+    }
+
+    resultBox.textContent = initialValue;
+}

@@ -17,7 +17,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
             _airTransportService = airTransportService;
         }
 
-        // GET: AirTransports
         public ActionResult Index()
         {
             List<AirTransportViewModel> airTransports = _airTransportService.GetAirTransports()
@@ -46,7 +45,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
             return View(airTransports);
         }
 
-        // GET: AirTransports/Details/5
         public ActionResult Details(int id)
         {
             var item = _airTransportService.GetAirTransportById(id);
@@ -75,15 +73,12 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
             return View(model);
         }
 
-        // GET: AirTransports/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: AirTransports/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([FromForm] AirTransportAddViewModel model)
@@ -102,7 +97,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
             }
         }
 
-        // GET: AirTransports/Edit/5
         public ActionResult Edit(int id)
         {
             var entity = _airTransportService.GetAirTransportById(id);
@@ -135,9 +129,7 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
             return View(model);
         }
 
-        // POST: AirTransports/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, AirTransportEditViewModel model)
@@ -156,7 +148,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
             }
         }
 
-        // GET: AirTransports/Delete/5
         public ActionResult Delete(int id)
         {
             var item = _airTransportService.GetAirTransportById(id);
@@ -183,7 +174,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
             return View(model);
         }
 
-        // GET: AirTransports/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)

@@ -16,7 +16,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
             _seaTransportService = seaTransportService;
         }
 
-        // GET: SeaTransports
         public ActionResult Index()
         {
             List<SeaTransportViewModel> seaTransports = _seaTransportService.GetSeaTransports()
@@ -47,7 +46,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
             return View(seaTransports);
         }
 
-        // GET: SeaTransports/Details/5
         public ActionResult Details(int id)
         {
             var item = _seaTransportService.GetSeaTransportById(id);
@@ -76,15 +74,12 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
             return View(model);
         }
 
-        // GET: SeaTransports/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: SeaTransports/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([FromForm] SeaTransportAddViewModel model)
@@ -103,7 +98,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
             }
         }
 
-        // GET: SeaTransports/Edit/5
         public ActionResult Edit(int id)
         {
             var entity = _seaTransportService.GetSeaTransportById(id);
@@ -138,9 +132,7 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
             return View(model);
         }
 
-        // POST: SeaTransports/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, SeaTransportEditViewModel model)
@@ -159,7 +151,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
             }
         }
 
-        // GET: SeaTransports/Delete/5
         public ActionResult Delete(int id)
         {
             var item = _seaTransportService.GetSeaTransportById(id);
@@ -188,7 +179,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
             return View(model);
         }
 
-        // GET: SeaTransports/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)

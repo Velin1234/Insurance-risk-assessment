@@ -16,7 +16,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
             _residentialBuildingService = residentialBuildingService;
         }
 
-        // GET: ResidentialBuildings
         public ActionResult Index()
         {
             List<ResidentialBuildingViewModel> residentialBuildings = _residentialBuildingService.GetResidentialBuildings()
@@ -43,7 +42,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
             return View(residentialBuildings);
         }
 
-        // GET: ResidentialBuildings/Details/5
         public ActionResult Details(int id)
         {
             var item = _residentialBuildingService.GetResidentialBuildingById(id);
@@ -70,15 +68,12 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
             return View(model);
         }
 
-        // GET: ResidentialBuildings/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: ResidentialBuildings/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([FromForm] ResidentialBuildingAddViewModel model)
@@ -97,7 +92,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
             }
         }
 
-        // GET: ResidentialBuildings/Edit/5
         public ActionResult Edit(int id)
         {
             var entity = _residentialBuildingService.GetResidentialBuildingById(id);
@@ -128,9 +122,7 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
             return View(model);
         }
 
-        // POST: ResidentialBuildings/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, ResidentialBuildingEditViewModel model)
@@ -149,7 +141,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
             }
         }
 
-        // GET: ResidentialBuildings/Delete/5
         public ActionResult Delete(int id)
         {
             var item = _residentialBuildingService.GetResidentialBuildingById(id);
@@ -174,7 +165,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
             return View(model);
         }
 
-        // POST: ResidentialBuildings/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)

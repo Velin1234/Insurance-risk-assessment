@@ -10,7 +10,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <a asp-action="Index"><i data-feather="arrow-left" class="back-icon"></i></a>
             <div class="form-group">
-                <label asp-for="RegisterNumber" class="control-label">Регистрационен номер:</label>
+                <label asp-for="RegisterNumber" class="control-label"></label>
                 <input asp-for="RegisterNumber" class="textInput" /><br />
             </div>
             <div class="form-group">
@@ -30,35 +30,35 @@
                 </select>
             </div>
             <div class="form-group">
-                <label asp-for="ManifactureYear" class="control-label">Година на производство:</label>
+                <label asp-for="ManifactureYear" class="control-label"></label>
                 <input type="date" max="@DateTime.Now.ToString("yyyy-MM-dd")" asp-for="ManifactureYear" class="dateInput" /><br />
             </div>
             <div class="form-group">
-                <label asp-for="DistanceTraveled" class="control-label">Изминато разстояние(км.):</label>
+                <label asp-for="DistanceTraveled" class="control-label"></label>
                 <input id="traveledDistance" asp-for="DistanceTraveled" min="1" class="textInput" /><br />
             </div>
             <div class="form-group">
-                <label asp-for="Height" class="control-label">Височина(м.):</label>
+                <label asp-for="Height" class="control-label"></label>
                 <input type="number" min="1" asp-for="Height" class="textInput" /><br />
             </div>
             <div class="form-group">
-                <label asp-for="Weight" class="control-label">Тегло(кг.):</label>
+                <label asp-for="Weight" class="control-label"></label>
                 <input type="number" asp-for="Weight" min="1" class="textInput" /><br />
             </div>
             <div class="form-group">
-                <label asp-for="Width" class="control-label">Широчина(м.):</label>
+                <label asp-for="Width" class="control-label"></label>
                 <input type="number" asp-for="Width" min="1" class="textInput" /><br />
             </div>
             <div class="form-group">
-                <label asp-for="RegisteredCountry" class="control-label">Държава:</label>
+                <label asp-for="RegisteredCountry" class="control-label"></label>
                 <input asp-for="RegisteredCountry" class="textInput" /><br />
             </div>
             <div class="form-group">
-                <label asp-for="RegisteredRegion" class="control-label">Област:</label>
+                <label asp-for="RegisteredRegion" class="control-label"></label>
                 <input asp-for="RegisteredRegion" class="textInput" /><br />
             </div>
             <div class="form-group">
-                <label asp-for="RegisteredCity" class="control-label">Град/Село:</label>
+                <label asp-for="RegisteredCity" class="control-label"></label>
                 <input asp-for="RegisteredCity" class="textInput" /><br />
             </div>
             <div class="form-group form-check">

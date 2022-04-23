@@ -15,7 +15,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
             _vehicleByLandService = vehicleByLandService;
         }
 
-        // GET: VehicleByLands
         public ActionResult Index()
         {
             List<VehicleByLandViewModel> vehiclesByLand = _vehicleByLandService.GetVehiclesByLand()
@@ -47,7 +46,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
 
         }
 
-        // GET: VehicleByLands/Details/5
         public ActionResult Details(int id)
         {
             var item = _vehicleByLandService.GetVehicleByLandById(id);
@@ -76,15 +74,12 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
             return View(model);
         }
 
-        // GET: VehicleByLands/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: VehicleByLands/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([FromForm] VehicleByLandAddViewModel model)
@@ -103,7 +98,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
             }
         }
 
-        // GET: VehicleByLands/Edit/5
         public ActionResult Edit(int id)
         {
             var entity = _vehicleByLandService.GetVehicleByLandById(id);
@@ -137,9 +131,7 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
             return View(model);
         }
 
-        // POST: VehicleByLands/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, VehicleByLandEditViewModel model)
@@ -158,7 +150,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
             }
         }
 
-        // GET: VehicleByLands/Delete/5
         public ActionResult Delete(int id)
         {
             var item = _vehicleByLandService.GetVehicleByLandById(id);
@@ -187,7 +178,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
             return View(model);
         }
 
-        // POST: VehicleByLands/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

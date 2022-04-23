@@ -16,7 +16,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
             _villaBuildingService = villaBuildingService;
         }
 
-        // GET: VillaBuildings
         public ActionResult Index()
         {
             List<VillaBuildingViewModel> villaBuildings = _villaBuildingService.GetVillaBuildings()
@@ -41,7 +40,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
             return View(villaBuildings);
         }
 
-        // GET: VillaBuildings/Details/5
         public ActionResult Details(int id)
         {
             var item = _villaBuildingService.GetVillaBuildingById(id);
@@ -67,15 +65,12 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
             return View(model);
         }
 
-        // GET: VillaBuildings/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: VillaBuildings/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([FromForm] VillaBuildingAddViewModel model)
@@ -94,7 +89,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
             }
         }
 
-        // GET: VillaBuildings/Edit/5
         public ActionResult Edit(int id)
         {
             var entity = _villaBuildingService.GetVillaBuildingById(id);
@@ -124,9 +118,7 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
             return View(model);
         }
 
-        // POST: VillaBuildings/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, VillaBuildingEditViewModel model)
@@ -145,7 +137,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
             }
         }
 
-        // GET: VillaBuildings/Delete/5
         public ActionResult Delete(int id)
         {
             var item = _villaBuildingService.GetVillaBuildingById(id);
@@ -169,7 +160,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
             return View(model);
         }
 
-        // POST: VillaBuildings/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)

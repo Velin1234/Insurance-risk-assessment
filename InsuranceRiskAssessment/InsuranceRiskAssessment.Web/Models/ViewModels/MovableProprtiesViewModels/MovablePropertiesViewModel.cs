@@ -7,7 +7,7 @@ namespace InsuranceRiskAssessment.Web.Models.ViewModels.MovableProprtiesViewMode
     public class MovablePropertiesViewModel : BaseViewModel
     {
         [Required]
-        [DisplayName("Година на производство")]
+        [DisplayName("Година на производство:")]
         public DateTime ManifactureYear { get; set; }
         [Required]
         [DisplayName("Притежание на обезопасителни средства")]
@@ -16,25 +16,25 @@ namespace InsuranceRiskAssessment.Web.Models.ViewModels.MovableProprtiesViewMode
         [DisplayName("Техническа изправност")]
         public bool TechnicalServiceability { get; set; }
         [Required]
-        [DisplayName("Изминато разстояние")]
+        [DisplayName("Изминато разстояние(км.):")]
         public int DistanceTraveled { get; set; }
         [Required]
-        [DisplayName("Височина")]
+        [DisplayName("Височина(м.):")]
         public double Height { get; set; }
         [Required]
-        [DisplayName("Тегло")]
+        [DisplayName("Тегло(кг.):")]
         public double Weight { get; set; }
         [Required]
-        [DisplayName("Широчина")]
+        [DisplayName("Широчина(м.):")]
         public double Width { get; set; }
         [Required]
-        [DisplayName("Държава")]
+        [DisplayName("Държава:")]
         public string RegisteredCountry { get; set; }
         [Required]
-        [DisplayName("Област")]
+        [DisplayName("Област:")]
         public string RegisteredRegion { get; set; }
         [Required]
-        [DisplayName("Град/Село")]
+        [DisplayName("Град/Село:")]
         public string RegisteredCity { get; set; }
 
     }

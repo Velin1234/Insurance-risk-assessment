@@ -6,9 +6,10 @@ namespace InsuranceRiskAssessment.Web.Models.ViewModels.MovableProprtiesViewMode
     public class AirTransportAddViewModel : MovablePropertiesViewModel
     {
         [Required]
+        [DisplayName("Име:")]
         public string Name { get; set; }
         [Required]
-        [DisplayName("Функционалност")]
+        [DisplayName("Функционалност:")]
         public string Functionality { get; set; }
         
     }

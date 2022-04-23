@@ -23,8 +23,6 @@ namespace InsuranceRiskAssessment.DataAccessLayer.Repositories
 
         public List<T> Find(Func<T, bool> predicate)
         {
-            //.Set<T> tells us which DbSet<T> we use for the given T entity
-            //predicate = lambda expression, ex.: item => item.Value > 0
             return _context
                 .Set<T>()
                 .Where(predicate)
@@ -66,7 +64,6 @@ namespace InsuranceRiskAssessment.DataAccessLayer.Repositories
             }
             else
             {
-                //I'm deleting non-existent ID
                 return false;
             }
         }
@@ -81,7 +78,6 @@ namespace InsuranceRiskAssessment.DataAccessLayer.Repositories
             }
             else
             {
-                //Idk what to change because no ID
                 return false;
             }
         }

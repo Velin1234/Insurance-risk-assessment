@@ -9,16 +9,16 @@
     <div class="details-box">
         <a asp-action="Index"><i data-feather="arrow-left" class="back-icon"></i></a>
         <div class="model-details">
-            <div>Име: <span class="details-span">@Html.DisplayFor(model => model.Name)</span></div>
-            <div>Функционалност: <span class="details-span">@Html.DisplayFor(model => model.Functionality)</span></div>
-            <div>Година на производство: <span class="details-span">@Model.ManifactureYear.ToShortDateString()</span></div>
-            <div>Изминато разстояние(км.):  <span class="details-span">@Html.DisplayFor(model => model.DistanceTraveled)</span></div>
-            <div>Височина(м.): <span class="details-span">@Html.DisplayFor(model => model.Height)</span></div>
-            <div>Тегло(кг.): <span class="details-span">@Html.DisplayFor(model => model.Weight)</span></div>
-            <div>Широчина(м.): <span class="details-span">@Html.DisplayFor(model => model.Weight)</span></div>
-            <div>Държава: <span class="details-span">@Html.DisplayFor(model => model.RegisteredCountry)</span></div>
-            <div>Област: <span class="details-span">@Html.DisplayFor(model => model.RegisteredRegion)</span></div>
-            <div>Град/Село: <span class="details-span">@Html.DisplayFor(model => model.RegisteredCity)</span></div>
+            <div>@Html.DisplayNameFor(model => model.Name) <span class="details-span">@Html.DisplayFor(model => model.Name)</span></div>
+            <div>@Html.DisplayNameFor(model => model.Functionality) <span class="details-span">@Html.DisplayFor(model => model.Functionality)</span></div>
+            <div>@Html.DisplayNameFor(model => model.ManifactureYear) <span class="details-span">@Model.ManifactureYear.ToShortDateString()</span></div>
+            <div>@Html.DisplayNameFor(model => model.DistanceTraveled)  <span class="details-span">@Html.DisplayFor(model => model.DistanceTraveled)</span></div>
+            <div>@Html.DisplayNameFor(model => model.Height) <span class="details-span">@Html.DisplayFor(model => model.Height)</span></div>
+            <div>@Html.DisplayNameFor(model => model.Weight) <span class="details-span">@Html.DisplayFor(model => model.Weight)</span></div>
+            <div>@Html.DisplayNameFor(model => model.Width) <span class="details-span">@Html.DisplayFor(model => model.Width)</span></div>
+            <div>@Html.DisplayNameFor(model => model.RegisteredCountry) <span class="details-span">@Html.DisplayFor(model => model.RegisteredCountry)</span></div>
+            <div>@Html.DisplayNameFor(model => model.RegisteredRegion) <span class="details-span">@Html.DisplayFor(model => model.RegisteredRegion)</span></div>
+            <div>@Html.DisplayNameFor(model => model.RegisteredCity) <span class="details-span">@Html.DisplayFor(model => model.RegisteredCity)</span></div>
             <div>
                 Обезопасителни средства:
                 @if (Model.SecurityEquipmenPossession)

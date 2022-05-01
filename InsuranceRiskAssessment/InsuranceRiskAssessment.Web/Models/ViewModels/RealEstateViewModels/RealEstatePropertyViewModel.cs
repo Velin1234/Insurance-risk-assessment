@@ -1,21 +1,20 @@
 ﻿using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-
 namespace InsuranceRiskAssessment.Web.Models.ViewModels.RealEstateViewModels
 {
     public class RealEstatePropertyViewModel : BaseViewModel
     {
         [Required]
-        [DisplayName("Държава")]
+        [DisplayName("Държава:")]
         public string Country { get; set; }
         [Required]
-        [DisplayName("Област")]
+        [DisplayName("Област:")]
         public string Region { get; set; }
         [Required]
-        [DisplayName("Град/село")]
+        [DisplayName("Град/село:")]
         public string City { get; set; }
         [Required]
-        [DisplayName("Адрес")]
+        [DisplayName("Адрес:")]
         public string Address { get; set; }
         [Required]
         [DisplayName("Пожарогасители")]
@@ -24,7 +23,7 @@ namespace InsuranceRiskAssessment.Web.Models.ViewModels.RealEstateViewModels
         [DisplayName("Авариен изход")]
         public bool EmergencyExit { get; set; }
         [Required]
-        [DisplayName("Кв. метри")]
+        [DisplayName("Площ(кв.м):")]
         public double SquareFeet { get; set; }
         [Required]
         [DisplayName("Алармена система")]

@@ -15,7 +15,7 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertySer
         }
         public bool CreateAirTransport(DateTime manifactureYear, bool securityEquipmenPossession, bool technicalServiceability, bool previousIncidents, int distanceTraveled,
             double height, double weight, double width, string registeredCountry, string registeredRegion,
-            string registeredCity, string functionality, string name)
+            string registeredCity, string functionality, string name, string brokerId)
         {
             var airTransport = new AirTransport()
             {
@@ -33,26 +33,23 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertySer
                 RegisteredCity = registeredCity,
                 Functionality = functionality,
                 Name = name,
-                ResultValue = GetResultValue(manifactureYear, securityEquipmenPossession, technicalServiceability, previousIncidents, distanceTraveled, functionality)
+                ResultValue = GetResultValue(manifactureYear, securityEquipmenPossession, technicalServiceability, previousIncidents, distanceTraveled, functionality),
+                InsuranceBroker = brokerId
             };
             return _airTransportRepository.Create(airTransport);
         }
-
         public AirTransport GetAirTransportById(int airTransportId)
         {
             return _airTransportRepository.GetById(airTransportId);
         }
-
         public List<AirTransport> GetAirTransports()
         {
             return _airTransportRepository.GetAll();
         }
-
         public bool Remove(int airTransportId)
         {
             return _airTransportRepository.RemoveById(airTransportId);
         }
-
         public bool UpdateAirTransport(int airTransportId, DateTime manifactureYear, bool securityEquipmenPossession,
             bool technicalServiceability, bool previousIncidents, int distanceTraveled, double height, double weight, double width, string registeredCountry, string registeredRegion,
             string registeredCity, string functionality, string name)
@@ -62,7 +59,6 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertySer
             {
                 return false;
             }
-
             airTransport.ManifactureYear = manifactureYear;
             airTransport.SecurityEquipmenPossession = securityEquipmenPossession;
             airTransport.PreviousAccidents = previousIncidents;
@@ -78,10 +74,8 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertySer
             airTransport.Functionality = functionality;
             airTransport.Name = name;
             airTransport.ResultValue = GetResultValue(manifactureYear, securityEquipmenPossession, technicalServiceability, previousIncidents, distanceTraveled, functionality);
-
             return _airTransportRepository.Update(airTransport);
         }
-
         private int GetResultValue(DateTime manifactureYear, bool securityEquipmenPossession, bool technicalServiceability, bool previousIncidents, int distanceTraveled, string functionality)
         {
             int initialResultValue = 100;
@@ -130,7 +124,7 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertySer
                     initialResultValue -= 20;
                     break;
                 case "Товарен":
-                    initialResultValue  -= 10;
+                    initialResultValue -= 10;
                     break;
             }
 

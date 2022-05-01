@@ -4,19 +4,17 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 
 namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
 {
     public class BusinessEnterprisesController : Controller
     {
         private readonly IBusinessEnterpriseService _businessEnterpriseService;
-
         public BusinessEnterprisesController(IBusinessEnterpriseService businessEnterpriseService)
         {
             _businessEnterpriseService = businessEnterpriseService;
         }
-
-        // GET: BusinessEnterprises
         public ActionResult Index()
         {
             List<BusinessEnterpriseViewModel> businessEnterprises = _businessEnterpriseService.GetBusinessEnterprises()
@@ -36,18 +34,14 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
                     ModifiedAt = item.ModifiedAt,
                     PreviousAccidents = item.PreviousAccidents,
                     PurposeOfTheEnterprise = item.PurposeOfTheEnterprise,
-                    ResultValue = item.ResultValue
-
+                    ResultValue = item.ResultValue,
+                    InsuranceBroker = item.InsuranceBroker
                 }).ToList();
-
             return View(businessEnterprises);
         }
-
-        // GET: BusinessEnterprises/Details/5
         public ActionResult Details(int id)
         {
             var item = _businessEnterpriseService.GetBusinessEnterpriseById(id);
-
             BusinessEnterpriseDetailsViewModel model = new BusinessEnterpriseDetailsViewModel()
             {
                 Id = item.Id,
@@ -66,26 +60,19 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
                 PurposeOfTheEnterprise = item.PurposeOfTheEnterprise,
                 ResultValue = item.ResultValue
             };
-
             return View(model);
         }
-
-        // GET: BusinessEnterprises/Create
         public ActionResult Create()
         {
             return View();
         }
-
-        // POST: BusinessEnterprises/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([FromForm] BusinessEnterpriseAddViewModel model)
         {
             var created = _businessEnterpriseService.CreateBusinessEnterprise(model.Country, model.Region,
                 model.City, model.Address, model.FireExtinguishers, model.EmergencyExit, model.SquareFeet, model.AlarmSystem,
-                model.GasBottles, model.PurposeOfTheEnterprise, model.PreviousAccidents);
+                model.GasBottles, model.PurposeOfTheEnterprise, model.PreviousAccidents, User.FindFirstValue(ClaimTypes.NameIdentifier));
 
             if (created)
             {
@@ -96,8 +83,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
                 return View();
             }
         }
-
-        // GET: BusinessEnterprises/Edit/5
         public ActionResult Edit(int id)
         {
             var entity = _businessEnterpriseService.GetBusinessEnterpriseById(id);
@@ -105,7 +90,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
             {
                 return NotFound();
             }
-
             BusinessEnterpriseEditViewModel model = new BusinessEnterpriseEditViewModel()
             {
                 Id = entity.Id,
@@ -127,10 +111,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
 
             return View(model);
         }
-
-        // POST: BusinessEnterprises/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, BusinessEnterpriseEditViewModel model)
@@ -138,7 +118,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
             var updated = _businessEnterpriseService.UpdateBusinessEnterprise(id, model.Country, model.Region,
                 model.City, model.Address, model.FireExtinguishers, model.EmergencyExit, model.SquareFeet, model.AlarmSystem,
                 model.GasBottles, model.PurposeOfTheEnterprise,model.PreviousAccidents);
-
             if (updated)
             {
                 return RedirectToAction(nameof(Index));
@@ -148,8 +127,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
                 return View();
             }
         }
-
-        // GET: BusinessEnterprises/Delete/5
         public ActionResult Delete(int id)
         {
             var item = _businessEnterpriseService.GetBusinessEnterpriseById(id);
@@ -173,8 +150,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
             };
             return View(model);
         }
-
-        // POST: BusinessEnterprises/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)

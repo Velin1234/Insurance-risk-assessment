@@ -1,8 +1,6 @@
 ﻿using System;
-
 namespace InsuranceRiskAssessment.DataAccessLayer.Entities
 {
-
     public abstract class MovableProperty : BaseEntity
     {
         public DateTime ManifactureYear { get; set; }

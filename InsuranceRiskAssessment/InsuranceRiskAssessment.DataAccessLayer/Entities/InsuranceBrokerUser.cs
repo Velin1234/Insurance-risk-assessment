@@ -10,7 +10,6 @@ namespace InsuranceRiskAssessment.DataAccessLayer.Data
         public virtual ICollection<AirTransport> CheckedAirTransport { get; set; }
         public virtual ICollection<SeaTransport> CheckedSeaTransport { get; set; }
         public virtual ICollection<VehicleByLand> CheckedVehicleByLand { get; set; }
-
         public virtual ICollection<BusinessEnterprise> CheckedBusinessEnterprise { get; set; }
         public virtual ICollection<CommercialProperty> CheckedCommercialProperty { get; set; }
         public virtual ICollection<ResidentialBuilding> CheckedResidentialBuildings { get; set; }

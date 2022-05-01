@@ -9,12 +9,12 @@
     <div class="details-box">
         <a asp-action="Index"><i data-feather="arrow-left" class="back-icon"></i></a>
         <div class="model-details">
-            <div>Държава: <span class="details-span">@Html.DisplayFor(model => model.Country)</span></div>
-            <div>Област: <span class="details-span">@Html.DisplayFor(model => model.Region)</span></div>
-            <div>Град/Село: <span class="details-span">@Html.DisplayFor(model => model.City)</span></div>
-            <div>Адрес: <span class="details-span">@Html.DisplayFor(model => model.Address)</span></div>
-            <div>Предназначение на предприятието: <span class="details-span">@Html.DisplayFor(model => model.PurposeOfTheEnterprise)</span></div>
-            <div>Площ(кв.м): <span class="details-span">@Html.DisplayFor(model => model.SquareFeet)</span></div>
+            <div>@Html.DisplayNameFor(model => model.Country) <span class="details-span">@Html.DisplayFor(model => model.Country)</span></div>
+            <div>@Html.DisplayNameFor(model => model.Region) <span class="details-span">@Html.DisplayFor(model => model.Region)</span></div>
+            <div>@Html.DisplayNameFor(model => model.City) <span class="details-span">@Html.DisplayFor(model => model.City)</span></div>
+            <div>@Html.DisplayNameFor(model => model.Address) <span class="details-span">@Html.DisplayFor(model => model.Address)</span></div>
+            <div>@Html.DisplayNameFor(model => model.PurposeOfTheEnterprise) <span class="details-span">@Html.DisplayFor(model => model.PurposeOfTheEnterprise)</span></div>
+            <div>@Html.DisplayNameFor(model => model.SquareFeet) <span class="details-span">@Html.DisplayFor(model => model.SquareFeet)</span></div>
             <div>
                 Пожарогасители:
                 @if (Model.FireExtinguishers)
@@ -70,8 +70,8 @@
                     <i data-feather="x" class="details-icon"></i>
                 }
             </div>
-            <div>Създадено на: <span class="details-span">@Model.CreatedAt.ToShortDateString()</span></div>
-            <div>Последно променено на: <span class="details-span">@Model.ModifiedAt.ToShortDateString()</span></div>
+            <div>@Html.DisplayNameFor(model => model.CreatedAt)<span class="details-span">@Model.CreatedAt.ToShortDateString()</span></div>
+            <div>@Html.DisplayNameFor(model => model.ModifiedAt) <span class="details-span">@Model.ModifiedAt.ToShortDateString()</span></div>
         </div>
         <a asp-action="Edit" asp-route-id="@Model.Id" class="edit-btn"> <i data-feather="edit" class="edit-icon"></i></a>
     </div>

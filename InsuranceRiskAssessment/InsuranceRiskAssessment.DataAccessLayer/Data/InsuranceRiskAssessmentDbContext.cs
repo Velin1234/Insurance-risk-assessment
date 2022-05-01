@@ -9,10 +9,7 @@ namespace InsuranceRiskAssessment.DataAccessLayer.Data
     {
         public InsuranceRiskAssessmentDbContext(DbContextOptions<InsuranceRiskAssessmentDbContext> options)
             : base(options)
-        {
-
-        }
-
+        { }
         public DbSet<AirTransport> AirTransports { get; set; }
         public DbSet<SeaTransport> SeaTransports { get; set; }
         public DbSet<VehicleByLand> VehiclesByLand { get; set; }

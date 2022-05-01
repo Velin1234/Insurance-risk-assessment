@@ -1,11 +1,4 @@
-﻿using System;
-using InsuranceRiskAssessment.DataAccessLayer.Data;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.AspNetCore.Hosting;
 
 [assembly: HostingStartup(typeof(InsuranceRiskAssessment.Web.Areas.Identity.IdentityHostingStartup))]
 namespace InsuranceRiskAssessment.Web.Areas.Identity

@@ -1,10 +1,4 @@
-﻿using InsuranceRiskAssessment.DataAccessLayer.Data;
-
-namespace InsuranceRiskAssessment.DataAccessLayer.Entities.RealEstateEntities
+﻿namespace InsuranceRiskAssessment.DataAccessLayer.Entities.RealEstateEntities
 {
-    public class CommercialProperty : RealEstateProperty
-    {
-        public virtual InsuranceBrokerUser InsuranceBroker { get; set; }
-
-    }
+    public class CommercialProperty : RealEstateProperty { }
 }

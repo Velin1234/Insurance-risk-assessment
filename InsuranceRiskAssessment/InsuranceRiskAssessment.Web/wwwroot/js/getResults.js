@@ -151,7 +151,7 @@ function getLandTransportResultValue() {
     }
 
     let initialValue = 100;
-    
+
     if (years >= 5 && years <= 10) {
         initialValue -= 5;
     }
@@ -172,7 +172,7 @@ function getLandTransportResultValue() {
 
     if (!securityEquipmenPossession.checked) {
         initialValue -= 15;
-    }    
+    }
 
     if (traveledDistance >= 100000 && traveledDistance < 200000) {
         initialValue -= 5;

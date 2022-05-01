@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InsuranceRiskAssessment.DataAccessLayer.Data;
+using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
@@ -24,6 +25,7 @@ namespace InsuranceRiskAssessment.Web.Models.ViewModels
 
         [DisplayName("Резултат:")]
         public int ResultValue { get; set; }
+        public string InsuranceBroker { get; set; }
 
     }
 }

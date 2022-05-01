@@ -12,7 +12,7 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.RealEstateServices
         {
             _commercialPropertyRepository = commercialPropertyRepository;
         }
-        public bool CreateCommercialProperty(string country, string region, string city, string address, bool fireExtinguishers, bool emergencyExit, double squareFeet, bool alarmSystem, bool gasBottles, bool previousIncidents)
+        public bool CreateCommercialProperty(string country, string region, string city, string address, bool fireExtinguishers, bool emergencyExit, double squareFeet, bool alarmSystem, bool gasBottles, bool previousIncidents, string brokerId)
         {
             var commercialProperty = new CommercialProperty()
             {
@@ -27,7 +27,8 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.RealEstateServices
                 GasBottles = gasBottles,
                 PreviousAccidents = previousIncidents,
                 ModifiedAt = System.DateTime.Now,
-                ResultValue = GetResultValue(fireExtinguishers, emergencyExit, alarmSystem, gasBottles, previousIncidents)
+                ResultValue = GetResultValue(fireExtinguishers, emergencyExit, alarmSystem, gasBottles, previousIncidents),
+                InsuranceBroker = brokerId
             };
             return _commercialPropertyRepository.Create(commercialProperty);
         }

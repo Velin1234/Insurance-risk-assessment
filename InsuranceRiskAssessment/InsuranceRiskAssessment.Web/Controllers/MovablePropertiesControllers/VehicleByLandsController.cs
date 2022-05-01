@@ -1,8 +1,10 @@
 ﻿using InsuranceRiskAssessment.BusinessLogicLayer.Abstractions.MovablePropertyServices;
 using InsuranceRiskAssessment.Web.Models.ViewModels.MovableProprtiesViewModels.VehicleByLand;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 
 namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
 {
@@ -38,7 +40,8 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
                   RegisterNumber = item.RegisterNumber,
                   Parktronic = item.Parktronic,
                   MostCommonRoutes = item.MostCommonRoutes,
-                  ResultValue = item.ResultValue
+                  ResultValue = item.ResultValue,
+                  InsuranceBroker = item.InsuranceBroker
 
               }).ToList();
 
@@ -86,7 +89,7 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
         {
             var created = _vehicleByLandService.CreateVehicleByLand(model.ManifactureYear, model.SecurityEquipmenPossession, model.TechnicalServiceability,
                 model.DistanceTraveled, model.Height, model.Weight, model.Width, model.RegisteredCountry, model.RegisteredRegion,
-                model.RegisteredCity, model.FuelType, model.Parktronic, model.MostCommonRoutes, model.RegisterNumber,model.PreviousAccidents);
+                model.RegisteredCity, model.FuelType, model.Parktronic, model.MostCommonRoutes, model.RegisterNumber,model.PreviousAccidents, User.FindFirstValue(ClaimTypes.NameIdentifier));
 
             if (created)
             {
@@ -180,7 +183,7 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult Delete(int id,IFormCollection collection)
         {
             var deleted = _vehicleByLandService.Remove(id);
             if (deleted)

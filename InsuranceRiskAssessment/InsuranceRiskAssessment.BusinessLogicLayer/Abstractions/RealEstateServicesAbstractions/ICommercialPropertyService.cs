@@ -6,7 +6,7 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Abstractions.RealEstateServ
     public interface ICommercialPropertyService
     {
         bool CreateCommercialProperty(string country, string region, string city, string address, bool fireExtinguishers,
-            bool emergencyExit, double squareFeet, bool alarmSystem, bool gasBottles, bool previousIncidents);
+            bool emergencyExit, double squareFeet, bool alarmSystem, bool gasBottles, bool previousIncidents, string brokerId);
         bool UpdateCommercialProperty(int commercialPropertyId, string country, string region, string city, string address, bool fireExtinguishers,
             bool emergencyExit, double squareFeet, bool alarmSystem, bool gasBottles, bool previousIncidents);
         List<CommercialProperty> GetCommercialProperty();

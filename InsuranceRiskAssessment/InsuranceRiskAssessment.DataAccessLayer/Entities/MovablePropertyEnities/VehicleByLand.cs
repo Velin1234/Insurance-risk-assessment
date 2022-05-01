@@ -8,7 +8,6 @@ namespace InsuranceRiskAssessment.DataAccessLayer.Entities.MovablePropertyEnitie
         public bool Parktronic { get; set; }
         public string MostCommonRoutes { get; set; }
         public string RegisterNumber { get; set; }
-        public virtual InsuranceBrokerUser InsuranceBroker { get; set; }
 
     }
 }

@@ -13,7 +13,7 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.RealEstateServices
         {
             _businessEnterpriseRepository = businessEnterpriseRepository;
         }
-        public bool CreateBusinessEnterprise(string country, string region, string city, string address, bool fireExtinguishers, bool emergencyExit, double squareFeet, bool alarmSystem, bool gasBottles, string purposeOfTheEnterprise, bool previousIncidents)
+        public bool CreateBusinessEnterprise(string country, string region, string city, string address, bool fireExtinguishers, bool emergencyExit, double squareFeet, bool alarmSystem, bool gasBottles, string purposeOfTheEnterprise, bool previousIncidents, string brokerId)
         {
             var businessEnterprise = new BusinessEnterprise()
             {
@@ -29,7 +29,8 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.RealEstateServices
                 PurposeOfTheEnterprise = purposeOfTheEnterprise,
                 ModifiedAt = System.DateTime.Now,
                 PreviousAccidents = previousIncidents,
-                ResultValue = GetResultValue(fireExtinguishers, emergencyExit, alarmSystem, gasBottles, purposeOfTheEnterprise, previousIncidents)
+                ResultValue = GetResultValue(fireExtinguishers, emergencyExit, alarmSystem, gasBottles, purposeOfTheEnterprise, previousIncidents),
+                InsuranceBroker = brokerId
             };
             return _businessEnterpriseRepository.Create(businessEnterprise);
         }

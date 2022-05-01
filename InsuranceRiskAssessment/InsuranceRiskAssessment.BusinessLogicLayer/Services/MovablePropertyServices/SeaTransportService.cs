@@ -18,7 +18,7 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertySer
             int distanceTraveled, double height, double weight, double width, string registeredCountry,
             string registeredRegion, string registeredCity,
             bool doesRoutePassesPirateZones, string functionality, string typeOfMovability, string name,
-            bool previousIncidents)
+            bool previousIncidents, string brokerId)
         {
             var seaTransport = new SeaTransport()
             {
@@ -39,7 +39,8 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertySer
                 Functionality = functionality,
                 TypeOfMovability = typeOfMovability,
                 ResultValue = GetResultValue(manifactureYear, securityEquipmenPossession, technicalServiceability,
-                previousIncidents, distanceTraveled, functionality, doesRoutePassesPirateZones, typeOfMovability)
+                previousIncidents, distanceTraveled, functionality, doesRoutePassesPirateZones, typeOfMovability),
+                InsuranceBroker = brokerId
             };
             return _seaTransportRepository.Create(seaTransport);
         }

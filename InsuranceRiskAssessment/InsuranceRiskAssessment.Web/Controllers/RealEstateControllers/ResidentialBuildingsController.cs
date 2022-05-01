@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 
 namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
 {
@@ -35,7 +36,8 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
                     ModifiedAt = item.ModifiedAt,
                     PreviousAccidents = item.PreviousAccidents,
                     Floor = item.Floor,
-                    ResultValue = item.ResultValue
+                    ResultValue = item.ResultValue,
+                    InsuranceBroker = item.InsuranceBroker
 
                 }).ToList();
 
@@ -80,7 +82,7 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
         {
             var created = _residentialBuildingService.CreateResidentialBuilding(model.Country, model.Region,
                 model.City, model.Address, model.FireExtinguishers, model.EmergencyExit, model.SquareFeet, model.AlarmSystem,
-                model.GasBottles, model.Floor,model.PreviousAccidents);
+                model.GasBottles, model.Floor,model.PreviousAccidents, User.FindFirstValue(ClaimTypes.NameIdentifier));
 
             if (created)
             {

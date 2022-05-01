@@ -15,7 +15,7 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertySer
         }
 
         public bool CreateVehicleByLand(DateTime manifactureYear, bool securityEquipmenPossession, bool technicalServiceability, int distanceTraveled, double height,
-            double weight, double width, string registeredCountry, string registeredRegion, string registeredCity, string fuelType, bool parktronic, string mostCommonRoutes, string registerNumber, bool previousIncidents)
+            double weight, double width, string registeredCountry, string registeredRegion, string registeredCity, string fuelType, bool parktronic, string mostCommonRoutes, string registerNumber, bool previousIncidents, string brokerId)
         {
             var vehicleByLand = new VehicleByLand()
             {
@@ -36,7 +36,8 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertySer
                 PreviousAccidents = previousIncidents,
                 RegisterNumber = registerNumber,
                 ResultValue = GetResultValue(manifactureYear, securityEquipmenPossession, technicalServiceability,
-            previousIncidents, distanceTraveled, fuelType, parktronic, mostCommonRoutes)
+            previousIncidents, distanceTraveled, fuelType, parktronic, mostCommonRoutes),
+                InsuranceBroker = brokerId
             };
             return _vehicleByLandRepository.Create(vehicleByLand);
         }

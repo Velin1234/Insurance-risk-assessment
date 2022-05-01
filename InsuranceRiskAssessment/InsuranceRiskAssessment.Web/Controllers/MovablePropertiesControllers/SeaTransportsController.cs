@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 
 namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
 {
@@ -39,7 +40,8 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
                    Functionality = item.Functionality,
                    TypeOfMovability = item.TypeOfMovability,
                    DoesRoutePassesPirateZones = item.DoesRoutePassesPirateZones,
-                   ResultValue = item.ResultValue
+                   ResultValue = item.ResultValue,
+                   InsuranceBroker = item.InsuranceBroker
 
                }).ToList();
 
@@ -86,7 +88,7 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
         {
             var created = _seaTransportService.CreateSeaTransport(model.ManifactureYear, model.SecurityEquipmenPossession, model.TechnicalServiceability,
                 model.DistanceTraveled, model.Height, model.Weight, model.Width, model.RegisteredCountry, model.RegisteredRegion,
-                model.RegisteredCity, model.DoesRoutePassesPirateZones, model.Functionality, model.TypeOfMovability,model.Name,model.PreviousAccidents);
+                model.RegisteredCity, model.DoesRoutePassesPirateZones, model.Functionality, model.TypeOfMovability,model.Name,model.PreviousAccidents, User.FindFirstValue(ClaimTypes.NameIdentifier));
 
             if (created)
             {

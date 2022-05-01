@@ -13,7 +13,7 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.RealEstateServices
             _residentialBuildingRepository = residentialBuildingRepository;
         }
 
-        public bool CreateResidentialBuilding(string country, string region, string city, string address, bool fireExtinguishers, bool emergencyExit, double squareFeet, bool alarmSystem, bool gasBottles, string floor, bool previousIncidents)
+        public bool CreateResidentialBuilding(string country, string region, string city, string address, bool fireExtinguishers, bool emergencyExit, double squareFeet, bool alarmSystem, bool gasBottles, string floor, bool previousIncidents, string brokerId)
         {
             var residentialBuilding = new ResidentialBuilding()
             {
@@ -29,7 +29,8 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.RealEstateServices
                 Floor = floor,
                 PreviousAccidents = previousIncidents,
                 ModifiedAt = System.DateTime.Now,
-                ResultValue = GetResultValue(fireExtinguishers, emergencyExit, alarmSystem, gasBottles, floor, previousIncidents)
+                ResultValue = GetResultValue(fireExtinguishers, emergencyExit, alarmSystem, gasBottles, floor, previousIncidents),
+                InsuranceBroker = brokerId
             };
             return _residentialBuildingRepository.Create(residentialBuilding);
         }

@@ -6,7 +6,6 @@ namespace InsuranceRiskAssessment.DataAccessLayer.Entities.MovablePropertyEnitie
     {
         public string Name { get; set; }
         public string Functionality { get; set; }
-        public virtual InsuranceBrokerUser InsuranceBroker { get; set; }
 
     }
 }

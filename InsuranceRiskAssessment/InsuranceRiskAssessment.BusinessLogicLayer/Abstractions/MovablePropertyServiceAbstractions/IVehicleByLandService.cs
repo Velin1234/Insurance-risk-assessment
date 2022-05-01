@@ -8,7 +8,7 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Abstractions.MovablePropert
     {
         bool CreateVehicleByLand(DateTime manifactureYear, bool securityEquipmenPossession, bool technicalServiceability,
             int distanceTraveled, double height, double weight, double width, string registeredCountry, string registeredRegion,
-            string registeredCity, string fuelType, bool parktronic, string mostCommonRoutes, string registerNumber, bool previousIncidents);
+            string registeredCity, string fuelType, bool parktronic, string mostCommonRoutes, string registerNumber, bool previousIncidents,string brokerId);
         bool UpdateVehicleByLand(int vehicleByLandId, DateTime manifactureYear, bool securityEquipmenPossession, bool technicalServiceability,
             int distanceTraveled, double height, double weight, double width, string registeredCountry, string registeredRegion,
             string registeredCity, string fuelType, bool parktronic, string mostCommonRoutes, string registerNumber, bool previousIncidents);

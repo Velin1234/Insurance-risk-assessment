@@ -4,7 +4,7 @@ namespace InsuranceRiskAssessment.Web.Models.ViewModels.RealEstateViewModels.Bus
 {
     public class BusinessEnterpriseViewModel : RealEstatePropertyViewModel
     {
-        [DisplayName("Предмет на дейност")]
+        [DisplayName("Предназначение на предприятието:")]
         public string PurposeOfTheEnterprise { get; set; }
     }
 }

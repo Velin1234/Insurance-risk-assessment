@@ -15,7 +15,7 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertySer
         }
         public bool CreateAirTransport(DateTime manifactureYear, bool securityEquipmenPossession, bool technicalServiceability, bool previousIncidents, int distanceTraveled,
             double height, double weight, double width, string registeredCountry, string registeredRegion,
-            string registeredCity, string functionality, string name)
+            string registeredCity, string functionality, string name, string brokerId)
         {
             var airTransport = new AirTransport()
             {
@@ -33,7 +33,8 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertySer
                 RegisteredCity = registeredCity,
                 Functionality = functionality,
                 Name = name,
-                ResultValue = GetResultValue(manifactureYear, securityEquipmenPossession, technicalServiceability, previousIncidents, distanceTraveled, functionality)
+                ResultValue = GetResultValue(manifactureYear, securityEquipmenPossession, technicalServiceability, previousIncidents, distanceTraveled, functionality),
+                InsuranceBroker = brokerId
             };
             return _airTransportRepository.Create(airTransport);
         }

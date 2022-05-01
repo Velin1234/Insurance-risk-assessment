@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 
 namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
 {
@@ -38,7 +39,8 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
                     PreviousAccidents = item.PreviousAccidents,
                     Functionality = item.Functionality,
                     Name = item.Name,
-                    ResultValue = item.ResultValue
+                    ResultValue = item.ResultValue,
+                    InsuranceBroker = item.InsuranceBroker
 
                 }).ToList();
 
@@ -67,7 +69,7 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
                 PreviousAccidents = item.PreviousAccidents,
                 Name = item.Name,
                 Functionality = item.Functionality,
-                ResultValue = item.ResultValue
+                ResultValue = item.ResultValue,
             };
 
             return View(model);
@@ -78,14 +80,14 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
             return View();
         }
 
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([FromForm] AirTransportAddViewModel model)
         {
-            var created = _airTransportService.CreateAirTransport(model.ManifactureYear, model.SecurityEquipmenPossession, model.TechnicalServiceability,model.PreviousAccidents,
+            var created = _airTransportService.CreateAirTransport(model.ManifactureYear, model.SecurityEquipmenPossession, model.TechnicalServiceability, model.PreviousAccidents,
                 model.DistanceTraveled, model.Height, model.Weight, model.Width, model.RegisteredCountry, model.RegisteredRegion,
-                model.RegisteredCity, model.Functionality, model.Name);
+                model.RegisteredCity, model.Functionality, model.Name, User.FindFirstValue(ClaimTypes.NameIdentifier));
 
             if (created)
             {
@@ -123,18 +125,19 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
                 PreviousAccidents = entity.PreviousAccidents,
                 Name = entity.Name,
                 Functionality = entity.Functionality,
-                ResultValue = entity.ResultValue
+                ResultValue = entity.ResultValue,
+
             };
 
             return View(model);
         }
 
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, AirTransportEditViewModel model)
         {
-            var updated = _airTransportService.UpdateAirTransport(id, model.ManifactureYear, model.SecurityEquipmenPossession, model.TechnicalServiceability,model.PreviousAccidents,
+            var updated = _airTransportService.UpdateAirTransport(id, model.ManifactureYear, model.SecurityEquipmenPossession, model.TechnicalServiceability, model.PreviousAccidents,
                 model.DistanceTraveled, model.Height, model.Weight, model.Width, model.RegisteredCountry, model.RegisteredRegion,
                 model.RegisteredCity, model.Functionality, model.Name);
 
@@ -169,7 +172,7 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
                 PreviousAccidents = item.PreviousAccidents,
                 Name = item.Name,
                 Functionality = item.Functionality,
-                ResultValue = item.ResultValue
+                ResultValue = item.ResultValue,
             };
             return View(model);
         }

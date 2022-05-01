@@ -11,12 +11,10 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
     public class VehicleByLandsController : Controller
     {
         private readonly IVehicleByLandService _vehicleByLandService;
-
         public VehicleByLandsController(IVehicleByLandService vehicleByLandService)
         {
             _vehicleByLandService = vehicleByLandService;
         }
-
         public ActionResult Index()
         {
             List<VehicleByLandViewModel> vehiclesByLand = _vehicleByLandService.GetVehiclesByLand()
@@ -42,13 +40,10 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
                   MostCommonRoutes = item.MostCommonRoutes,
                   ResultValue = item.ResultValue,
                   InsuranceBroker = item.InsuranceBroker
-
               }).ToList();
-
             return View(vehiclesByLand);
 
         }
-
         public ActionResult Details(int id)
         {
             var item = _vehicleByLandService.GetVehicleByLandById(id);
@@ -76,12 +71,10 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
             };
             return View(model);
         }
-
         public ActionResult Create()
         {
             return View();
         }
-
         
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -90,7 +83,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
             var created = _vehicleByLandService.CreateVehicleByLand(model.ManifactureYear, model.SecurityEquipmenPossession, model.TechnicalServiceability,
                 model.DistanceTraveled, model.Height, model.Weight, model.Width, model.RegisteredCountry, model.RegisteredRegion,
                 model.RegisteredCity, model.FuelType, model.Parktronic, model.MostCommonRoutes, model.RegisterNumber,model.PreviousAccidents, User.FindFirstValue(ClaimTypes.NameIdentifier));
-
             if (created)
             {
                 return RedirectToAction(nameof(Index));
@@ -100,7 +92,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
                 return View();
             }
         }
-
         public ActionResult Edit(int id)
         {
             var entity = _vehicleByLandService.GetVehicleByLandById(id);
@@ -133,8 +124,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
             };
             return View(model);
         }
-
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, VehicleByLandEditViewModel model)
@@ -142,7 +131,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
             var updated = _vehicleByLandService.UpdateVehicleByLand(id, model.ManifactureYear, model.SecurityEquipmenPossession, model.TechnicalServiceability,
                 model.DistanceTraveled, model.Height, model.Weight, model.Width, model.RegisteredCountry, model.RegisteredRegion,
                 model.RegisteredCity, model.FuelType, model.Parktronic, model.MostCommonRoutes, model.RegisterNumber,model.PreviousAccidents);
-
             if (updated)
             {
                 return RedirectToAction(nameof(Index));
@@ -152,7 +140,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
                 return View();
             }
         }
-
         public ActionResult Delete(int id)
         {
             var item = _vehicleByLandService.GetVehicleByLandById(id);
@@ -180,7 +167,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
             };
             return View(model);
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id,IFormCollection collection)

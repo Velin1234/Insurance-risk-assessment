@@ -1,8 +1,6 @@
-﻿using InsuranceRiskAssessment.DataAccessLayer.Data;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-
 namespace InsuranceRiskAssessment.Web.Models.ViewModels
 {
     public class BaseViewModel

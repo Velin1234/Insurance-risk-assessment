@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel;
-
 namespace InsuranceRiskAssessment.Web.Models.ViewModels.MovableProprtiesViewModels.VehicleByLand
 {
     public class VehicleByLandViewModel : MovablePropertiesViewModel

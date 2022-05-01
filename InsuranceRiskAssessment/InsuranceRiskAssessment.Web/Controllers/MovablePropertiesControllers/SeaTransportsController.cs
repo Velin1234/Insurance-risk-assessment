@@ -11,12 +11,10 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
     public class SeaTransportsController : Controller
     {
         private readonly ISeaTransportService _seaTransportService;
-
         public SeaTransportsController(ISeaTransportService seaTransportService)
         {
             _seaTransportService = seaTransportService;
         }
-
         public ActionResult Index()
         {
             List<SeaTransportViewModel> seaTransports = _seaTransportService.GetSeaTransports()
@@ -42,12 +40,9 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
                    DoesRoutePassesPirateZones = item.DoesRoutePassesPirateZones,
                    ResultValue = item.ResultValue,
                    InsuranceBroker = item.InsuranceBroker
-
                }).ToList();
-
             return View(seaTransports);
         }
-
         public ActionResult Details(int id)
         {
             var item = _seaTransportService.GetSeaTransportById(id);
@@ -75,13 +70,10 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
             };
             return View(model);
         }
-
         public ActionResult Create()
         {
             return View();
         }
-
-        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([FromForm] SeaTransportAddViewModel model)
@@ -89,7 +81,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
             var created = _seaTransportService.CreateSeaTransport(model.ManifactureYear, model.SecurityEquipmenPossession, model.TechnicalServiceability,
                 model.DistanceTraveled, model.Height, model.Weight, model.Width, model.RegisteredCountry, model.RegisteredRegion,
                 model.RegisteredCity, model.DoesRoutePassesPirateZones, model.Functionality, model.TypeOfMovability,model.Name,model.PreviousAccidents, User.FindFirstValue(ClaimTypes.NameIdentifier));
-
             if (created)
             {
                 return RedirectToAction(nameof(Index));
@@ -99,7 +90,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
                 return View();
             }
         }
-
         public ActionResult Edit(int id)
         {
             var entity = _seaTransportService.GetSeaTransportById(id);
@@ -107,7 +97,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
             {
                 return NotFound();
             }
-
             SeaTransportEditViewModel model = new SeaTransportEditViewModel()
             {
                 Id = entity.Id,
@@ -130,11 +119,8 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
                 DoesRoutePassesPirateZones = entity.DoesRoutePassesPirateZones,
                 ResultValue = entity.ResultValue
             };
-
             return View(model);
         }
-
-        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, SeaTransportEditViewModel model)
@@ -142,7 +128,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
             var updated = _seaTransportService.UpdateSeaTransport(id, model.ManifactureYear, model.SecurityEquipmenPossession, model.TechnicalServiceability,
                 model.DistanceTraveled, model.Height, model.Weight, model.Width, model.RegisteredCountry, model.RegisteredRegion,
                 model.RegisteredCity, model.DoesRoutePassesPirateZones, model.Functionality, model.TypeOfMovability, model.Name, model.PreviousAccidents);
-
             if (updated)
             {
                 return RedirectToAction(nameof(Index));
@@ -152,7 +137,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
                 return View();
             }
         }
-
         public ActionResult Delete(int id)
         {
             var item = _seaTransportService.GetSeaTransportById(id);
@@ -180,7 +164,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.MovablePropertiesControllers
             };
             return View(model);
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)

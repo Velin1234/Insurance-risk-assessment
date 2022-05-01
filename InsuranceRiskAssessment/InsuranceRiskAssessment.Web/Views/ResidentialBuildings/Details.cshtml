@@ -70,8 +70,8 @@
                     <i data-feather="x" class="details-icon"></i>
                 }
             </div>
-            <div>Създадено на: <span class="details-span">@Model.CreatedAt.ToShortDateString()</span></div>
-            <div>Последно променено на: <span class="details-span">@Model.ModifiedAt.ToShortDateString()</span></div>
+            <div>@Html.DisplayNameFor(model => model.CreatedAt)<span class="details-span">@Model.CreatedAt.ToShortDateString()</span></div>
+            <div>@Html.DisplayNameFor(model => model.ModifiedAt) <span class="details-span">@Model.ModifiedAt.ToShortDateString()</span></div>
         </div>
         <a asp-action="Edit" asp-route-id="@Model.Id" class="edit-btn"> <i data-feather="edit" class="edit-icon"></i></a>
     </div>

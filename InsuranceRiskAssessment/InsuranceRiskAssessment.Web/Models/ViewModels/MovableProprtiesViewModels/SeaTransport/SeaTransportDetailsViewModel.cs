@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel;
-
 namespace InsuranceRiskAssessment.Web.Models.ViewModels.MovableProprtiesViewModels.SeaTransport
 {
     public class SeaTransportDetailsViewModel : MovablePropertiesViewModel

@@ -11,12 +11,10 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
     public class ResidentialBuildingsController : Controller
     {
         private readonly IResidentialBuildingService _residentialBuildingService;
-
         public ResidentialBuildingsController(IResidentialBuildingService residentialBuildingService)
         {
             _residentialBuildingService = residentialBuildingService;
         }
-
         public ActionResult Index()
         {
             List<ResidentialBuildingViewModel> residentialBuildings = _residentialBuildingService.GetResidentialBuildings()
@@ -38,16 +36,13 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
                     Floor = item.Floor,
                     ResultValue = item.ResultValue,
                     InsuranceBroker = item.InsuranceBroker
-
                 }).ToList();
 
             return View(residentialBuildings);
         }
-
         public ActionResult Details(int id)
         {
             var item = _residentialBuildingService.GetResidentialBuildingById(id);
-
             ResidentialBuildingDetailsViewModel model = new ResidentialBuildingDetailsViewModel()
             {
                 Id = item.Id,
@@ -66,16 +61,12 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
                 Floor = item.Floor,
                 ResultValue = item.ResultValue
             };
-
             return View(model);
         }
-
         public ActionResult Create()
         {
             return View();
         }
-
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([FromForm] ResidentialBuildingAddViewModel model)
@@ -83,7 +74,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
             var created = _residentialBuildingService.CreateResidentialBuilding(model.Country, model.Region,
                 model.City, model.Address, model.FireExtinguishers, model.EmergencyExit, model.SquareFeet, model.AlarmSystem,
                 model.GasBottles, model.Floor,model.PreviousAccidents, User.FindFirstValue(ClaimTypes.NameIdentifier));
-
             if (created)
             {
                 return RedirectToAction(nameof(Index));
@@ -93,7 +83,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
                 return View();
             }
         }
-
         public ActionResult Edit(int id)
         {
             var entity = _residentialBuildingService.GetResidentialBuildingById(id);
@@ -101,7 +90,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
             {
                 return NotFound();
             }
-
             ResidentialBuildingEditViewModel model = new ResidentialBuildingEditViewModel()
             {
                 Id = entity.Id,
@@ -120,11 +108,8 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
                 Floor = entity.Floor,
                 ResultValue = entity.ResultValue
             };
-
             return View(model);
         }
-
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, ResidentialBuildingEditViewModel model)
@@ -132,7 +117,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
             var updated = _residentialBuildingService.UpdateResidentialBuilding(id, model.Country, model.Region,
                 model.City, model.Address, model.FireExtinguishers, model.EmergencyExit, model.SquareFeet, model.AlarmSystem,
                 model.GasBottles, model.Floor,model.PreviousAccidents);
-
             if (updated)
             {
                 return RedirectToAction(nameof(Index));
@@ -142,7 +126,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
                 return View();
             }
         }
-
         public ActionResult Delete(int id)
         {
             var item = _residentialBuildingService.GetResidentialBuildingById(id);
@@ -166,7 +149,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
             };
             return View(model);
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)

@@ -11,12 +11,10 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
     public class CommercialPropertiesController : Controller
     {
         private readonly ICommercialPropertyService _commercialPropertyService;
-
         public CommercialPropertiesController(ICommercialPropertyService commercialPropertyService)
         {
             _commercialPropertyService = commercialPropertyService;
         }
-
         public ActionResult Index()
         {
             List<CommercialPropertyViewModel> commercialProperties = _commercialPropertyService.GetCommercialProperty()
@@ -37,17 +35,12 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
                     PreviousAccidents = item.PreviousAccidents,
                     ResultValue = item.ResultValue,
                     InsuranceBroker = item.InsuranceBroker
-
-
                 }).ToList();
-
             return View(commercialProperties);
         }
-
         public ActionResult Details(int id)
         {
             var item = _commercialPropertyService.GetCommercialPropertyById(id);
-
             CommercialPropertyDetailViewModel model = new CommercialPropertyDetailViewModel()
             {
                 Id = item.Id,
@@ -65,15 +58,12 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
                 PreviousAccidents = item.PreviousAccidents,
                 ResultValue = item.ResultValue,
             };
-
             return View(model);
         }
-
         public ActionResult Create()
         {
             return View();
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([FromForm] CommercialPropertyAddViewModel model)
@@ -81,7 +71,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
             var created = _commercialPropertyService.CreateCommercialProperty(model.Country, model.Region,
                 model.City, model.Address, model.FireExtinguishers, model.EmergencyExit, model.SquareFeet, model.AlarmSystem,
                 model.GasBottles,model.PreviousAccidents, User.FindFirstValue(ClaimTypes.NameIdentifier));
-
             if (created)
             {
                 return RedirectToAction(nameof(Index));
@@ -91,7 +80,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
                 return View();
             }
         }
-
         public ActionResult Edit(int id)
         {
             var entity = _commercialPropertyService.GetCommercialPropertyById(id);
@@ -99,7 +87,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
             {
                 return NotFound();
             }
-
             CommercialPropertyEditViewModel model = new CommercialPropertyEditViewModel()
             {
                 Id = entity.Id,
@@ -117,11 +104,8 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
                 PreviousAccidents = entity.PreviousAccidents,
                 ResultValue = entity.ResultValue
             };
-
             return View(model);
         }
-
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, CommercialPropertyEditViewModel model)
@@ -129,7 +113,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
             var updated = _commercialPropertyService.UpdateCommercialProperty(id, model.Country, model.Region,
                 model.City, model.Address, model.FireExtinguishers, model.EmergencyExit, model.SquareFeet, model.AlarmSystem,
                 model.GasBottles, model.PreviousAccidents);
-
             if (updated)
             {
                 return RedirectToAction(nameof(Index));
@@ -139,7 +122,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
                 return View();
             }
         }
-
         public ActionResult Delete(int id)
         {
             var item = _commercialPropertyService.GetCommercialPropertyById(id);
@@ -162,7 +144,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
             };
             return View(model);
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)

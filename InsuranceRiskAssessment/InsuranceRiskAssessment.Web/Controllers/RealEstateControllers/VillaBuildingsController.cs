@@ -11,12 +11,10 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
     public class VillaBuildingsController : Controller
     {
         private readonly IVillaBuildingService _villaBuildingService;
-
         public VillaBuildingsController(IVillaBuildingService villaBuildingService)
         {
             _villaBuildingService = villaBuildingService;
         }
-
         public ActionResult Index()
         {
             List<VillaBuildingViewModel> villaBuildings = _villaBuildingService.GetVillaBuildings()
@@ -42,11 +40,9 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
 
             return View(villaBuildings);
         }
-
         public ActionResult Details(int id)
         {
             var item = _villaBuildingService.GetVillaBuildingById(id);
-
             VillaBuildingDetailsViewModel model = new VillaBuildingDetailsViewModel()
             {
                 Id = item.Id,
@@ -67,13 +63,10 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
 
             return View(model);
         }
-
         public ActionResult Create()
         {
             return View();
         }
-
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([FromForm] VillaBuildingAddViewModel model)
@@ -81,7 +74,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
             var created = _villaBuildingService.CreateVillaBuilding(model.Country, model.Region,
                 model.City, model.Address, model.FireExtinguishers, model.EmergencyExit, model.SquareFeet, model.AlarmSystem,
                 model.GasBottles,model.PreviousAccidents, User.FindFirstValue(ClaimTypes.NameIdentifier));
-
             if (created)
             {
                 return RedirectToAction(nameof(Index));
@@ -91,7 +83,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
                 return View();
             }
         }
-
         public ActionResult Edit(int id)
         {
             var entity = _villaBuildingService.GetVillaBuildingById(id);
@@ -99,7 +90,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
             {
                 return NotFound();
             }
-
             VillaBuildingEditViewModel model = new VillaBuildingEditViewModel()
             {
                 Id = entity.Id,
@@ -117,11 +107,8 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
                 PreviousAccidents = entity.PreviousAccidents,
                 ResultValue = entity.ResultValue
             };
-
             return View(model);
         }
-
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, VillaBuildingEditViewModel model)
@@ -129,7 +116,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
             var updated = _villaBuildingService.UpdateVillaBuilding(id, model.Country, model.Region,
                  model.City, model.Address, model.FireExtinguishers, model.EmergencyExit, model.SquareFeet, model.AlarmSystem,
                  model.GasBottles,model.PreviousAccidents);
-
             if (updated)
             {
                 return RedirectToAction(nameof(Index));
@@ -139,7 +125,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
                 return View();
             }
         }
-
         public ActionResult Delete(int id)
         {
             var item = _villaBuildingService.GetVillaBuildingById(id);
@@ -162,7 +147,6 @@ namespace InsuranceRiskAssessment.Web.Controllers.RealEstateControllers
             };
             return View(model);
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)

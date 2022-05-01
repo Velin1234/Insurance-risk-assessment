@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel;
-
 namespace InsuranceRiskAssessment.Web.Models.ViewModels.RealEstateViewModels.ResidentialBuilding
 {
     public class ResidentialBuildingViewModel : RealEstatePropertyViewModel

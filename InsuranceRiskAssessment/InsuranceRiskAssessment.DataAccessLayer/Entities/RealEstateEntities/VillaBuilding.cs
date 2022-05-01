@@ -1,9 +1,4 @@
-﻿using InsuranceRiskAssessment.DataAccessLayer.Data;
-
-namespace InsuranceRiskAssessment.DataAccessLayer.Entities.RealEstateEntities
+﻿namespace InsuranceRiskAssessment.DataAccessLayer.Entities.RealEstateEntities
 {
-    public class VillaBuilding : RealEstateProperty
-    {
-
-    }
+    public class VillaBuilding : RealEstateProperty { }
 }

@@ -1,5 +1,4 @@
 ﻿using System;
-
 namespace InsuranceRiskAssessment.DataAccessLayer.Entities
 {
     public abstract class BaseEntity
@@ -8,7 +7,6 @@ namespace InsuranceRiskAssessment.DataAccessLayer.Entities
         {
             CreatedAt = DateTime.Now;
         }
-
         public int Id { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime ModifiedAt { get; set; }

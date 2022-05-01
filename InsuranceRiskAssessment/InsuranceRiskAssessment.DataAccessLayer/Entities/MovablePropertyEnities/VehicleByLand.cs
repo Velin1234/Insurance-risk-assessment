@@ -1,6 +1,4 @@
-﻿using InsuranceRiskAssessment.DataAccessLayer.Data;
-
-namespace InsuranceRiskAssessment.DataAccessLayer.Entities.MovablePropertyEnities
+﻿namespace InsuranceRiskAssessment.DataAccessLayer.Entities.MovablePropertyEnities
 {
     public class VehicleByLand : MovableProperty
     {
@@ -8,6 +6,5 @@ namespace InsuranceRiskAssessment.DataAccessLayer.Entities.MovablePropertyEnitie
         public bool Parktronic { get; set; }
         public string MostCommonRoutes { get; set; }
         public string RegisterNumber { get; set; }
-
     }
 }

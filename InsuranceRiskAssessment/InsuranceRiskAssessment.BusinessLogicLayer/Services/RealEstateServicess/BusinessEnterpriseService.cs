@@ -8,7 +8,6 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.RealEstateServices
     public class BusinessEnterpriseService : IBusinessEnterpriseService
     {
         private readonly IRepository<BusinessEnterprise> _businessEnterpriseRepository;
-
         public BusinessEnterpriseService(IRepository<BusinessEnterprise> businessEnterpriseRepository)
         {
             _businessEnterpriseRepository = businessEnterpriseRepository;
@@ -34,22 +33,18 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.RealEstateServices
             };
             return _businessEnterpriseRepository.Create(businessEnterprise);
         }
-
         public BusinessEnterprise GetBusinessEnterpriseById(int businessEnterpriseId)
         {
             return _businessEnterpriseRepository.GetById(businessEnterpriseId);
         }
-
         public List<BusinessEnterprise> GetBusinessEnterprises()
         {
             return _businessEnterpriseRepository.GetAll();
         }
-
         public bool Remove(int businessEnterpriseId)
         {
             return _businessEnterpriseRepository.RemoveById(businessEnterpriseId);
         }
-
         public bool UpdateBusinessEnterprise(int businessEnterpriseId, string country, string region, string city, string address, bool fireExtinguishers, bool emergencyExit, double squareFeet,
             bool alarmSystem, bool gasBottles, string purposeOfTheEnterprise, bool previousIncidents)
         {
@@ -103,9 +98,7 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.RealEstateServices
                 case "Преработваща дейност":
                     initialResultValue -= 10;
                     break;
-
             }
-
             return initialResultValue;
         }
     }

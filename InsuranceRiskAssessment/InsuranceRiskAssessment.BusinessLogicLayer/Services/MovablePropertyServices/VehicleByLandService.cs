@@ -13,7 +13,6 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertySer
         {
             _vehicleByLandRepository = vehicleByLandRepository;
         }
-
         public bool CreateVehicleByLand(DateTime manifactureYear, bool securityEquipmenPossession, bool technicalServiceability, int distanceTraveled, double height,
             double weight, double width, string registeredCountry, string registeredRegion, string registeredCity, string fuelType, bool parktronic, string mostCommonRoutes, string registerNumber, bool previousIncidents, string brokerId)
         {
@@ -41,22 +40,18 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertySer
             };
             return _vehicleByLandRepository.Create(vehicleByLand);
         }
-
         public VehicleByLand GetVehicleByLandById(int vehicleByLandId)
         {
             return _vehicleByLandRepository.GetById(vehicleByLandId);
         }
-
         public List<VehicleByLand> GetVehiclesByLand()
         {
             return _vehicleByLandRepository.GetAll();
         }
-
         public bool Remove(int vehicleByLandId)
         {
             return _vehicleByLandRepository.RemoveById(vehicleByLandId);
         }
-
         public bool UpdateVehicleByLand(int vehicleByLandId, DateTime manifactureYear, bool securityEquipmenPossession, bool technicalServiceability, int distanceTraveled, double height,
             double weight, double width, string registeredCountry, string registeredRegion, string registeredCity, string fuelType, bool parktronic, string mostCommonRoutes, string registerNumber,
             bool previousIncidents)
@@ -85,7 +80,6 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.MovablePropertySer
             vehicleByLand.PreviousAccidents = previousIncidents;
             vehicleByLand.ResultValue = GetResultValue(manifactureYear, securityEquipmenPossession, technicalServiceability,
             previousIncidents, distanceTraveled, fuelType, parktronic, mostCommonRoutes);
-
             return _vehicleByLandRepository.Update(vehicleByLand);
         }
         private int GetResultValue(DateTime manifactureYear, bool securityEquipmenPossession, bool technicalServiceability,

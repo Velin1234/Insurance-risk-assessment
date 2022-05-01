@@ -12,7 +12,6 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.RealEstateServices
         {
             _residentialBuildingRepository = residentialBuildingRepository;
         }
-
         public bool CreateResidentialBuilding(string country, string region, string city, string address, bool fireExtinguishers, bool emergencyExit, double squareFeet, bool alarmSystem, bool gasBottles, string floor, bool previousIncidents, string brokerId)
         {
             var residentialBuilding = new ResidentialBuilding()
@@ -34,22 +33,18 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.RealEstateServices
             };
             return _residentialBuildingRepository.Create(residentialBuilding);
         }
-
         public ResidentialBuilding GetResidentialBuildingById(int residentialBuildingId)
         {
             return _residentialBuildingRepository.GetById(residentialBuildingId);
         }
-
         public List<ResidentialBuilding> GetResidentialBuildings()
         {
             return _residentialBuildingRepository.GetAll();
         }
-
         public bool Remove(int residentialBuildingId)
         {
             return _residentialBuildingRepository.RemoveById(residentialBuildingId);
         }
-
         public bool UpdateResidentialBuilding(int residentialBuildingId, string country, string region, string city, string address, bool fireExtinguishers, bool emergencyExit, double squareFeet, bool alarmSystem, bool gasBottles, string floor, bool previousIncidents)
         {
             var residentialBuilding = GetResidentialBuildingById(residentialBuildingId);
@@ -57,7 +52,6 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.RealEstateServices
             {
                 return false;
             }
-
             residentialBuilding.Country = country;
             residentialBuilding.Region = region;
             residentialBuilding.City = city;
@@ -71,7 +65,6 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.RealEstateServices
             residentialBuilding.PreviousAccidents = previousIncidents;
             residentialBuilding.ModifiedAt = System.DateTime.Now;
             residentialBuilding.ResultValue = GetResultValue(fireExtinguishers, emergencyExit, alarmSystem, gasBottles, floor, previousIncidents);
-
             return _residentialBuildingRepository.Update(residentialBuilding);
         }
         private int GetResultValue(bool fireExtinguishers, bool emergencyExit, bool alarmSystem, bool gasBottles, string floor, bool previousIncidents)
@@ -106,7 +99,6 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.RealEstateServices
                     initialResultValue -= 5;
                     break;
             }
-
             return initialResultValue;
         }
     }

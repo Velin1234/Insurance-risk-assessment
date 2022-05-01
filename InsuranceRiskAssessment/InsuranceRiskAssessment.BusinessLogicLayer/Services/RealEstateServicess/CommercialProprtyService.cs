@@ -32,22 +32,18 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.RealEstateServices
             };
             return _commercialPropertyRepository.Create(commercialProperty);
         }
-
         public List<CommercialProperty> GetCommercialProperty()
         {
             return _commercialPropertyRepository.GetAll();
         }
-
         public CommercialProperty GetCommercialPropertyById(int commercialPropertyId)
         {
             return _commercialPropertyRepository.GetById(commercialPropertyId);
         }
-
         public bool Remove(int commercialPropertyId)
         {
             return _commercialPropertyRepository.RemoveById(commercialPropertyId);
         }
-
         public bool UpdateCommercialProperty(int commercialPropertyId, string country, string region, string city, string address, bool fireExtinguishers, bool emergencyExit, double squareFeet, bool alarmSystem, bool gasBottles,bool previousIncidents)
         {
             var commercialProperty = GetCommercialPropertyById(commercialPropertyId);
@@ -55,7 +51,6 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.RealEstateServices
             {
                 return false;
             }
-
             commercialProperty.Country = country;
             commercialProperty.Region = region;
             commercialProperty.City = city;
@@ -68,7 +63,6 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.RealEstateServices
             commercialProperty.PreviousAccidents = previousIncidents;
             commercialProperty.ModifiedAt = System.DateTime.Now;
             commercialProperty.ResultValue = GetResultValue(fireExtinguishers, emergencyExit, alarmSystem, gasBottles, previousIncidents);
-
             return _commercialPropertyRepository.Update(commercialProperty);
         }
         private int GetResultValue(bool fireExtinguishers, bool emergencyExit, bool alarmSystem, bool gasBottles, bool previousIncidents)
@@ -94,7 +88,6 @@ namespace InsuranceRiskAssessment.BusinessLogicLayer.Services.RealEstateServices
             {
                 initialResultValue -= 20;
             }
-
             return initialResultValue;
         }
     }

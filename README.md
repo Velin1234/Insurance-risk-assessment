@@ -89,7 +89,7 @@ update-database
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-_За повече информация се обърнете към [Документацията](https://example.com)_
+_За повече информация се обърнете към [Документацията](https://github.com/Velin1234/Insurance-risk-assessment/blob/BetterReadMe/Insurance%20Risk%20Assesment%2012%D0%B1.pdf)_
 
 <p align="right">(<a href="#top">Обратно нагоре</a>)</p>
 

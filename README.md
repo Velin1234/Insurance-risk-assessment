@@ -93,9 +93,9 @@ update-database
 При влизане в приложението ще се озовете в началната страница откъдето можете да се навигирате към Login(вход) и Register(регистрация) страниците, чрез натискане на бутоните в горния десен ъгъл.
 
 
-![Начална страница pt.1](https://github.com/Velin1234/Insurance-risk-assessment/blob/BetterReadMe/HowToUse-%20Images/HomePage1.png)
-![Начална страница pt.2](https://github.com/Velin1234/Insurance-risk-assessment/blob/BetterReadMe/HowToUse-%20Images/HomePage2.png)
-![Начална страница pt.3](https://github.com/Velin1234/Insurance-risk-assessment/blob/BetterReadMe/HowToUse-%20Images/HomePage3.png)
+![Начална страница pt.1](https://github.com/Velin1234/Insurance-risk-assessment/blob/main/HowToUse-%20Images/HomePage1.png)
+![Начална страница pt.2](https://github.com/Velin1234/Insurance-risk-assessment/blob/main/HowToUse-%20Images/HomePage2.png)
+![Начална страница pt.3](https://github.com/Velin1234/Insurance-risk-assessment/blob/main/HowToUse-%20Images/HomePage3.png)
 
 
 ### Вход (Login Page)
@@ -105,7 +105,7 @@ update-database
 Ако нямате профил , чрез натискане на линк-а "Нямате профил", вие ще бъдете отведен в страница за регистрация.
 
 
-![Login страница](https://github.com/Velin1234/Insurance-risk-assessment/blob/BetterReadMe/HowToUse-%20Images/LoginPage.png)
+![Login страница](https://github.com/Velin1234/Insurance-risk-assessment/blob/main/HowToUse-%20Images/LoginPage.png)
 
 
 ### Регистрация (Register Page)
@@ -114,7 +114,7 @@ update-database
 В Register страницата ще можете да регистрирате вашия профил чрез въвеждане на вашия имейл и парола в съответните поленца.
 
 
-![Register страница](https://github.com/Velin1234/Insurance-risk-assessment/blob/BetterReadMe/HowToUse-%20Images/RegisterPage.png)
+![Register страница](https://github.com/Velin1234/Insurance-risk-assessment/blob/main/HowToUse-%20Images/RegisterPage.png)
 
 
 ### Навигационна страница (Navigation Page)
@@ -122,7 +122,7 @@ update-database
 След успешен вход или регистрация, вие вече ще се намирате в навигационната страница , откъдето можете да се навигирате към избрания от вас вид имущество за който искате да измерите застрахователния риск.
 
 
-![Навигационна страница](https://github.com/Velin1234/Insurance-risk-assessment/blob/BetterReadMe/HowToUse-%20Images/NavigationPage.png)
+![Навигационна страница](https://github.com/Velin1234/Insurance-risk-assessment/blob/main/HowToUse-%20Images/NavigationPage.png)
 
 
 ### Страница с видове недвижимо имущество (Real Estate Page)
@@ -131,7 +131,7 @@ update-database
 При натискане на избрания от вас вид вие ще бъдете отведен в страница с до сегашните ви запазени резултати.
 
 
-![Страница с видове недвижимо имущество](https://github.com/Velin1234/Insurance-risk-assessment/blob/BetterReadMe/HowToUse-%20Images/RealEstatePage.png)
+![Страница с видове недвижимо имущество](https://github.com/Velin1234/Insurance-risk-assessment/blob/main/HowToUse-%20Images/RealEstatePage.png)
 
 
 ### Страница с видове движимо имущество (Movable Properties Page)
@@ -140,7 +140,7 @@ update-database
 При натискане на избрания от вас вид вие ще бъдете отведен в страница с до сегашните ви запазени резултати.
 
 
-![Страница с видове движимо имущество](https://github.com/Velin1234/Insurance-risk-assessment/blob/BetterReadMe/HowToUse-%20Images/MovablePropertiesPage.png)
+![Страница с видове движимо имущество](https://github.com/Velin1234/Insurance-risk-assessment/blob/main/HowToUse-%20Images/MovablePropertiesPage.png)
 
 
 ### Страница с резултати (Results Page)
@@ -149,7 +149,7 @@ update-database
 Ако искате да изчислите риска за ново имущество , при натискане на плюса в горния десен ъгъл , вие бивате навигиран в страница за изчисление и запазване на резултат.
 
 
-![Страница с резултати](https://github.com/Velin1234/Insurance-risk-assessment/blob/BetterReadMe/HowToUse-%20Images/ResultsPage.png)
+![Страница с резултати](https://github.com/Velin1234/Insurance-risk-assessment/blob/main/HowToUse-%20Images/ResultsPage.png)
 
 
 ### Страница за изчисление и запазване на резултат (Create Result Page)
@@ -157,9 +157,9 @@ update-database
 При въвеждане на необходимите данни можете да видите резултата си до момента при натискане на бутон „Покажи резултат“ и да запазите резултата си с натискане на бутон "Запази резултат". След като сте го запазили , той ще бъде визуализиран в страницата с резултати.
 
 
-![Страница за изчисление и запазване на резултат](https://github.com/Velin1234/Insurance-risk-assessment/blob/BetterReadMe/HowToUse-%20Images/CreatePage.png)
-![Страница за изчисление и запазване на резултат(Попълнена)](https://github.com/Velin1234/Insurance-risk-assessment/blob/BetterReadMe/HowToUse-%20Images/CreatePageResult.png)
-![Страница с резултати след въвеждане на резултат](https://github.com/Velin1234/Insurance-risk-assessment/blob/BetterReadMe/HowToUse-%20Images/ResultsPageAfterCreation.png)
+![Страница за изчисление и запазване на резултат](https://github.com/Velin1234/Insurance-risk-assessment/blob/main/HowToUse-%20Images/CreatePage.png)
+![Страница за изчисление и запазване на резултат(Попълнена)](https://github.com/Velin1234/Insurance-risk-assessment/blob/main/HowToUse-%20Images/CreatePageResult.png)
+![Страница с резултати след въвеждане на резултат](https://github.com/Velin1234/Insurance-risk-assessment/blob/main/HowToUse-%20Images/ResultsPageAfterCreation.png)
 
 
 ### Страница с детайли (Details Page)
@@ -169,13 +169,13 @@ update-database
 Ако потребителя иска да промени данните за имуществото при натискане на иконката долу в дясно той бива отведен в страница за промяна на данните.
 
 
-![Страница с детайли](https://github.com/Velin1234/Insurance-risk-assessment/blob/BetterReadMe/HowToUse-%20Images/DetailsPage.png)
+![Страница с детайли](https://github.com/Velin1234/Insurance-risk-assessment/blob/main/HowToUse-%20Images/DetailsPage.png)
 
 
 ### Страница за промяна на резултат (Edit Page)
 
 
-![Страница за промяна на резултат](https://github.com/Velin1234/Insurance-risk-assessment/blob/BetterReadMe/HowToUse-%20Images/EditPage.png)
+![Страница за промяна на резултат](https://github.com/Velin1234/Insurance-risk-assessment/blob/main/HowToUse-%20Images/EditPage.png)
 
 
 ### Страница за изтриване (Delete Page)
@@ -184,7 +184,7 @@ update-database
 Ако искате да изтриете резултат за дадено имущество , вие можете да го направите с натискане на иконката за кошче , намираща се върху бялата плочица в страницата с резултати.
 
 
-![Страница за промяна на резултат](https://github.com/Velin1234/Insurance-risk-assessment/blob/BetterReadMe/HowToUse-%20Images/DeletePage.png)
+![Страница за промяна на резултат](https://github.com/Velin1234/Insurance-risk-assessment/blob/main/HowToUse-%20Images/DeletePage.png)
 
 
 _За повече информация се обърнете към [Документацията](https://github.com/Velin1234/Insurance-risk-assessment/blob/BetterReadMe/Insurance%20Risk%20Assesment%2012%D0%B1.pdf)_

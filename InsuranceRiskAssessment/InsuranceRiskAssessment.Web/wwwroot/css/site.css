@@ -117,6 +117,8 @@
     background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,1)), url("../img/home-bkg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 #mainLabel {
@@ -146,8 +148,9 @@
     top:350px;
 }
 
-body {
-    width: 100vw;
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .mainPageImage {
@@ -222,4 +225,6 @@ body {
     footer {
         bottom: 0px;
         width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
     }
